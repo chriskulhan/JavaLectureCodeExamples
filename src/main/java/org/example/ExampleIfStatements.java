@@ -20,3 +20,32 @@ public class ExampleIfStatements {
         }
     }
 }
+
+/* question 2 code week 2 if statements
+// == doesn't reliably work to compare strings
+if (answer.equalsIgnoreCase("Pong")){
+        return true;
+        } else {
+    return false;
+        }
+
+ */
+
+/* question 3 week if statements
+size and swimming requirement for astronauts
+this program will ask about height and how far they can swim
+
+there are many ways to solve this:
+
+1. check to see if all the conditions are met
+Use AND operator
+
+if(height >= 58 && height <= 76 && swimDistance >= 75){
+return true;
+} else {
+return false;
+}
+}
+
+2. check if any are not true
+ */
