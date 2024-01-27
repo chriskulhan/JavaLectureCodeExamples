@@ -1,4 +1,4 @@
-package org.example;
+package org.example.week1_If_Statements;
 
 import static input.InputUtils.intInput;
 //this was fetched with Maven (it's a build tool, compile code and fetch code, etc.)
