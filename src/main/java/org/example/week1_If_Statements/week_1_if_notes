@@ -1,0 +1,39 @@
+/* notes from video 3
+-stringInput-
+String name = stringInput("What is your name?");
+
+-intInput -
+**asks question and also does some validation. Will ask follow-up questions without crashing:
+int candyBars = intInput("How many candy bars?");
+
+-positiveIntInput -
+**checks if input is positive:
+int people = positiveIntInput("How many people?");
+
+-doubleInput -
+**returns positive double values
+double price = doubleInput("What is the price of the item?");
+
+-positiveDoubleInput-
+**returns positive double values
+double length = positiveDoubleInput("How long is the string?");
+
+-yesNoInput-
+** y or n, or yes or no (including upper and lowercase):
+boolean ok = yesNoInput("OK to continue?");
+
+-Question is optional, so could just write:
+String data = stringInput()
+instead of:
+System.out.println("What is your name?");
+
+ */
+
+/*notes from video 4:
+comparison operators:
+==  equal to
+>   greater than
+>=  greater than or equal to
+<   less than
+<=  less than or equal to
+!=  not equal to
