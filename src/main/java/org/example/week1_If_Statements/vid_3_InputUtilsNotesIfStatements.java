@@ -36,7 +36,7 @@ package org.example.week1_If_Statements;
 
 import static input.InputUtils.*;
 
-public class InputUtilsNotesIfStatements {
+public class vid_3_InputUtilsNotesIfStatements {
     public static void main(String[] args) {
 
         String userName = stringInput("Please enter your name: ");
