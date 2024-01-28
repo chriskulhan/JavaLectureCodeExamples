@@ -20,6 +20,16 @@ public class vid_4_miles_to_MCTC {
         //add to program an if statement: "You live more than 10 miles from MCTC!:
         if ( milesToMCTC > 10 ) {
             System.out.println("You live more than 10 miles from MCTC!");
+            //add an else to display "You live less than 10 miles away"
+        } else {
+            System.out.println("You live less than or equal to 10 miles from MCTC!");
+            //input: 10
+            //output: You live less than or equal to 10 miles from MCTC!
+            //You live 16.0 kilometers from MCTC.
+
+            //input: 3
+            //output: You live less than or equal to 10 miles from MCTC!
+            //You live 4.800000000000001 kilometers from MCTC.
         }
 
         System.out.println("You live " + convertMilesToKilometers + " kilometers from MCTC.");

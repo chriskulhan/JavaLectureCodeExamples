@@ -18,6 +18,13 @@ public class vid_4_above_freezing {
 
             //input: 31
             //output: <nothing> because it's less than 32
+        } else {
+            System.out.println("It's below freezing");
+            //input: 31
+            //output: It's below freezing
+
+            //input: 33
+            //output: It's above freezing
         }
 
     }

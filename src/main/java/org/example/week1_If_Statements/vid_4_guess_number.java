@@ -17,6 +17,17 @@ public class vid_4_guess_number {
 
             //input: 4
             //output: <nothing> because not equal to 6
+
+            //add else later**
+        } else {
+            System.out.println("Sorry, I was thinking of " + secretNumber);
+            //input: 6
+            //output:You guessed correctly!!!
+            //The end!
+
+            //input: 5
+            //output: Sorry, I was thinking of 6
+            //The end!
         }
         //add another line of code. This will run no matter what the condition is.
         System.out.println("The end!");
