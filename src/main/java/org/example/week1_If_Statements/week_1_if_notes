@@ -53,3 +53,53 @@ string library methods: equal and ignore case:
 
 **other string library methods:
 https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html#method.summary
+
+/* video 6
+
+-&&- AND
+
+//check to see if both conditions are true at the same time: USE &&
+        if (temp > 70 && rain == 0) {
+            System.out.println("Warm and no rain - a nice day! ");
+
+-|| (pipe character)- OR
+
+//check to see if one condition or another condition or both are true: USE ||
+        if (temp < 20 || windchill < -30) {
+            System.out.println("Brrr, stay inside today!");
+
+-Boolean-
+
+use in comparisons
+
+boolean easyMode = true;
+
+if (easyMode == true) {
+	System.out.println("Here's a hint...");
+}
+
+//simpler:
+
+if (easyMode) {
+	System.out.println("Here's a hint... ");
+}
+
+**library function that returns a true or false value:**
+
+Can use the values true and false in comparisons
+
+String sentence = "I'm a sentence";
+
+//see if this sentence ends with a period:
+
+if (sentence.endsWith(".") == false) {
+	System.out.println("A sentence should end with a . ");
+}
+
+// Alternatively, use !
+// The ! reverses the truth of an expression
+
+//if not sentence ends with a period: (not is the !)
+
+if (! sentence.endsWith(".")) {
+	System.out.println("A sentence should end with a . ");
