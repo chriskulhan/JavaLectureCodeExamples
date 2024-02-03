@@ -1,5 +1,7 @@
 package org.example.week1_If_Statements;
 
+import java.util.Arrays;
+
 import static input.InputUtils.stringInput;
 
 public class vid_7_String_Methods {
@@ -88,13 +90,13 @@ public class vid_7_String_Methods {
         //output: This is an ITEC class
 
         //ask user to enter a class code:
-        String favoriteFruit = stringInput ("Please enter your favorite fruit:");
-        System.out.println(favoriteFruit);
-        if (favoriteFruit.startsWith("mango")) {
-            System.out.println("Mangoes are my favorite fruit too!");
-        } else {
-            System.out.println("We have different favorite fruits.");
-        }
+//        String favoriteFruit = stringInput ("Please enter your favorite fruit:");
+//        System.out.println(favoriteFruit);
+//        if (favoriteFruit.startsWith("mango")) {
+//            System.out.println("Mangoes are my favorite fruit too!");
+//        } else {
+//            System.out.println("We have different favorite fruits.");
+//        }
         //input: mango
         //output: Mangoes are my favorite fruit too!
 
@@ -174,16 +176,89 @@ public class vid_7_String_Methods {
 
         //this will be an array use []
         String[] words = sentence.split(" ");
-        System.out.println(words);
+//        System.out.println(words);
+        //output: [Ljava.lang.String;@19469ea2
+        System.out.println(Arrays.toString(words));
+        //output: [Intellij, is, a, Java, integrated, development, environment]
+
+        //print element zero (the first thing in the sentence)
+        String firstWord = words[0];
+        System.out.println(firstWord);
+        //output: Intellij
 
         String javaiDEs = "Intellij,Eclipse,NetBeans,Notepad++,VSCode";
+        String[] ides = javaiDEs.split(",");
+        System.out.println(Arrays.toString(ides));
+        //output:[Intellij, Eclipse, NetBeans, Notepad++, VSCode]
+
+        //another way to work with an array is to loop over each element and process each:
+        //create a loop counter variable:
+        //x is going to count from 0 to 1 less than the length of the array, and
+        //x++ to count every iteration:
+        for (int x = 0 ; x < ides.length ; x++) {
+            System.out.println(ides[x]);
+        }
+        //ides, one printed on each line:
+        //output:
+        // Intellij
+        //Eclipse
+        //NetBeans
+        //Notepad++
+        //VSCode
 
         //split class identifier into department and code
+        String javaClass = "ITEC 2545";
+        String[] javaClassIdentifierParts = javaClass.split (" ");
+        //note the space ^^ in just above. Without it, the output is I and T
+        String department = javaClassIdentifierParts[0];
+        String code = javaClassIdentifierParts[1];
+        System.out.println(department);
+        System.out.println(code);
+        //output:
+        //ITEC
+        //2545
 
         //trim - remove whitespace - spaces, tabes, newlines start and end of a string
+        //common when a user types info into a form
         String userAddressInput = "  1503 Hennepin Ave  ";
+        userAddressInput = userAddressInput.trim();
+        System.out.println(userAddressInput + " is the address.");
+        //output: 1503 Hennepin Ave is the address. **so the white space at the beginning and the end is gone.
 
         //format strings
         //printf - no newline - you need to add a /n
+        String className = "Java Programming";
+        double credits = 6.0;
+        int studentsEnrolled = 24;
+        String format = "Online";
+
+        // How would you say: The Java Programming class is 6 credits, delivered Online, and there are 24 students enrolled.
+        System.out.println("The " + className + " class is " + credits + " credits, delivered " + format + ", "
+                + "and there are " + studentsEnrolled + " students enrolled.");
+        //output: The Java Programming is 6.0 credits, delivered Online, and there are 24 students enrolled.
+
+        //shortcut souf + tab
+        // %s - string
+        // %f - doubles (floating point numbers)
+        // %s - string
+        // %d - int values
+        //need to add \n to start a new line
+        System.out.printf("The %s class is %f credits, delivered %s, there are %d students enrolled.\n",
+                className, credits, format, studentsEnrolled);
+        //output: The Java Programming is 6.000000 credits, delivered Online, there are 24 students enrolled.
+
+        //only show one decimal place:
+        System.out.printf("The %s class is %.1f credits (with one decimal place), delivered %s, there are %d students enrolled.",
+                className, credits, format, studentsEnrolled);
+        //to get a new line you can also sout println() empty:
+        System.out.println();
+
+        System.out.println("This is the end of the program.");
+
+        //output:
+        // The Java Programming class is 6.0 credits, delivered Online, and there are 24 students enrolled.
+        //The Java Programming class is 6.000000 credits, delivered Online, there are 24 students enrolled.
+        //The Java Programming class is 6.0 credits (with one decimal place), delivered Online, there are 24 students enrolled.
+        //This is the end of the program.
     }
 }
