@@ -218,7 +218,7 @@ public class vid_7_String_Methods {
         //ITEC
         //2545
 
-        //trim - remove whitespace - spaces, tabes, newlines start and end of a string
+        //trim - remove whitespace - spaces, tabs, newlines start and end of a string
         //common when a user types info into a form
         String userAddressInput = "  1503 Hennepin Ave  ";
         userAddressInput = userAddressInput.trim();
@@ -242,6 +242,7 @@ public class vid_7_String_Methods {
         // %f - doubles (floating point numbers)
         // %s - string
         // %d - int values
+        // add the variables in the order they are in the string at the end.
         //need to add \n to start a new line
         System.out.printf("The %s class is %f credits, delivered %s, there are %d students enrolled.\n",
                 className, credits, format, studentsEnrolled);
