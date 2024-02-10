@@ -1,0 +1,49 @@
+vid_1-----------------------------
+
+//all Java2545 examples can be found here: https://github.com/claraj/Java2545Examples
+
+//Constants
+    -have fixed values
+
+//loops in Java: (how to repeat things)
+   - for loops
+        **for doing something a certain number of times
+        1. need a loop counter (count the number of repeats
+        2. Decide on what number the loop counter will start
+        3. specify condition when the loop will stop
+            (regularly when the counter gets to a specific value)
+        4. what amount the counter changes after each iteration
+        5. Doesn't have to be whole numbers or positive (could count backwards and/or use doubles or floats
+
+   - while loops
+        **repeating while something is true (or false) until something is true (or false)
+        **variant: "do loop"
+
+// arrays in Java:
+    **like a list in Python
+    -fixed length
+
+// Debugger in Intellij
+
+
+Check your InputUtils file from last week
+    (/Users/chriskulhanek/IdeaProjects/JavaLectureCodeExamples/src/main/java/org/example/week1_If_Statements/TestInput.java)
+
+vid_1_HelloForLoop file
+
+for (int x = 0 ; x < 10 ; x++) {
+            //print value of x:
+            //when it gets to 10, the loop will stop because 10 is NOT less than 10
+            System.out.println(x);
+            //output:
+            //0
+            //1
+            //2
+            //3
+            //4
+            //5
+            //6
+            //7
+            //8
+            //9
+
