@@ -47,3 +47,157 @@ for (int x = 0 ; x < 10 ; x++) {
             //8
             //9
 
+vid_2_January_day_loop----------------------
+
+public class vid_2_January_day_loop {
+    public static void main(String[] args) {
+        System.out.println("Here are all the dates in January");
+        for (int day = 1 ; day <= 31 ; day ++) {
+            System.out.println("January " + day);
+            //output:
+            //Here are all the dates in January
+            //January 1
+            //January 2
+            //etc. to January 31
+
+** include else if within for loops:
+// question: can you add 'st' to 1, 'nd' to 2, 'rd' to 3, 'th' to 4,5,6,7,8,9
+        {
+            System.out.println("Here are all the dates in January");
+            for (int day = 1; day <= 31; day++) {
+                if (day == 1 || day == 21 || day == 31) {
+                    System.out.println("January " + day + "st");
+                } else if (day == 2 || day == 22) {
+                    System.out.println("January " + day + "nd");
+                } else if (day == 3 || day == 23) {
+                    System.out.println("January " + day + "rd");
+                } else {
+                    System.out.println("January " + day + "th");
+
+**Count by 2:
+for (int x = 0 ; x < 10 ; x = x + 2) {
+    System.out.println(x);
+}
+
+**Count by 5:
+for (int x = 10 ; x < 100 ; x = x + 5) {
+    System.out.println(x);
+}
+
+**Count down from 5 to 0 using x = x - 1:
+for (int x = 5 ; x >= 0 ; x = x - 1) {
+    System.out.println(x);
+}
+
+**Count down from 5 to 0 using x--:
+for (int x = 5 ; x >= 0 ; x--) {
+    System.out.println(x);
+}
+
+vid_2_your_turn_print_numbers:----------------
+
+public class vid_2_your_turn_print_numbers {
+    public static void main(String[] args) {
+        //write a loop that prints the numbers 1, 2, 3, 4, 5
+        for (int num = 1;  num < 6; num++) {
+            System.out.println(num);
+            //output:
+            //1
+            //2
+            //3
+            //4
+            //5
+        }
+        //Write a loop that prints the NASA rocket countdown: the numbers 10, 9, 8, ...  to 0
+        for (int countdown = 10; countdown > -1; countdown--) {
+            System.out.println(countdown);
+            //output:
+            //10
+            //9
+            //8
+            //7
+            //6
+            //5
+            //4
+            //3
+            //2
+            //1
+            //0
+        }
+        //You just bought a used car that has 150,000 miles. You plan on getting an oil change
+        // every 3,000 miles. Use a loop to calculate and print the mileages for the
+        // next 8 oil changes (153000, 158000, 161000)
+
+        //didn't work:
+//        for (int x = 150000 ; x < 8 ; x = x + 3000){
+//            System.out.println(x);
+
+        //Clara's solution:
+        int mileage = 150000;
+        int interval = 3000;
+
+        for (int oilChange = 0 ; oilChange < 8; oilChange++){
+            mileage = mileage + interval;
+            System.out.println("Get oil change at " + mileage + " miles");
+            //output:
+            //Get oil change at 153000 miles
+            //Get oil change at 156000 miles
+            //Get oil change at 159000 miles
+            //Get oil change at 162000 miles
+            //Get oil change at 165000 miles
+            //Get oil change at 168000 miles
+            //Get oil change at 171000 miles
+            //Get oil change at 174000 miles
+        }
+        int mileage2 = 150000;
+        int interval2 = 3000;
+
+        for (int miles = mileage2; miles <(mileage2 + 8 * interval2); miles +=interval2) {
+            System.out.println("Get oil change another way at " + miles + " miles");
+            //not quite right, but this is the solution in Clara's video:
+            //output:
+            //Get oil change another way at 150000 miles
+            //Get oil change another way at 153000 miles
+            //Get oil change another way at 156000 miles
+            //Get oil change another way at 159000 miles
+            //Get oil change another way at 162000 miles
+            //Get oil change another way at 165000 miles
+            //Get oil change another way at 168000 miles
+            //Get oil change another way at 171000 miles
+
+vid_2_test_score_average_for_loop
+
+import static input.InputUtils.doubleInput;
+
+public class vid_2_test_score_average_for_loop {
+    public static void main(String[] args) {
+        //calculate the average of 5 test scores
+
+        int numberOfTests = 5;
+        double testScore;
+        double testScoreSum = 0.0;
+        double testScoreAverage;
+
+        for (int test = 1; test <= numberOfTests ; test++) {
+            testScore = doubleInput("Enter test score #" + test);
+            testScoreSum = testScoreSum + testScore;
+        }
+        testScoreAverage = testScoreSum / numberOfTests;
+        System.out.println("Average score = " + testScoreAverage);
+        //question/output, (repeat x4):
+        // Enter test score #1
+        //30
+        //Enter test score #2
+        //24
+        //Enter test score #3
+        //90
+        //Enter test score #4
+        //45
+        //Enter test score #5
+        //98
+        //Average score = 57.4
+    }
+}
+
+vid_2_your_turn_bus_expenses_calculator
+
