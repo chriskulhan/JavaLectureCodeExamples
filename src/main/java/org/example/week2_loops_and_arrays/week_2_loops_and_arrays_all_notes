@@ -793,13 +793,107 @@ vid_4_how_long_is_an_array
         System.out.println("There are " + numberOfClassrooms + " classrooms");
         //output: There are 6 classrooms
 
-**video 5 Arrays and loops -- reading data (powerpoint slide 43) ************
+**vid_5_arrays_and_loops_reading_data
+
+-- reading data (powerpoint slide 43) ************
 -Notice the loop counter variable 'x' counts from 0, 1, 2, 3, 4, 5
     - this is the same as the array element numbers!
 -So, we can use the variable x to refer to each array element in turn;
     so we can use a loop to read from, or write to, every array element in turn
 
+        String[] classrooms = {"T3010", "T3020", "T3030", "T3040", "T3050", "T3080"};
 
+    //use a loop to print all of the data from the array
+    //notice how the loop counter is used
+    for(int x = 0 ; x < 6 ; x ++) {
+        System.out.println(classrooms[x]);
+        //output:
+        //T3010
+        //T3020
+        //T3030
+        //T3040
+        //T3050
+        //T3080
+
+vid_5_classNames_print_array
+
+public class vid_5_classNames_print_array {
+    public static void main(String[] args) {
+
+//    String [] classNames = {"Java", "C#", "Web", "Android", "iOS"};
+//
+//    for (int x=0; x<3; x++) {
+//        System.out.println("A class name is " + classNames[x]);
+
+        //this will only print out the first 3 things in the array because x < 3
+//        //output:
+//        // A class name is Java
+//        //A class name is C#
+//        //A class name is Web
+
+
+        //What if we want to print everything in the array?
+        ***use the length of the array to control repetitions.
+        String [] classNames = {"Java", "C#", "Web", "Android", "iOS"};
+
+        for (int x=0; x<classNames.length; x++) {
+            System.out.println("A class name is " + classNames[x]);
+            //output:
+            // A class name is Java
+            //A class name is C#
+            //A class name is Web
+            //A class name is Android
+            //A class name is iOS
+    }
+//Another way to print:
+   System.out.println(classNames);
+        //output: [Ljava.lang.String;@452b3a41
+        //this is a memory address
+
+        *****//if you want to print out your array, you have to use toString:
+        System.out.println(Arrays.toString(classNames));
+        //output: [Java, C#, Web, Android, iOS]
+
+    }
+}
+
+***vid_5_your_turn_names_of_classes
+
+//from powerpoint slide 46
+// Create an array with the names of the classes you are taking this semester
+//You can make some names up if you are only taking one class
+//Use a loop to print all your classes, one name on each line
+//Use the .length syntax
+//Add another class to your array. Does your program still work correctly?
+
+package org.example.week2_loops_and_arrays;
+
+import java.util.Arrays;
+
+public class vid_5_your_turn_names_of_classes {
+    public static void main(String[] args) {
+        String[] classNames = {"Java Programming", "Painting", "Winter sowing", "Landscape Design", "Advanced Pottery"};
+
+        for (int x = 0; x < classNames.length; x++) {
+            System.out.println("A class name you are taking is " + classNames[x]);
+        //output:
+            // A class name you are taking is Java Programming
+            //A class name you are taking is Painting
+            //A class name you are taking is Winter sowing
+            //A class name you are taking is Landscape Design
+
+        //add a class: "Advanced pottery", run again:
+        //output:
+            // A class name you are taking is Java Programming
+            //A class name you are taking is Painting
+            //A class name you are taking is Winter sowing
+            //A class name you are taking is Landscape Design
+            //A class name you are taking is Advanced Pottery
+        }
+        System.out.println(Arrays.toString(classNames));
+        //output: [Java Programming, Painting, Winter sowing, Landscape Design, Advanced Pottery]
+    }
+}
 
 
 
