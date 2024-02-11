@@ -895,5 +895,194 @@ public class vid_5_your_turn_names_of_classes {
     }
 }
 
+*****vid_6_more_examples_arrays_and_loops
 
+//Remember the bus expense program?
+//Let's create an array with the names of the days
+//And use it in the loop to ask questions like
+// "On Monday, what did you spend on bus fares?"
 
+package org.example.week2_loops_and_arrays;
+
+import static input.InputUtils.doubleInput;
+
+public class vid_6_more_examples_arrays_and_loops {
+    public static void main(String[] args) {
+
+        //an array with the names of each day of the week, used to create questions for the user
+        String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+        double total = 0; // will add each day's expense to this variable to calculate the week's total
+
+        for (int day = 0; day < dayNames.length; day++){ //loop 7 times, once for each day of the week
+            String dayName = dayNames[day];
+            double dayExpense = doubleInput("On " + dayName + ", what did you spend on bus fares?");
+
+            total = total + dayExpense; //add the day's expense to the total
+        }
+        System.out.println("Total spent on bus fare for the week = $" + total);
+        //alternative so the dollar amount has 2 decimals: System.out.printf("Total for the week = $%.2f", total);
+
+        //output:
+        // On Monday, what did you spend on bus fares?
+        //2.50
+        //On Tuesday, what did you spend on bus fares?
+        //5
+        //On Wednesday, what did you spend on bus fares?
+        //3
+        //On Thursday, what did you spend on bus fares?
+        //2
+        //On Friday, what did you spend on bus fares?
+        //9.00
+        //On Saturday, what did you spend on bus fares?
+        //3.45
+        //On Sunday, what did you spend on bus fares?
+        //0
+        //Total spent on bus fare for the week = $24.95
+    }
+}
+
+*********vid_6_arrays_and_loops_writing_to_array**********
+
+package org.example.week2_loops_and_arrays;
+
+import java.util.Arrays;
+
+import static input.InputUtils.stringInput;
+
+public class vid_6_arrays_and_loops_writing_to_array {
+    public static void main(String[] args) {
+        //powerpoint slide 49
+        //example: fill a string array with data:
+        //Create an array with to store 5 strings:
+        String[] textbooks = new String [5];
+
+        //Loop - repeat 5 times. Notice the loop counter variable 'number'
+        //counts from 0, 1, 2, 3, - this is teh same as the array element numbers
+        //so, we can sue the variable number to refer to each array element in turn
+
+        for(int number = 0 ; number < textbooks.length ; number++) {
+            //get data about one book from the user
+            String bookName = stringInput ("Please enter name of textbook");
+
+            //Using teh loop counter to write to each array element in turn
+            //write the data to the array. assigning the name bookname to textbooks element number [number]
+            textbooks[number] = bookName;
+        }
+        System.out.println("Thank you: here is the data you entered");
+        System.out.println(Arrays.toString(textbooks));
+        //output:
+        // Please enter name of textbook
+        //chemistry
+        //Please enter name of textbook
+        //biology
+        //Please enter name of textbook
+        //elemental history
+        //Please enter name of textbook
+        //banana history
+        //Please enter name of textbook
+        //short version calculus
+        //Thank you: here is the data you entered
+        //[chemistry, biology, elemental history, banana history, short version calculus]
+    }
+}
+
+*****vid_6_add_all_numbers_in_array*****
+
+package org.example.week2_loops_and_arrays;
+
+public class vid_6_add_all_numbers_in_array {
+    //from clara data: week2_loops_arrays, SumArray
+    public static void main(String[] args) {
+        // Create an example double array to store 3 numbers
+        double numbers[] = new double[3];
+
+        // Add some example test data
+        numbers[0] = 45.234256;
+        numbers[1] = -123945.22;
+        numbers[2] = 0.0000003;
+
+        // When adding up data, need a start point - adding up all the values starts at 0.
+
+        double sum = 0.0;
+
+        // Loop over the array, and add each value to the sum variable
+        for (int x = 0 ; x < numbers.length ; x++) {
+            sum = sum + numbers[x];
+        }
+
+        System.out.println("Total of numbers = " + sum);
+    }
+
+}
+
+*** from: vid_6_find_average_heating_bill
+
+//A heating utility company allows customers to spread the cost of bills through the year by
+// charging them an average payment every month.
+//The utility company averages all of the last year's bills, and uses that to estimate
+// the average payment for next year
+//So, if last year's bills were as shown in the table opposite, the total is $1450;
+// so the average is $120.83
+
+//Ask the user for each month's bill for last year
+//Store this data in an array
+//Store January's bill in element 0, February's in element 1…
+//Then, add up all of the bills and figure out the average - next year's average payment
+//Also, display the user's data in a table of months and bill amount, so they can check
+// it for accuracy
+//Tip: use another array with the names of the months to help ask for data/display data.
+// Can copy/paste this:
+//
+//String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+package org.example.week2_loops_and_arrays;
+
+import static input.InputUtils.doubleInput;
+
+public class vid_6_find_average_heating_bill {
+    public static void main(String[] args) {
+        String[] months = { "January", "February", "March", "April", "May", "June", "July", "August",
+                "September", "October", "November", "December" };
+
+        double total = 0;
+
+        for (int month = 0; month < months.length; month++){
+            String monthName = months[month];
+            double monthExpense = doubleInput("For " + monthName  + ", what did you spend on heating?");
+
+            total = total + monthExpense; //add the day's expense to the total
+
+        }
+        double averagePerMonth = (total/months.length);
+        System.out.println("Total spent on heating for the year = $" + total);
+        System.out.printf("The average you should pay for heating per month is $%.2f", averagePerMonth);
+        // output: For January, what did you spend on heating?
+                   2
+                   For February, what did you spend on heating?
+                   3
+                   For March, what did you spend on heating?
+                   2
+                   For April, what did you spend on heating?
+                   3
+                   For May, what did you spend on heating?
+                   2
+                   For June, what did you spend on heating?
+                   3
+                   For July, what did you spend on heating?
+                   2
+                   For August, what did you spend on heating?
+                   3
+                   For September, what did you spend on heating?
+                   2
+                   For October, what did you spend on heating?
+                   2
+                   For November, what did you spend on heating?
+                   3
+                   For December, what did you spend on heating?
+                   2
+                   Total spent on heating for the year = $29.0
+                   The average you should pay for heating per month is $2.42
+    }
+
+}
