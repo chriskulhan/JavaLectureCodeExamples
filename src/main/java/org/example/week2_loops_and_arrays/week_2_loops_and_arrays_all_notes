@@ -783,6 +783,22 @@ int[] numbers = { 2, 4, 6, 8, 10, 12 };
 Use arrayname.length to measure an array
 The length is an int value
 
+vid_4_how_long_is_an_array
+
+       String[] classrooms = {"T3010", "T3020", "T3030", "T3040", "T3050", "T3080" };
+
+        //how many elements in the array? What's the size - or length - of the array?
+        int numberOfClassrooms = classrooms.length;
+
+        System.out.println("There are " + numberOfClassrooms + " classrooms");
+        //output: There are 6 classrooms
+
+**video 5 Arrays and loops -- reading data (powerpoint slide 43) ************
+-Notice the loop counter variable 'x' counts from 0, 1, 2, 3, 4, 5
+    - this is the same as the array element numbers!
+-So, we can use the variable x to refer to each array element in turn;
+    so we can use a loop to read from, or write to, every array element in turn
+
 
 
 
