@@ -201,3 +201,9 @@ public class vid_2_test_score_average_for_loop {
 
 vid_2_your_turn_bus_expenses_calculator
 
+**TRICK: option + enter when import.inputUtils static shows up***
+
+//print (without ln) will print one right after each other)
+                System.out.print("*");
+                output (within a loop:):
+                *****
