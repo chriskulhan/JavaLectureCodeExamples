@@ -441,20 +441,8 @@ public class vid_3_while_loop_SalesTaxWhileLoop_fromClara {
             }
 
             System.out.println("Thanks for using the program - goodbye!");
-            //output:
-            // Type in a price
-            //2.34
-            //The price plus sales tax is 2.5038
-            //Do you want to continue? Y/N?
-            //y
-            //Type in a price
-            //45
-            //The price plus sales tax is 48.150000000000006
-            //Do you want to continue? Y/N?
-            //n
-            //Thanks for using the program - goodbye!
-        }
 
+        }
     }
 vid_3_while_loop_SalesTax_tidier_ClarasCode
 d
@@ -492,18 +480,6 @@ public class vid_3_while_loop_SalesTax_tidier_ClarasCode {
             }
 
             System.out.println("Thanks for using the program - goodbye!");
-            //output:
-        // Type in a price
-        //2.34
-        //The price plus sales tax is $2.50
-        //Do you want to continue?  Y/N?
-        //y
-        //Type in a price
-        //8.90
-        //The price plus sales tax is $9.52
-        //Do you want to continue?  Y/N?
-        //n
-        //Thanks for using the program - goodbye!
         }
     }
 
@@ -637,39 +613,6 @@ public class vid_3_your_turn_while_loop {
         }
         System.out.println("You guessed correctly!");
 
-        //output:
-        // Guess my number
-        //3
-        //Incorrect, try again
-        //Guess my number
-        //5
-        //Incorrect, try again
-        //Guess my number
-        //8
-        //You guessed correctly!
-
-        //added if/higher/lower statements:
-        //output:
-        // Guess my number
-        //4
-        //Incorrect, try again
-        //That's wrong, guess higher.
-        //Guess my number
-        //5
-        //Incorrect, try again
-        //That's wrong, guess higher.
-        //Guess my number
-        //6
-        //Incorrect, try again
-        //That's wrong, guess higher.
-        //Guess my number
-        //9
-        //Incorrect, try again
-        //That's wrong, guess lower.
-        //Guess my number
-        //8
-        //You guessed correctly!
-
     }
 }
 
@@ -713,38 +656,134 @@ public class vid_3_your_turn_add_random_number_generator {
 
             }
         }
-//output:Guess my number
-//4
-//Incorrect, try again
-//That's wrong, guess lower.
-//Guess my number
-//3
-//Incorrect, try again
-//That's wrong, guess lower.
-//Guess my number
-//2
-//You guessed correctly!
 
-//try again: output:Guess my number
-//9
-//Incorrect, try again
-//That's wrong, guess lower.
-//Guess my number
-//1
-//Incorrect, try again
-//That's wrong, guess higher.
-//Guess my number
-//5
-//Incorrect, try again
-//That's wrong, guess higher.
-//Guess my number
-//7
-//Incorrect, try again
-//That's wrong, guess higher.
-//Guess my number
-//7
-//Incorrect, try again
-//That's wrong, guess higher.
-//Guess my number
-//8
-//You guessed correctly!
+
+*****From powerpoint:***
+CONSTANTS IN JAVA:
+
+Use the keyword final to indicate a constant value
+
+final int CENTS_IN_DOLLAR = 100;
+
+final double PI = 3.14159;
+
+final String APPLICATION_NAME = "Best Final Project Ever";
+
+By convention, names of constants are uppercase
+Separate words in constant name with  _ (underscore)
+It's not mandatory, but it is good style
+
+If you want the value of PI you would probably use the built-in constant PI
+from the Math library class
+
+final double PI = Math.PI;
+
+Math library also has other useful math functions in e.g. trigonometry, powers,
+logs, degrees/radians
+
+http://docs.oracle.com/javase/8/docs/api/java/lang/Math.html
+
+***********vid_4 arrays:****************
+**a simple data structure
+**could store numbers
+**the elements are kept in order
+**the elements are all the same type
+**the elements are numbered. Positions start from zero
+**you define how many items there are
+**the array has a name, and the group is referred to by this name
+**each element can be referred to by its name
+
+//Syntax for an array:
+
+Decide how many items you want to store
+And, what type these items are
+Use this syntax – note the square brackets
+
+// Create an array called scores
+// to store 10 int variables
+
+data type, square brackets, name of array, = "new" (this is a new array object), type of array plus size
+int[] scores = new int[10];
+
+//Or, you can also create the array this way
+//The previous version is more common
+int scores[] = new int[10];
+
+*********Creating arrays examples:**********
+//arrays are faster than lists
+//Create an array called data to store 3 ints
+int[] data = new int[3];
+
+//Use a variable to specify the size of array
+int size = 10;
+int[] moreData = new int[size];
+
+//Create an array called names to store 100 Strings
+String[] names = new String[100];
+
+//Create an array called prices to store 70 doubles
+double[] prices = new double[70];
+
+**Putting data into an array:
+//Create an array called data to store 3 ints
+int[] data = new int[3];
+data[0] = 10;
+data[1] = 15;
+data[2] = 8;
+
+** Fetching data from an array: (slide 38)
+//Create an array called data to store 3 ints
+int data[] = new int[3];
+data[0] = 10;
+data[1] = 15;
+data[2] = 8;
+
+//Print first element
+System.out.println("first element= " + data[0]);
+
+//Store second element in another variable
+int secondElement = data[1];
+
+//Store last element in another variable
+int lastElement = data[2];
+
+*****Put data in your array**** (slide 39)
+
+Array numbering starts at 0
+The last item is (array size - 1)
+Example: put some data in the scores array
+
+int[] scores = new int[10];
+scores[0] = 98;
+scores[7] = 76;
+scores[4] = 54;  //Can edit in any order
+scores[9] = 98;  // The last element
+scores[10] = 87; //ERROR
+scores[-1] = 92; //ERROR
+
+**Fetch data from an array: (slide 40)***********
+Use the element number and square brackets
+
+int myScore = scores[7];
+
+names[6] = "Miriam";
+String theName = names[6];
+
+Works the same for an array of any type of data
+Just as long as everything in the array is of the same type
+
+*** You can also add data to an array when you create it:*********
+Put your data in curly brackets, separated by commas
+
+String[] languages = {"Java", "Python", "C#"};
+
+int[] numbers = { 2, 4, 6, 8, 10, 12 };
+
+***How long is an array?*****
+Use arrayname.length to measure an array
+The length is an int value
+
+
+
+
+
