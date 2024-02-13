@@ -35,3 +35,14 @@ public class vid_9_methods_in_java {
 
     }
 }
+
+//Working with methods in programs:
+// 1. Calling methods that already exist - you've done this already
+//  **What methods have you used?
+
+// 2. Finish a method definition - a task in the labs
+// **look at the parameters - the input - how many, what types, what data do they store?
+//** read the instructions so you know what the method needs to do, and what data it needs to return
+//** decide what to think about, and what to ignore.
+
+//3. Create your own methods (soon!)

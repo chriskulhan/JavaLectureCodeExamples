@@ -42,7 +42,7 @@ public class vid_3_while_loop_password_claras_code {
                 //the program will end with this if you get the password wrong:
                 System.exit(0);
             }
-            //corrent try: output:
+            //correct try: output:
         // Enter the password
         //kittens
         //Correct password - access granted

@@ -8,7 +8,7 @@ vid_1-----------------------------
 //loops in Java: (how to repeat things)
    - for loops
         **for doing something a certain number of times
-        1. need a loop counter (count the number of repeats
+        1. need a loop counter (count the number of repeats)
         2. Decide on what number the loop counter will start
         3. specify condition when the loop will stop
             (regularly when the counter gets to a specific value)
