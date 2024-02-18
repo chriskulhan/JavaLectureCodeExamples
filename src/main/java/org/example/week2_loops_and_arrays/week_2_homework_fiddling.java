@@ -17,6 +17,16 @@ public class week_2_homework_fiddling {
     public static void printProgramFiles(String[] filenames) {
         for (int x = 0; x < filenames.length; x++) {
             System.out.println(filenames[x]);
+
+            //output:
+            //lab1.py
+            //assignment.docx
+            //music.mp3
+            //Website.cs
+            //Calculator.java
+            //accounting.xlsx
+            //lab2.py
+            //Arrays.java
     }
 
     }
