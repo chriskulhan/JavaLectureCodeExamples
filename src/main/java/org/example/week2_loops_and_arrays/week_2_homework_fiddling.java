@@ -14,8 +14,9 @@ public class week_2_homework_fiddling {
         printProgramFiles(exampleFilenames2);   // This should print lab2.py and Arrays.java, one per line
     }
 
-    //print all the things:
+
     public static void printProgramFiles(String[] filenames) {
+        //print all the things: (not the answer to the question--corrected in class below)
 //        for (int x = 0; x < filenames.length; x++) {
 //            System.out.println(filenames[x]);
 //
