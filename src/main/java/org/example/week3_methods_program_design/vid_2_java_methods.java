@@ -12,7 +12,7 @@ package org.example.week3_methods_program_design;
 import static input.InputUtils.stringInput;
 
 public class vid_2_java_methods {
-    //Clara's code:
+    //Clara's code she called it HelloMethods in the examples (2545) on github:
     // main method: (runs first)
 
         //This is the main method - the first code to run
@@ -33,8 +33,10 @@ public class vid_2_java_methods {
         // plus the String argument, plus an exclamation point !
         // It will then return that new greeting String.
         public static String makeGreeting(String n) {
+            // first String is output type, (String n) is the input
             //when makeGreeting has a () down here it's called a parameter ^^^
             String greeting = "Hello " + n + "!";
+            //this type (String) must match the type above
             return greeting;
 
         }    // The end of the makeGreeting method

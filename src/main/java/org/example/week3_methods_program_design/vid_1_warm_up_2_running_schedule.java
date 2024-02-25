@@ -24,19 +24,20 @@ public class vid_1_warm_up_2_running_schedule {
 //            System.out.println(distancePerWeek[runningDistance]);
 
             //Clara's work:
-//        //variables:
-//        double currentDistance = 1; //starting point before loop
-//        double targetDistance = 26.2; //max miles they want to run
-//        double percentIncrease = 1.10; //(increase by 10%)
-//        int week = 1;
-//
-//        //loop will count the number of weeks.
-//        while (currentDistance < targetDistance) {
-//            System.out.println(week + " " + currentDistance);
-//            currentDistance = currentDistance * percentIncrease;
-//            week++; //count number of weeks
-//        }
-//        System.out.println(week + " " + currentDistance);
+        //store data in variables, so we don't forget what the numbers are:
+        double currentDistance = 1; //starting point before loop
+        double targetDistance = 26.2; //max miles they want to run
+        double percentIncrease = 1.10; //(increase by 10%)
+        int week = 1; //start weeks at the first week
+
+        //loop will count the number of weeks and will do math until the marathon distance is met:
+        //when talking about the problem, while or until words mean a while loop:
+        while (currentDistance < targetDistance) {
+            System.out.println(week + " " + currentDistance);
+            currentDistance = currentDistance * percentIncrease;
+            week++; //count number of weeks (alternate: week = week + 1)
+        }
+        System.out.println(week + " " + currentDistance);
         }
     }
 //output: 1 1.0
