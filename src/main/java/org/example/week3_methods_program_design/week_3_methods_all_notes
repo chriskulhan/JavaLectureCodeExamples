@@ -280,6 +280,200 @@ public class vid_3_more_methods_arguments_and_parameters {
 }
 
 **vid_3_count_program****
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.intInput;
+
+//from Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Counting.java
+public class vid_3_count_program {
+    //This is the main method - the first code to run
+    public static void main(String[] args) {
+
+        //print a list of numbers in order
+        int smallNumber = intInput("Please enter a small integer number");
+        int largeNumber = intInput("Please enter a large integer number");
+
+        System.out.println("I will now count from " + smallNumber + " to " + largeNumber);
+
+        //call the count function:
+        count(smallNumber, largeNumber);
+
+    }    // This is the end of the main method.
+
+
+    // A new method that we've created called vid_3_count_program
+    // This method takes two arguments, both integers,
+    // representing a number to start counting from and a number to stop counting at
+    // It will count from min to max, printing out each number.
+
+    //use "void" as the return type when the method isn't going to return anything:
+    public static void count(int min, int max) {
+
+        for (int i = min ; i <= max ; i++) {
+            System.out.println(i);
+        }
+        //input: output:
+        //Please enter a small integer number
+        //3
+        //Please enter a large integer number
+        //5
+        //I will now count from 3 to 5
+        //3
+        //4
+        //5
+
+    }  // The end of the count method
+
+}   // The end of the Counting class
+
+***vid_4_methods_reusing_methods***
+/*From Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Squares.java
+
+*/
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.doubleInput;
+
+public class vid_4_methods_reusing_methods {
+    public static void main(String[] args) {
+
+        double number = doubleInput("Please enter a number and I'll square it");
+        square(number);
+
+    }    // This is the end of the main method.
+
+    // This method takes one argument, a number
+    // It calculates the square of that number (by multiplying it by itself)
+    // and prints the number and its square value
+    public static void square(double n) {
+
+        double sq = n * n;   // The square of a number is that number multiplied by itself
+        System.out.println("The square of " + n + " is " + sq);
+        //input:output:
+        // Please enter a number and I'll square it
+        //2
+        //The square of 2.0 is 4.0
+    }    // The end of the squares method
+
+} // End of the Squares class
+
+***vid_4_square_another_way****
+/*
+Clara's code:https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Squares2.java
+ -this is the way the labs expect you to code: (no printing within methods, and only one task per method)
+ */
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.doubleInput;
+
+public class vid_4_square_another_way {
+    public static void main(String[] args) {
+
+        double number = doubleInput("Please enter a number and I'll square it");
+        double squaredNumber = square(number);
+        System.out.println("The square of " + number + " is " + squaredNumber);
+
+
+    }    // This is the end of the main method.
+
+
+    // This method takes one argument, a number
+    // It calculates the square of that number (by multiplying it by itself)
+    // and then returns the square value.
+    public static double square(double n) {
+
+        double sq = n * n;   // The square of a number is that number multiplied by itself
+        return sq;
+        //input:output:
+        //Please enter a number and I'll square it
+        //4
+        //The square of 4.0 is 16.0
+
+    }    // The end of the squares method
+}
+
+/*notes: printing things from methods isn't advised because the methods should only do one thing at a time.
+-makes the method more reusable.
+ */
+
+ ***vid_4_squares_with_loop****
+
+ /* From Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Squares3.java
+ */
+
+ package org.example.week3_methods_program_design;
+
+ public class vid_4_squares_with_loop {
+     //This is the main method - the first code to run
+     public static void main(String[] args) {
+
+         System.out.println("Here are the squares of the numbers 1 to 10");
+
+         for (int x = 1 ; x <= 10 ; x++ ) {
+             double xSquared = square(x);
+             System.out.println("The square of " + x + " is " + xSquared);
+         }
+
+     }    // This is the end of the main method.
+
+
+     // This method takes one argument, a number
+     // It calculates the square of that number (by multiplying it by itself)
+     // and then returns the square value.
+     public static double square(double n) {
+
+         double sq = n * n;   // The square of a number is that number multiplied by itself
+         return sq;
+
+     }    // The end of the squares method
+ }
+
+*****vid_4_your_turn_MPG_calculator*****
+/*Write a program to calculate the MPG for a car journey.
+(MPG = Miles per gallon, calculate by dividing number of miles by number of gallons of gas used)
+Write a method that has two parameters:
+a number of miles driven, and
+a number of gallons of gas used on a car journey
+Your method should calculate and return the MPG for the car journey
+Your main method should
+Ask the user for the miles and gas used
+Call your method
+Use the returned data to display the MPG
+ */
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.doubleInput;
+
+public class vid_4_your_turn_MPG_calculator {
+    public static void main(String[] args) {
+        //the main method is used to interact with the user
+
+        double milesDriven = doubleInput("How many miles have you driven on your trip?");
+        double gallonsGasConsumed = doubleInput("How many gallons of gas has your car used so far?");
+        double MPG =  milesPerGallon(milesDriven, gallonsGasConsumed);
+        //milesDriven will correspond to miles below, gallonsGasConsumed will correspond to gallons below:
+        System.out.println("Your car's MPG rating for your trip so far is " + MPG + " miles per gallon.");
+
+    }
+
+    public static double milesPerGallon(double miles, double gallons) {
+        //this part does the "work" of the method using the user input data
+        //miles per gallon can be found by dividing miles by gallons:
+        double MPG =  miles / gallons;
+        return MPG;
+    }
+    //input:output:
+    //How many miles have you driven on your trip?
+    //34
+    //How many gallons of gas has your car used so far?
+    //2
+    //Your car's MPG rating for your trip so far is 17.0 miles per gallon.
+}
+
+*****
 
 
 
