@@ -20,7 +20,7 @@ public class vid_6_methods_running_schedule_revisit {
 //            System.out.println(distancePerWeek[runningDistance]);
 
         //Clara's work:
-        //store data in variables, so we don't forget what the numbers are:
+        //store data in variables, so we don't forget what the numbers mean (or what they stand for):
         double currentDistance = 1; //starting point before loop
         double targetDistance = 26.2; //max miles they want to run
         double percentIncrease = 1.10; //(increase by 10%)
