@@ -797,3 +797,313 @@ public class vid_7_methods_format_strings {
 
 *****vid_7_string_formatting_display_data_in_a_table*****
 
+package org.example.week3_methods_program_design;
+//code in Clara's examples can be found here: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week2_loops_arrays/Table.java
+//not the exact code (I wrote the below from the videos:
+
+public class vid_7_string_formatting_display_data_in_a_table {
+//    public static void main(String[] args) {
+//        int[] classCodes = {2545, 2505, 2560};
+//        String[] classNames = {"Java", "C#", "Web"};
+
+        //display an array with spaces filled in between:
+
+//        for (int c = 0; c < classCodes.length; c++) {
+//            int code = classCodes[c];
+//            String name = classNames[c];
+//            System.out.println(code + name);
+            //output:
+            //2545Java
+            //2505C#
+            //2560Web
+
+        //how to put them in a table (with a column for the classCodes and a column for the classNames
+//        public static void main(String[] args) {
+//            int[] classCodes = {2545, 2505, 2560};
+//            String[] classNames = {"Java", "C#", "Web"};
+//            for (int c = 0; c < classCodes.length; c++) {
+//                int code = classCodes[c];
+//                String name = classNames[c];
+//            System.out.printf("%d%s", code, name);
+            //output:2545Java2505C#2560Web
+
+//    public static void main(String[] args) {
+//        int[] classCodes = {2545, 2505, 2560};
+//        String[] classNames = {"Java", "C#", "Web"};
+//        for (int c = 0; c < classCodes.length; c++) {
+//            int code = classCodes[c];
+//            String name = classNames[c];
+//            System.out.printf("%d%s", code, name);
+//            System.out.println();
+            //output:
+            // 2545Java
+            //2505C#
+            //2560Web
+
+            //Make columns, aligned to the right
+            //  ****by adding a positive number between the percent and variable signifier
+            //in order to get spaces between the columns, add a number between the % sign and the variable signifier
+            // **here number is 10, variable signifiers are d and s:
+            //the 10 signifies a total of 10 characters including the characters found in the variable printed
+            // (6 spaces, 4 characters with numbers, for example):
+
+//    public static void main(String[] args) {
+//        int[] classCodes = {2545, 2505, 2560};
+//        String[] classNames = {"Java", "C#", "Web"};
+//        for (int c = 0; c < classCodes.length; c++) {
+//            int code = classCodes[c];
+//            String name = classNames[c];
+//            System.out.printf("%10d%10s", code, name);
+//            System.out.println();
+            //output :
+            //      2545      Java
+            //      2505        C#
+            //      2560       Web
+
+            //Make columns, aligned to the left:
+            //  ****by adding a negative number between the percent and variable signifier
+
+//    public static void main(String[] args) {
+//        int[] classCodes = {2545, 2505, 2560};
+//        String[] classNames = {"Java", "C#", "Web"};
+//        for (int c = 0; c < classCodes.length; c++) {
+//            int code = classCodes[c];
+//            String name = classNames[c];
+//            System.out.printf("%-10d%-10s", code, name);
+//            System.out.println();
+            //output:
+            //2545      Java
+            //2505      C#
+            //2560      Web
+
+            //add a heading to a table: place this: before the for loop:
+//        System.out.printf("%-10s%-10s\n", "Code", "Name");
+//
+//            public static void main(String[] args) {
+//                int[] classCodes = {2545, 2505, 2560};
+//                String[] classNames = {"Java", "C#", "Web"};
+//        for (int c = 0; c < classCodes.length; c++) {
+//            int code = classCodes[c];
+//            String name = classNames[c];
+//
+//            System.out.printf("%-10d%-10s", code, name);
+//            System.out.println();
+            //output:
+            //Code      Name
+            //2545      Java
+            //2505      C#
+            //2560      Web
+
+            //to make the above table cleaner, use a variable for the header and the table contents spacing:
+
+//    public static void main(String[] args) {
+//        int[] classCodes = {2545, 2505, 2560};
+//        String[] classNames = {"Java", "C#", "Web"};
+//
+//            String templateString = "%-10s%-10s\n";
+//            System.out.printf(templateString, "Code", "Name");
+//
+//            for (int c = 0; c < classCodes.length; c++) {
+//                int code = classCodes[c];
+//                String name = classNames[c];
+//
+//                System.out.printf(templateString, code, name);
+            //output:
+                //Code      Name
+                //2545      Java
+                //2505      C#
+                //2560      Web
+
+            //to add an array to the table:
+            public static void main(String[] args) {
+                int[] classCodes = {2545, 2505, 2560};
+                String[] classNames = {"Java", "C#", "Web"};
+                //added array:
+
+                double[] averageClassSizes = { 22.34233, 17.42323, 14.234234};
+
+                String templateString = "%-10s%-10s%-10s\n";
+                System.out.printf(templateString, "Code", "Name", "Ave Class Size");
+
+                //make a new template string variable to allow for addition of new array data:
+//                String tableTemplateString = "%-10d%-10s%-10.2f\n";
+//
+//                for (int c = 0; c < classCodes.length; c++) {
+//                    int code = classCodes[c];
+//                    String name = classNames[c];
+//
+//                    //add in the new array into the table:
+//                    double averageClassSize = averageClassSizes[c];
+//
+//                    System.out.printf(tableTemplateString, code, name, averageClassSize);
+                    //output:
+                    //Code      Name      Ave Class Size
+                    //2545      Java      22.342330
+                    //2505      C#        17.423230
+                    //2560      Web       14.234234
+
+                    //change the String tableStringFormat to address the decimals shown:
+                String tableTemplateString = "%-10d%-10s%-10.2f\n";
+
+                for (int c = 0; c < classCodes.length; c++) {
+                    int code = classCodes[c];
+                    String name = classNames[c];
+
+                    //add in the new array into the table:
+                    double averageClassSize = averageClassSizes[c];
+
+                    System.out.printf(tableTemplateString, code, name, averageClassSize);
+                    //output:
+                    //Code      Name      Ave Class Size
+                    //2545      Java      22.34
+                    //2505      C#        17.42
+                    //2560      Web       14.23
+        }
+    }
+}
+
+//Clara's code about tables from:  https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week2_loops_arrays/Table.java
+//package week2_loops_arrays;
+//
+///*
+// * Using string formatting to display data in a table */
+//
+//public class Table {
+//    public static void main(String[] args) {
+//
+//        String[] classCodes = {"ITEC 2545", "ITEC 2560", "ITEC 2505", "ITEC 2905"};
+//        String[] names = {"Java", "Web", "C#", "Capstone"};
+//        int[] credits = {6, 6, 6, 4};
+//
+//        String headerFormatTemplate = "%-20s %-20s %-20s\n";
+//
+//        System.out.printf(headerFormatTemplate, "Class Code", "Class Name", "Credits");
+//
+//        for (int x = 0; x < classCodes.length; x++) {
+//            String classCode = classCodes[x];
+//            String name = names[x];
+//            int credit = credits[x];
+//
+//            // %-20s means replace with a String, left-aligned within 20 spaces
+//            // %20d means replace with an integer, right-aligned within 20 spaces
+//            // if you omit the - for example %20s then the data will be right-aligned
+//
+//            String formatTemplate = "%-20s %-20s %-20d\n";
+//            System.out.printf(formatTemplate, classCode, name, credit);
+//        }
+//
+//    }
+//}
+
+***vid_8_methods_program_design***
+/*
+****Waterfall method****** (doing these steps in order) (week3, slide31 from Clara's powerpoint)
+
+Creating a program: Major steps
+-Requirements (instructions)
+    -Gather, Analyze
+-Design (how to structure and engineer a solution)
+-Code
+-Integration (do different parts of a program, and see if they connect with what already exists)
+-Testing
+-Delivery
+
+**for real world app:
+-Maintenance
+-Retirement
+
+****Waterfall method problems: *** (slide 32)
+
+-What do you do if a problem arises in a stage ---> you realize you need to revisit an earlier stage?
+    -For example, you are in the implementation stage ---> you need to revisit the requirements?
+    -If you encounter problems in integration; parts don't work together?
+    -Or your customer decides they need an extra feature?
+    -Or technology changes ---> now you need to do things differently?
+    -This happens a lot – ****expect your requirements to change!****
+-In the classic waterfall, you can't do this – the deadline has passed and there's no time or resources
+      to go back to the earlier stage
+-Early software development used this model, and it was responsible for many major failed pieces of software
+-http://www.codinghorror.com/blog/2006/05/the-long-dismal-history-of-software-project-failure.html
+
+
+*******An Agile (prototyping) development model works well for small projects*** (slide 33)
+
+-Read and understand the requirements
+-Identify a high-level design
+-Build a basic, working prototype with minimal feature set
+--Regular communication:
+    -Review requirements and refine the prototype – add features, improve quality, test with respect to the requirements
+    -Have regular quick, informal meetings – often daily - so everyone knows what is going on
+-Repeat until the project is done
+
+******Advantages of Agile******* (slide 34)
+
+-Response to change in requirements is fast
+-Issues encountered in one stages can be addressed in other stages (e.g. design problem found in coding can be fixed)
+-New ideas can be added
+-There's always a working program (even if it isn't complete yet) – helpful to show to the customer
+    to get their feedback and input
+-Components are integrated earlier, and integrations issues can be dealt with
+    -Continuous integration/continuous deployment - adding new code as it's written; even adding it to
+    the live version of the product checking everything still works
+-Programmers tend to like Agile (not rigid and structured)
+
+*****Agile Development Methodology***
+
+-Trying to do everything perfectly, in order, is almost impossible
+-Building a minimal version and adding features until the app is done, is usually more successful
+-In the right environment, for the right project with the right team, Agile can work very well
+-An Agile/prototyping methodology also works well with class projects
+
+ */
+
+/*Build: Car tire shopper program  (using Agile) --slide 36--
+
+**should find price per mile warranty
+
+-Requirement: create a price comparison program for a customer buying car tires
+-Car tires are sold with specific warranties, in miles driven, which roughly corresponds
+    to how long the tire is expected to last
+-Cheaper tires (usually) have shorter warranties
+-There are many different tires with different prices and warranties
+-The program should help the user decide which tire is best value for money, by calculating
+    and comparing price-per-miles for two or more tires
+ */
+
+package org.example.week3_methods_program_design;
+
+import org.example.week1_If_Statements.StringInputs;
+
+import static input.InputUtils.doubleInput;
+import static input.InputUtils.stringInput;
+
+public class vid_8_methods_program_design {
+    public static void main(String[] args) {
+
+        //for Agile method, start here by writing the meat of the code, and then put it in its own method:
+
+        //get input from the user on the type of tire:
+        String tireName = stringInput("Enter the name of the tire:");
+
+        //price of the tire:
+        double price = doubleInput("Enter the price for a " + tireName + " tire:");
+
+        //how many miles is the warranty? (example; 65000)
+        double miles = doubleInput("Enter the warranty miles for " + tireName);
+
+        //figure out the price per mile:
+        double pricePerMile = price / miles;
+        System.out.println("The " + tireName + " tire costs $" + pricePerMile + " dollars per mile. ");
+
+        //output:
+        //Enter the name of the tire:
+        //goodyear
+        //Enter the price for a goodyear tire:
+        //56
+        //Enter the warranty miles for goodyear
+        //35000
+        //The goodyear tire costs $0.0016 dollars per mile.
+
+    }
+}
+
