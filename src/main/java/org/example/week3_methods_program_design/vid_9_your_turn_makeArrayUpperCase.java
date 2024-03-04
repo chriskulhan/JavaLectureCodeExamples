@@ -11,9 +11,18 @@ Test your method by writing a main method to create an example String array,
 
 package org.example.week3_methods_program_design;
 
+import java.util.Arrays;
+
 public class vid_9_your_turn_makeArrayUpperCase {
     public static void main(String[] args) {
-    String[] makeArrayUppercase =
+    String[] fruits = {"banana", "apple", "mango"};
+    makeArrayUpperCase(fruits);
+        System.out.println(Arrays.toString(fruits));
+        //output: [BANANA, APPLE, MANGO] *uses the below method to get this.
     }
-
+public static void makeArrayUpperCase(String[] array) {
+        for (int x = 0; x < array.length; x++) {
+            array[x] = array[x].toUpperCase();
+        }
+}
 }
