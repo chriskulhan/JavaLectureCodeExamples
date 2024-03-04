@@ -8,12 +8,12 @@ public class vid_6_arrays_and_loops_writing_to_array {
     public static void main(String[] args) {
         //powerpoint slide 49
         //example: fill a string array with data:
-        //Create an array with to store 5 strings:
+        //Create an array with space to store 5 strings:
         String[] textbooks = new String [5];
 
         //Loop - repeat 5 times. Notice the loop counter variable 'number'
         //counts from 0, 1, 2, 3, - this is teh same as the array element numbers
-        //so, we can sue the variable number to refer to each array element in turn
+        //so, we can use the variable number to refer to each array element in turn
 
         for(int number = 0 ; number < textbooks.length ; number++) {
             //get data about one book from the user
