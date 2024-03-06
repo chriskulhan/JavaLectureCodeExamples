@@ -84,7 +84,8 @@ Passing references by value: (powerpoint 56)
     -The object is not copied
     -The reference to the object is copied, and that is sent to the method (remember a reference is basically a number)
     -A reference to an object is the location of the actual object in the heap
-    -So when the method accesses or modifies the object, it looks at its copy of the reference, and uses that to find the original object in the heap
+    -So when the method accesses or modifies the object, it looks at its copy of the reference, and uses that to find
+    the original object in the heap
     -So if the method modifies the object, the original object is modified
     -There is only one object (although there are two copies of its reference)
 

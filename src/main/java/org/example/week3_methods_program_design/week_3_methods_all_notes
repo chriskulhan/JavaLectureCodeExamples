@@ -521,7 +521,8 @@ public static int howManyCreditsToGraduate (int studentCreditsEarned, int studen
 /*Reducing repetition with methods (slide 26)
 -It's common to do the same task (or a very similar task) more than once
 -To save re-writing code over and over, we can put this code in a method
--If it's a task that's the same process, but uses different values of variables, then these variables can be arguments to the method
+-If it's a task that's the same process, but uses different values of variables, then these variables can be
+arguments to the method
 
  */
 //example code below from Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Lemonade.java

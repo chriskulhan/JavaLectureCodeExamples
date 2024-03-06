@@ -23,7 +23,7 @@
 //sout("no movies");
 //
 //    } else {//if not null and not empty, there is a list with at least one movive
-//    //ther is at least one movie in hte list
+//    //there is at least one movie in hte list
 //
 //            //one strategy is to make a copy of the list
 //            //add all the movies to a new list, and then sort the new list
@@ -35,3 +35,5 @@
 //
 //
 //        }
+
+//lab 4 start in video: https://mediaspace.minnstate.edu/media/Java+Spring+2024+Notes+on+lab+3+and+4/1_yw5okmy0
