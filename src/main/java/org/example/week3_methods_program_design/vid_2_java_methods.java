@@ -35,9 +35,13 @@ public class vid_2_java_methods {
         public static String makeGreeting(String n) {
             // first String is output type, (String n) is the input
             //when makeGreeting has a () down here it's called a parameter ^^^
-            String greeting = "Hello " + n + "!";
+            String greeting = "Hello " + n + " is this working?";
             //this type (String) must match the type above
             return greeting;
+            //input/output:
+            //Please enter your name
+            //chris
+            //Hello chris is this working?
 
         }    // The end of the makeGreeting method
 

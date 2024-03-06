@@ -995,7 +995,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
 //    }
 //}
 
-***vid_8_methods_program_design***
+***vid_8_methods_program_design_tire_warranty.java***
 /*
 ****Waterfall method****** (doing these steps in order) (week3, slide31 from Clara's powerpoint)
 
@@ -1105,5 +1105,507 @@ public class vid_8_methods_program_design {
         //The goodyear tire costs $0.0016 dollars per mile.
 
     }
+}
+****vid_8_tires1_claras_code***
+//https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/tires/Tires1.java
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.doubleInput;
+import static input.InputUtils.stringInput;
+
+public class vid_8_tires1_claras_code {
+    public static void main(String[] args) {
+        String tireName = stringInput("Enter name of tire");
+        double price = doubleInput("Enter price for " + tireName);
+        double miles = doubleInput("Enter warranty miles for " + tireName);
+        double pricePerMile = price / miles;
+        System.out.println("The " + tireName + " tire costs " + pricePerMile + " dollars per miles.");
+    }
+}
+
+***vid_8_tires2_claras_code***
+//https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/tires/Tires2.java
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.doubleInput;
+import static input.InputUtils.stringInput;
+
+public class vid_8_tires2_claras_code {
+
+    public static void main(String[] args) {
+        String report = getTireInfo();
+        System.out.println(report);
+    }
+
+    public static String getTireInfo() {
+        String tireName = stringInput("Enter name of tire");
+        double price = doubleInput("Enter price for " + tireName);
+        double miles = doubleInput("Enter warranty miles for " + tireName);
+        double pricePerMile = price / miles;
+        return "The " + tireName + " tire costs " + pricePerMile + " dollars per miles.";
+    }
+}
+
+****vid_8_tires3_claras_code***
+
+//https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/tires/Tires3.java
+
+package org.example.week3_methods_program_design;
+import static input.InputUtils.*;
+
+public class vid_8_tires3_claras_code {
+    public static void main(String[] args) {
+
+        int numberOfTiresToCompare = positiveIntInput("Please enter the number of tires to compare");
+
+        for (int t = 0; t < numberOfTiresToCompare; t++ ) {
+            String report = getTireInfo();
+            System.out.println(report);
+        }
+    }
+
+    public static String getTireInfo() {
+        String tireName = stringInput("Enter name of tire");
+        double price = doubleInput("Enter price for " + tireName);
+        double miles = doubleInput("Enter warranty miles for " + tireName);
+        double pricePerMile = price / miles;
+        return "The " + tireName + " tire costs " + pricePerMile + " dollars per miles.";
+    }
+}
+
+****vid_8_tires4_claras_code***
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.*;
+
+public class vid_8_tires4_claras_code {
+    public static void main(String[] args) {
+
+        int numberOfTiresToCompare = positiveIntInput("Please enter the number of tires to compare");
+        String[] tireReports = new String[numberOfTiresToCompare];
+
+        for (int t = 0; t < numberOfTiresToCompare; t++) {
+            String report = getTireInfo();
+            tireReports[t] = report;
+        }
+
+        printReportTable(tireReports);
+    }
+
+    private static String getTireInfo() {
+        String name = stringInput("What is the name of the tire?");
+        double price = positiveDoubleInput("Enter the price of " + name);
+        int mileWarranty = positiveIntInput("Enter the number of miles warranty");
+
+        double dollarsPerMile = price / mileWarranty;
+
+        return String.format("%s costs %f, has a %d mile warranty, costs $%.3f per mile",
+                name, price, mileWarranty, dollarsPerMile);
+    }
+
+    private static void printReportTable(String[] tireReports) {
+        for (int t = 0; t < tireReports.length; t++) {
+            System.out.println(tireReports[t]);
+        }
+    }
+}
+
+***vid_8_tires_final_claras_code***
+//https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/tires/TiresFinal.java
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.*;
+
+public class vid_8_tires_final_claras_code {
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to the Tire Price Comparison Calculator");
+
+        int numberOfTiresToCompare = positiveIntInput("Please enter the number of tires to compare");
+        String[] tireReports = new String[numberOfTiresToCompare];
+
+        for (int t = 0; t < numberOfTiresToCompare; t++) {
+            String report = getTireInfo();
+            tireReports[t] = report;
+        }
+
+        printReportTable(tireReports);
+
+    }
+
+    private static String getTireInfo() {
+        String name = stringInput("What is the name of the tire?");
+        double price = positiveDoubleInput("Enter the price of " + name);
+        int mileWarranty = positiveIntInput("Enter the number of miles warranty");
+
+        double dollarsPerMile = price / mileWarranty;
+        double dollarsPer1000Miles = dollarsPerMile * 1000;
+
+        return String.format("%s costs $%.2f, has a %d mile warranty, costs $%.3f per 1000 miles",
+                name, price, mileWarranty, dollarsPer1000Miles);
+    }
+
+    private static void printReportTable(String[] tireReports) {
+        for (int t = 0; t < tireReports.length; t++) {
+            System.out.println(tireReports[t]);
+        }
+    }
+}
+
+//output:Welcome to the Tire Price Comparison Calculator
+//Please enter the number of tires to compare
+//2
+//What is the name of the tire?
+//goody
+//Enter the price of goody
+//23
+//Enter the number of miles warranty
+//34000
+//What is the name of the tire?
+//bingo
+//Enter the price of bingo
+//34
+//Enter the number of miles warranty
+//45000
+//goody costs $23.00, has a 34000 mile warranty, costs $0.676 per 1000 miles
+//bingo costs $34.00, has a 45000 mile warranty, costs $0.756 per 1000 miles
+
+***vid_9_pass_by_value_modifying_objects_inside_methods**
+
+/*
+
+Strings are actually objects so they are also stored on the heap, and when a string is sent to a method then the
+    reference to that string is sent to the method. So it's also pass reference by value.
+
+    When you write code like this:
+
+
+String name = "Java";
+name = "C#";
+
+The original String is replaced with an entirely new String in memory with a new reference.
+So in a method call like this:
+
+public static void main(String[] args) {
+  String name = "Java";   // one string is created
+  method(name);
+}
+public static void method(String n) { // string object reference is sent here
+  n = "Not Java";   // a new String is created, it will have a new reference, the name n will now point to the new object
+}
+
+
+So in this example, name is one String variable, one piece of string data. When n is modified inside method,
+    a new String variable with the data "Not Java" is created and assigned to the variable n, instead of the
+    name variable being modified.
+
+Some background: https://www.baeldung.com/java-string-immutable
+
+*/
+
+
+/*what happens when you modify the data in a parameter?
+        -with integers and strings, the variable stays the same in the main method,
+        even if it changes in the method the main calls from.
+//what happens to the data in the method that method is called from?
+    -the variable can change in a method it's being called from, but will stay the same in the main method.
+
+
+ */
+package org.example.week3_methods_program_design;
+
+import java.util.Arrays;
+
+public class vid_9_pass_by_value_modifying_objects_inside_methods {
+    public static void main(String[] args) {
+
+        int miles = 6;
+        //miles is sent to "changeToKM"
+        //(miles) is a parameter vvv
+        changeToKM(miles);
+        System.out.println(miles); //output: 6
+
+        String units = "miles";
+        changeToMetricUnits(units);
+        System.out.println(units); //output: miles
+
+        double [] speeds = {4,5,10,12}; //this is in miles per hour
+        convertToKilometers(speeds);
+        System.out.println(Arrays.toString(speeds));
+        //when you call a method with an array as the argument, if that array's modified in the method, it's modified in main.
+        //output: [6.4, 8.0, 16.0, 19.200000000000003]
+    }
+
+    //changing a primitive type parameter has no effect on the data in the caller
+    public static void changeToKM(int distance) {
+        distance = 10;
+    }
+
+    //changing a primitive type parameter has no effect on the data in the caller
+    public static void changeToMetricUnits(String units) {
+        units = "kilometers";
+
+    }
+// the variable acts differently when using an array:
+
+    /*the method "convertToKilometers" has one parameter "double[] speeds"
+        //the "double[] speeds" parameter that is an array that will capture double numbers (numbers with decimal points)
+        //the method "convertToKilometers" will loop over the array and takes every distance in the array
+            and assumes it's a number of miles multiplies it by 1.6 and then modifies the original array
+            so it's modifying the "(double[] speeds)" parameter
+
+     */
+    public static void convertToKilometers(double[] speeds) {
+
+        for (int s = 0; s < speeds.length ; s++) {
+            double speed = speeds[s];
+            double speedKm = speed * 1.6;
+            speeds[s] = speedKm;
+    }
+    }
+
+}
+
+//if a method modifies an object type method, then the method is also modified in the main place where the object was created.
+/*powerpoint slide week 3-50)
+
+What does it mean?
+
+-Two different mechanisms of sending data to methods
+    -Pass by value – how primitive types and Strings are sent (int, double, boolean, char)
+        **a copy of the primitive type is made (example: getStarsOutOfTen)
+    -Passing object references by value – how arrays and most everything else is sent (everything else)
+
+
+ */
+ ******vid_9_passing_objects_to_methods***
+ package org.example.week3_methods_program_design;
+
+ import java.util.Arrays;
+
+ import static input.InputUtils.stringInput;
+
+ public class vid_9_passing_objects_to_methods {
+     /**
+      * Created by clara on 2019-08-23.
+      * https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/ModifyingArrayInMethod.java
+      */
+
+         /* Compare this to NotModifyingPrimitiveTypes and NotModifyingPrimitiveTypesBUG.
+          *
+          * Unlike these programs, an array is NOT copied when it is sent to a method.
+          *
+          * Instead, the location of the array in memory is copied, and that's sent to the method.
+          * A location in memory is called a reference. Both main and getThreeFavoriteMovies have
+          * a reference to the same array.
+          *
+          * So when the method works with the array, it looks at the memory address, and works with
+          * the array it finds there.
+          *
+          * There is only one array. Both main and getThreeFavoriteMovies have a reference to this array.
+          * So when getThreeFavoriteMovies modifies the array, then main can see these changes.
+          *
+          * */
+
+         public static void main(String[] args) {
+             String[] topThreeMovies = new String[3]; // Create an empty array
+             getThreeFavoriteMovies(topThreeMovies);  // pass the empty array to getThreeFavoriteMovies method
+             // main never modifies the topThreeMovies array.
+             // But, because getThreeFavoriteMovies modifies the array, this prints the names the user entered
+             System.out.println("Your top three favorite movies are " + Arrays.toString(topThreeMovies)); //
+         }
+
+         private static void getThreeFavoriteMovies(String[] movies) {
+         /* Notice that this method doesn't return anything. The array movies is the same
+         array as topThreeMovies in main. So when this method modifies movies, then because
+         topThreeMovies the same array, the main method can access the movie data in it.
+
+         In this program, the array movies is effectively the same array as topThreeMovies in the main method. */
+
+             for (int x = 0 ; x < 3; x++) {
+                 String favoriteMovie = stringInput("Please enter one of your favorite movies");
+                 movies[x] = favoriteMovie;
+             }
+         }
+     }
+
+ /* powerpoint slide 52:
+
+ Pass by value:
+ // Primitive values (int, double, boolean…) and Strings, and objects which wrap primitive types, are sent to methods using pass by value
+ //A copy of the value is made
+ //This copy is given to the method
+ //The copy may be modified
+ //The original value does not change if the copy is modified
+ //All primitive variables in scope are stored in a part of memory called the stack
+
+ slide 53: References:
+
+ -An array is an object
+     -There are many other types of objects in Java that we'll meet later, and you'll also create your own types
+ -Objects are more complex than primitive types
+ -How big is an object?
+ -Could be any size, and its size could change
+ -So it's hard to organize them in memory
+ -So to organize objects, they are saved in a part of the memory called the heap, which has lots of room
+ -And so the code can find an object, a reference to that object is saved on the stack
+ -The reference tells the stack where to find the object in the heap
+ -Object references are values
+ -An object reference is a memory address - basically, a number
+
+
+ Stack vs. heap:
+ https://dzone.com/articles/java-memory-management
+
+ Passing references by value: (powerpoint 56)
+
+ -How are objects (like arrays) sent to methods?
+ -Making a copy of an object could be very slow
+ -Instead, the object's reference is sent
+     -The object is not copied
+     -The reference to the object is copied, and that is sent to the method (remember a reference is basically a number)
+     -A reference to an object is the location of the actual object in the heap
+     -So when the method accesses or modifies the object, it looks at its copy of the reference, and uses that to find the original object in the heap
+     -So if the method modifies the object, the original object is modified
+     -There is only one object (although there are two copies of its reference)
+
+ -This is why, in the previous programs, the array changes when it is modified in the method, and the int does not
+
+ An array is an object (slide 58)
+
+ -Coming up in the next classes: more objects
+ -File, Exception, LinkedList, ArrayList, HashMap, GUI components, objects you design and make….
+ -So you'll see more examples of passing reference by value being useful in your code
+ -Can make your code simpler when you need a method that modifies an object
+ -Tip: a method which modifies one of its arguments should reflect that in the method name, so it is clear what is happening
+ -doubleNumbersInArray(myArray)
+ -makeListUppercase(myListOfStrings)
+
+
+
+  */
+
+****vid_9_what_does_it_mean_get_stars
+/*What does it mean?
+
+-Two different mechanisms of sending data to methods
+    -Pass by value – how primitive types and Strings are sent (int, double, boolean, char)
+        **a copy of the primitive type is made (example: getStarsOutOfTen)
+    -Passing object references by value – how arrays and most everything else is sent (everything else)
+
+
+ */
+
+//from Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/NotModifyingPrimitiveTypes.java
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.positiveIntInput;
+
+public class vid_9_what_does_it_mean_get_stars {
+
+
+    /* Compare this program NotModifyingPrimitiveTypesBUG.
+    This one does work.
+    -When starsOutOfTen is passed to the getStarsOutOfTen method, a copy is
+     made of the variables. So there are two separate, independent variables.
+    -If getStarsOutOfTen modifies stars, then main will never know. starsOutOfTen won't change.
+
+    So though the variable stars is modified in getStarsOutOfTen,
+    the main method does not see the changes.
+
+    And getStarsOutOfTen has to RETURN stars to main, so main can use the new data.
+
+     */
+
+    public static void main(String[] args) {
+
+        int starsOutOfTen = 8;  // I rated a movie 8/10
+        // Let's see what the user rates it
+        starsOutOfTen = getStarsOutOfTen(starsOutOfTen);
+        System.out.printf("You rated the movie %d/10. \n", starsOutOfTen);
+    }
+
+    public static int getStarsOutOfTen(int stars) {
+        System.out.printf("The movie has been rated %d/10. What do you think?\n", stars);
+        stars = positiveIntInput("Please rate the movie. How many stars out of ten?");
+        return stars;
+    }
+
+}
+
+***vid_9_what_does_it_mean_get_stars_bug
+
+
+package org.example.week3_methods_program_design;
+
+import static input.InputUtils.positiveIntInput;
+
+public class vid_9_what_does_it_mean_get_stars_bug {
+    /**
+     * Created by clara on 2019-08-26.
+     * https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/NotModifyingPrimitiveTypesBUG.java
+     */
+
+    /* Compare this program to ModifyingArrayInMethod
+    Unlike that program, this one does not work. The variable
+    s is a primitive type, it is passed by value
+    A COPY of the number in starsOutOfTen is sent to getStarsOutOfTen method
+
+    Now there are two, separate variables. If one changes, the other one is not changed.
+
+    So even if starsOutOfTen changes stars, the main method's starsOutOfTen is not changed
+
+    So this program doesn't work - it always prints 8/10
+    */
+
+        public static void main(String[] args) {
+            int starsOutOfTen = 8;  // I rated a movie 8/10
+            getStarsOutOfTen(starsOutOfTen); // Let's see what the user rates it
+            System.out.printf("You rated the movie %d/10. \n", starsOutOfTen);  // BUG! Always prints 8/10
+        }
+
+        public static void getStarsOutOfTen(int stars) {
+            System.out.printf("The movie has been rated %d/10. What do you think?\n", stars);
+            stars = positiveIntInput("Please rate the movie. How many stars out of ten?");
+
+            //output:(wrong)
+            //The movie has been rated 8/10. What do you think?
+            //Please rate the movie. How many stars out of ten?
+            //input: 7
+            //You rated the movie 8/10. **this is the wrong part
+        }
+
+    }
+
+***vid_9_your_turn_makeArrayUpperCase***
+/*Your turn
+Write method called makeArrayUppercase
+It should take a String array as an argument
+It will convert all the elements in the array to uppercase characters
+It should NOT return anything – the return type should be void
+Test your method by writing a main method to create an example String array,
+    and passing it to your method, and then displaying all the elements in the
+    array to verify they are now uppercase
+
+ */
+
+package org.example.week3_methods_program_design;
+
+import java.util.Arrays;
+
+public class vid_9_your_turn_makeArrayUpperCase {
+    public static void main(String[] args) {
+    String[] fruits = {"banana", "apple", "mango"};
+    makeArrayUpperCase(fruits);
+        System.out.println(Arrays.toString(fruits));
+        //output: [BANANA, APPLE, MANGO] *uses the below method to get this.
+    }
+public static void makeArrayUpperCase(String[] array) {
+        for (int x = 0; x < array.length; x++) {
+            array[x] = array[x].toUpperCase();
+        }
+}
 }
 
