@@ -1,0 +1,42 @@
+reference before this week's video: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week4_list_data_structure/GuestList.java
+
+from powerpoints: Reminder arrays: (1st slide)
+int[] someNumbers = new int[10];   //10 ints
+
+String[] names = new String[4];    //4 Strings
+
+Fixed size, data structure
+Stores items of the same type; defined when created
+Can contain Objects or primitive types, but all the things in one array, must be the same type
+Simple, fast, and efficient – minimal and fixed storage requirements
+Simple syntax to create array, store items, retrieve items; loop over an array
+BUT difficult to rearrange items in an array;  can't resize the array;  add items in the middle of the array; delete an item
+No built-in capability for searching an array
+
+***powerpoint slide 2: Lists:
+
+A resizable, ordered collection of items
+Items are kept in order
+Can create empty list
+Can add items to the end - list gets bigger
+Can add items to the start or in the middle
+Can get any item from the list by index
+Can remove items from the start, middle or end - list get smaller
+Can remove by value, or by index
+Can search for items in the list
+Can find out the size of the list, if it is empty
+
+Lists are everywhere (list of: classes, friends, emails, contacts, etc.)
+
+Java Lists: slide 5:
+Three kinds of Lists in Java:
+    -ArrayList
+    -LinkedList
+    -Vector
+
+Java thinks about different ways you might use a list
+Some data? Lots of data?
+Do you need to search for data in the list?
+Will you add and remove data from the start, or end, or middle?
+
+
