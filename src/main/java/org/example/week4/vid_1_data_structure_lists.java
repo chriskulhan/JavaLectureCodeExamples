@@ -80,4 +80,3 @@ public class vid_1_data_structure_lists {
             //output: 4
     }
 }
-//pause video 1 week 4 at 6:42

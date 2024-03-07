@@ -51,7 +51,8 @@ public class vid_9_passing_objects_to_methods {
 /* powerpoint slide 52:
 
 Pass by value:
-// Primitive values (int, double, boolean…) and Strings, and objects which wrap primitive types, are sent to methods using pass by value
+// Primitive values (int, double, boolean…) and Strings, and objects which wrap primitive types, are
+    sent to methods using pass by value
 //A copy of the value is made
 //This copy is given to the method
 //The copy may be modified

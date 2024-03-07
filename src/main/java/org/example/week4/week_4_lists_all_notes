@@ -1,6 +1,7 @@
 reference before this week's video: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week4_list_data_structure/GuestList.java
 
-from powerpoints: Reminder arrays: (1st slide)
+from powerpoints:
+Reminder arrays: (1st slide)
 int[] someNumbers = new int[10];   //10 ints
 
 String[] names = new String[4];    //4 Strings
@@ -38,5 +39,504 @@ Java thinks about different ways you might use a list
 Some data? Lots of data?
 Do you need to search for data in the list?
 Will you add and remove data from the start, or end, or middle?
+
+-----What is different about the 3 lists? (slide 10)
+***ArrayList:***
+uses an an array to store data
+simple and fast
+When adding or removing items, the array can be replaced with a larger or smaller array, as needed
+Fast to search
+Fast to add/remove items at the end of the list
+Slow to add/remove items at the start or middle of the list - gets slower with more items in list
+
+//your turn: Create a new Java class:
+
+//Create a main method (psvm shortcut)
+//Add this code to the main method
+//Alt+Enter or Option+Enter to import List, ArrayList
+//Run and test
+
+//package org.example.week4;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class vid_1_data_structure_lists {
+//    public static void main(String[] args) {
+//
+//        List<String> arrayList = new ArrayList<>();
+//        arrayList.add("Hello");
+//        arrayList.add("World");
+//
+//        for (String s : arrayList) {
+//            System.out.println(s);
+//        //output:
+//            //Hello
+//            //World
+//        }
+//        //print entire arrayList:
+//        System.out.println(arrayList);
+//        //output: [Hello, World]
+//    }
+//}
+
+//your turn,
+
+package org.example.week4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_1_data_structure_lists {
+    public static void main(String[] args) {
+
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("Hello");
+        arrayList.add("World");
+
+        //Can you add your name to the List?
+        arrayList.add("Chris Kulhanek");
+
+        //Can you add "MCTC" to the List?
+        arrayList.add("MCTC");
+
+        //Can you print out all the Strings in the List?
+        for (String s : arrayList) {
+            System.out.println(s);
+            //output:
+            //Hello
+            //World
+            //Chris Kulhanek
+            //MCTC
+
+        }
+        //new loop to print to all strings in upper case:
+        for (String t : arrayList) {
+            //Can you print out all the String in the List in uppercase?
+            System.out.println(t.toUpperCase());
+            //output:
+            //MCTC
+            //HELLO
+            //WORLD
+            //CHRIS KULHANEK
+            //MCTC
+        }
+        //note outside the loop:
+            //print entire arrayList:
+            System.out.println(arrayList);
+            //output: [Hello, World, Chris Kulhanek, MCTC]
+
+            //Can you print the lengths of each String?
+            System.out.println(arrayList.toArray().length);
+            //output: 4
+    }
+}
+
+*******vid_1_data_structure_lists
+
+//your turn: Create a new Java class:
+
+//Create a main method (psvm shortcut)
+//Add this code to the main method
+//Alt+Enter or Option+Enter to import List, ArrayList
+//Run and test
+
+//package org.example.week4;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class vid_1_data_structure_lists {
+//    public static void main(String[] args) {
+//
+//        List<String> arrayList = new ArrayList<>();
+//        arrayList.add("Hello");
+//        arrayList.add("World");
+//
+//        for (String s : arrayList) {
+//            System.out.println(s);
+//        //output:
+//            //Hello
+//            //World
+//        }
+//        //print entire arrayList:
+//        System.out.println(arrayList);
+//        //output: [Hello, World]
+//    }
+//}
+
+//your turn,
+
+package org.example.week4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_1_data_structure_lists {
+    public static void main(String[] args) {
+
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("Hello");
+        arrayList.add("World");
+
+        //Can you add your name to the List?
+        arrayList.add("Chris Kulhanek");
+
+        //Can you add "MCTC" to the List?
+        arrayList.add("MCTC");
+
+        //Can you print out all the Strings in the List?
+        for (String s : arrayList) {
+            System.out.println(s);
+            //output:
+            //Hello
+            //World
+            //Chris Kulhanek
+            //MCTC
+
+        }
+        //new loop to print to all strings in upper case:
+        for (String t : arrayList) {
+            //Can you print out all the String in the List in uppercase?
+            System.out.println(t.toUpperCase());
+            //output:
+            //MCTC
+            //HELLO
+            //WORLD
+            //CHRIS KULHANEK
+            //MCTC
+        }
+        //note outside the loop:
+            //print entire arrayList:
+            System.out.println(arrayList);
+            //output: [Hello, World, Chris Kulhanek, MCTC]
+
+            //Can you print the lengths of each String?
+            System.out.println(arrayList.toArray().length);
+            //output: 4
+    }
+}
+
+****vid_1_tree_array_list_example
+
+package org.example.week4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_1_tree_array_list_example {
+    public static void main(String[] args) {
+
+        //Create arraylist
+        List<String> trees = new ArrayList<>();
+
+        //Add data at the end:
+        trees.add("Pine");
+        trees.add("Oak");
+        trees.add("Elm");
+        trees.add("Aspen");
+
+        trees.add("Palm");
+
+        //Add data at index 2, in the middle
+        trees.add(2, "Palm");
+
+        //Get by index, using "get" method
+        System.out.println("Tree at index 1 is " + trees.get(1));
+        //output: Tree at index 1 is Oak
+
+//        //loop over all the trees and print them all:
+        for (String tree : trees) {
+            System.out.println(tree);
+//            //output: Pine
+            //Oak
+            //Palm
+            //Elm
+            //Aspen
+            //Palm
+//        }
+//
+//        //remove data by value:
+            trees.remove("Oak");
+//
+//        //remove data String at index 0, the first element:
+            trees.remove(0);
+////
+            System.out.println(trees);
+//        //output: [Palm, Elm, Aspen, Palm]
+//
+//      //does the array contain data? check using "contains":
+            if (trees.contains("Aspen")) {
+                System.out.println("Tree list contains Aspen");
+//            //output: Tree list contains Aspen
+//
+//        }
+                //how many things are in the array list? .size
+                int numberOfTrees = trees.size();
+                System.out.println("There are " + numberOfTrees + " trees in the list.");
+//        //output: There are 6 trees in the list.
+            }
+        }
+    }
+}
+
+//All the above can also be done with a LinkedList
+
+****vid_1_linked_lists
+/* LinkedList a chain of nodes (slide 14)
+
+//Made of nodes linked together
+    //Each node stores one list item
+//Each node has a link to the node immediately before and after itself
+//A LinkedList knows where the start and end node are, but can't access the middle nodes directly
+//advantages of LinkedLists:
+    //fast to read data from beginning to end or reverse,
+// adding a new data piece: create a new node, get rid of end cap (which is index zero), create a new link
+
+//How do you work with data in a Linked List? (slide 15)
+   Suppose we need to test if dataC is in the LinkedList
+    Start at the beginning, follow the links until we get to dataC; return true.
+        If we get to the end without finding dataC, then return false
+    Can also retrieve the nth node (counting from 0)
+    Start at the beginning, count along the links n times
+    Easy to fetch the first or last node
+
+**How to add data to the middle in a LinkedList:
+    cross from start to the place you want to add, break the link and then add the node and add new links to each.
+
+**How do you remove an item from a LinkedList?
+    **Same concept as above,
+    -you have to move from the start or end to find the place the item is,
+    -remove the links
+    -relabel the each new node
+    -make new links
+
+***Advantages of LinkedLists: (slide 19)
+
+-Fairly fast to search, slower for larger Lists
+-Follow links along the nodes until the item is found, or get to end of list
+-Fast to add items at the start or end
+-Fast to remove items at the start or end
+-Fairly fast to add items in the middle
+
+**working with a LinkedList is the same as working with an ArrayList
+
+*****vid_1_vector*****
+
+/*
+Vector (slide 21)
+-Vectors are very similar to ArrayList, and use an array to store data internally
+
+-But Vector is thread-safe (aka synchronized) **safer but slower
+    -Threads in a program are tasks that can run at the same time. What if two threads tried to add an item to a List?
+    -Vector makes sure that two different parts of the program don't modify a Vector at once
+    -But this makes it slower than ArrayList
+    -Unless you are writing a program with more than one thread, use ArrayList
+    -When we write GUI code, we'll use Vector
+
+Vector works the same as Array List and Linked List in coding (except the initial name)
+
+ */
+
+package org.example.week4;
+
+public class vid_1_vector {
+}
+
+***Comparing ArrayList and LinkedList:
+
+                                            ArrayList   LinkedList
+                                            ---------   ----------
+Adding to the end                           Very Fast   Fast
+Adding in the middle                        Slow*       Fairly fast*
+Adding at the start                         Very slow*  Fast
+Searching for an item                       Fast*       Fast*
+Removing an item from the end               Very Fast   Fast
+Removing an item from the middle            Slow*       Fairly Fast*
+Removing an item from the start             Slow*       Fast
+Looping                                     Fast        Almost as fast
+Storage needed in addition to data stored   Minimal     More than ArrayList
+
+* = operation will get slower as list gets longer
+
+ArrayList is more general purpose because we do a lot with data at the end of a list
+
+LinkedLIst would be a better choice if you do a lot with middle data
+
+
+***Classic Java Interview Questions ArrayList vs Linked List**
+
+-Which one is faster to add data to?
+-Adding to the the end? The start? The middle?
+-Which one is faster to fetch data from?
+-From the end? The start? The middle?
+-Which one is faster to delete data from?
+-From the end? The start? The middle?
+
+-Which one takes up more storage space?
+-Think about large datasets – what if you have 1000 items? 1,000,000 items?
+
+------
+
+To check speed: use https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week4_list_data_structure/Speed.java
+
+****vid_2_Array_vs_Vector_with_example
+/*
+ArrayList vs. Vector?
+Which one to choose for code? (slide 25)
+
+-ArrayList is faster for most common tasks
+-Adding/removing at the end of list, looping, searching for item in list
+-Unless you will need to add/remove a lot of data from the start or middle of list - then LinkedList is faster
+-LinkedList has some extra methods for adding/removing at start and at end
+-Remember, other than creating the list, your code will be the same for both types of list
+
+Create a List Syntax: (slide 26)
+What type of List - ArrayList, LinkedList, Vector?
+What type of data does it store? Strings, integer, doubles... ?
+Give the List a name (cities)
+
+List<String> cities = new ArrayList <>();
+
+
+<> Generic types for Array Lists (and Linked lists and vectors)(slide 27):
+
+-Almost all the lists you use will contain data of just one type
+    -An ArrayList of names only contains Strings
+    -An ArrayList of prices only contains Doubles
+-So Java recommends you specify that a List can only contain one particular type of value
+-The compiler will enforce that - only that type will be permitted = safer code
+-And when you remove data from the List, you know what type it is
+
+ArrayList for primitive types (slide 28)
+-Use the Object names for the generic type
+    -int -> Integer
+    -boolean -> Boolean
+    -double -> Double
+
+List<Integer> numbers = new ArrayList <>();
+List<Boolean> results = new ArrayList <>();
+List<Double> prices = new ArrayList <>();
+
+**String is an object type -- has method, so there are things that can be done (uppercase, lowercase, contains, etc.)
+
+List of primitive types:
+-Use the object names (Integer, Double etc.) for the generic type
+-Can add primitive values (int, double etc.) to the List - Java compiler handles conversion between object and primitive value
+
+List<Integer> numbers = new ArrayList <>():
+
+numbers.add(100); //add int value
+
+int first = numbers.get(0); //read value of index 0
+System.out.println(first); //output: 100
+
+ */
+
+package org.example.week4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_2_Array_vs_Vector_with_example {
+    //examples of adding data to lists:
+    public static void main(String[] args) {
+        List<Integer> classCodes = new ArrayList<>();
+        classCodes.add(2545);
+        classCodes.add(1150);
+        classCodes.add(1250);
+
+        System.out.println(classCodes);
+        //output: [2545, 1150, 1250]
+
+        //what size is this?
+        System.out.println(classCodes.size());
+        //output: 3
+
+        //how to loop over a list of integers using int:
+        for (int classCode: classCodes) {
+            //^^classCode is the new variable you create
+            //^^classCodes is the list at the top of this method
+            System.out.println(classCode);
+            //output:
+            //2545
+            //1150
+            //1250
+        }
+
+        //same as above, only using Integer, and a new variable
+        for (Integer classCodeAgain: classCodes) {
+            //^^classCodeAgain is the new variable you create
+            //^^classCodes is the list at the top of this method
+            System.out.println(classCodeAgain);
+            System.out.println("ITEC " + classCodeAgain);
+            //output: (because it's a loop:)
+            //2545
+            //ITEC 2545
+            //1150
+            //ITEC 1150
+            //1250
+            //ITEC 1250
+
+        }
+    }
+}
+
+***vid_2_adding_at_beginning
+
+package org.example.week4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_2_adding_at_beginning {
+    public static void main(String[] args) {
+        List<Integer> classCodes = new ArrayList<>();
+        classCodes.add(2545);
+        classCodes.add(1150);
+        classCodes.add(1250);
+
+        //when adding a list mate, you need to identify the index place and the contents:
+        classCodes.add (0, 1425);
+
+        System.out.println(classCodes);
+        //output: [1425, 2545, 1150, 1250]
+
+        //what size is this?
+        System.out.println(classCodes.size());
+        //output: 4
+
+        //how to loop over a list of integers using int:
+        for (int classCode: classCodes) {
+            //^^classCode is the new variable you create
+            //^^classCodes is the list at the top of this method
+            System.out.println(classCode);
+            //output:
+            //1425
+            //2545
+            //1150
+            //1250
+        }
+
+        //same as above, only using Integer, and a new variable
+        for (Integer classCodeAgain: classCodes) {
+            //^^classCodeAgain is the new variable you create
+            //^^classCodes is the list at the top of this method
+            System.out.println(classCodeAgain);
+            System.out.println("ITEC " + classCodeAgain);
+            //output: (because it's a loop:)
+            //1425
+            //ITEC 1425
+            //2545
+            //ITEC 2545
+            //1150
+            //ITEC 1150
+            //1250
+            //ITEC 1250
+
+        }
+    }
+}
+
 
 
