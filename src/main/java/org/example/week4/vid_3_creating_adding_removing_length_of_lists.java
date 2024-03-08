@@ -3,7 +3,7 @@ package org.example.week4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class vid_3_removing_from_list {
+public class vid_3_creating_adding_removing_length_of_lists {
     public static void main(String[] args) {
 
         List<String> classNames = new ArrayList<>();
@@ -62,7 +62,7 @@ public class vid_3_removing_from_list {
         //	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
         //	at java.base/java.util.Objects.checkIndex(Objects.java:385)
         //	at java.base/java.util.ArrayList.set(ArrayList.java:470)
-        //	at org.example.week4.vid_3_removing_from_list.main(vid_3_removing_from_list.java:56)
+        //	at org.example.week4.vid_3_creating_adding_removing_length_of_lists.main(vid_3_creating_adding_removing_length_of_lists.java:56)
         //Process finished with exit code 1
 
         //how to find if an element is in a condition: .contains:
