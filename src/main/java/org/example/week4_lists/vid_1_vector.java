@@ -13,7 +13,7 @@ Vector works the same as Array List and Linked List in coding (except the initia
 
  */
 
-package org.example.week4;
+package org.example.week4_lists;
 
 public class vid_1_vector {
 }

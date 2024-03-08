@@ -1,6 +1,6 @@
 //from: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week4_list_data_structure/RemovingIntFromArrayList.java
 
-package org.example.week4;
+package org.example.week4_lists;
 
 import java.util.ArrayList;
 import java.util.List;
