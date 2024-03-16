@@ -851,4 +851,362 @@ public class vid_4_array_loop_add {
 
 ****vid_5_loops_with_user_input_task_list_program
 
+package org.example.week4_lists;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static input.InputUtils.stringInput;
+
+public class vid_5_loops_with_user_input_task_list_program {
+    public static void main(String[] args) {
+        List<String> todoList = new ArrayList<>();
+
+        while (true) {
+            String data = stringInput("Please type a task you need to do, or press Enter to quit");
+//            if (data.length() == 0) { //if use just presses Enter, the length of the text is 0
+                if (data.isEmpty()) { //could use this instead of this ^^^
+                break;
+            }
+            todoList.add(data);
+        }
+        System.out.println("Thank you, here are all of the tasks you entered:");
+
+        //this is an enhanced "for loop":
+        for (String input : todoList) {
+            System.out.println(input);
+            //output:
+            //Thank you, here are all of the tasks you entered:
+            //do laundry
+            //wash dishes
+            //rake leaves
+            //clean bathroom
+        }
+    }
+}
+
+****vid_5_your_turn_use_task_list_and_add_things
+
+/* start with: vid_5_loops_with_user_input_task_list_program
+(slide 44)
+
+-Add a check to prevent duplicate items added
+    -use contains()
+    -print a message to the user
+    -don't add the item to the list
+
+-Print the total number of tasks
+
+ */
+
+package org.example.week4_lists;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static input.InputUtils.stringInput;
+
+public class vid_5_your_turn_use_task_list_and_add_things {
+    public static void main(String[] args) {
+        List<String> todoList = new ArrayList<>();
+
+        //how does the below "String data" interact with the above "todoList"? There is nothing tethering it together? No words match
+        //Is it just because it's within the same method that the computer knows? <confused> (I think this is my main block
+        //throughout this class. I don't know when the computer knows and when it doesn't.) I can pattern match and
+        //make both "sides" of the code flow if I know the "pivot point" or how they talk to each other.
+
+        while (true) {
+            String data = stringInput("Please type a task you need to do, or press Enter to quit");
+//            if (data.length() == 0) { //if use just presses Enter, the length of the text is 0
+            if (data.isEmpty()) { //could use this instead of this ^^^
+                break;
+            }
+//            if (todoList.contains(data)) {
+                //when adding ignores case, this if statement ^^^ changes to this:
+            if (containsIgnoresCase(todoList, data)) {
+                System.out.println("This list already contains this list item, try again");
+            } else {
+                todoList.add(data);
+            }
+        }
+            System.out.println("Thank you, here are all of the tasks you entered:");
+
+            //this is an enhanced "for loop":
+            for (String input : todoList) {
+                System.out.println(input);
+            }
+        System.out.println("You have entered " + todoList.size() + " items to your To Do list.");
+            //output: (note: I accidentally added a space after one of the "dance" terms, so if this were for real, would
+            //need to cut spaces out of inputs:
+        //Thank you, here are all of the tasks you entered:
+        //sing
+        //dance
+        //dance
+        //sleep
+        //You have entered 4 items to your To Do list.
+        }
+        //write a new method to ignore case on inputs:
+        public static boolean containsIgnoresCase (List<String> list, String data) {
+        //test to see if the array list called "list" contains some data called "data"
+            // (general method to find if something contains something else ignoring case:
+            for(String item: list) {
+                if (item.equalsIgnoreCase(data)) {
+                    //if, after ignoring case, the item is found in the list:
+                    return true;
+                }
+            }
+            //if we don't find the item after ignoring case, return false:
+            return false;
+            //output: (after ignoring case)
+            //Please type a task you need to do, or press Enter to quit
+            //dance
+            //Please type a task you need to do, or press Enter to quit
+            //DANCE
+            //This list already contains this list item, try again
+            //Please type a task you need to do, or press Enter to quit
+            //sing
+            //Please type a task you need to do, or press Enter to quit
+            //SINg
+            //This list already contains this list item, try again
+            //Please type a task you need to do, or press Enter to quit
+            //play
+            //Please type a task you need to do, or press Enter to quit
+
+            //Thank you, here are all of the tasks you entered:
+            //dance
+            //sing
+            //play
+            //You have entered 3 items to your To Do list.
+        }
+
+    }
+
+****vid_6_lists_and_loops_more_ways
+
+/*
+Counting copies of items in a list: (slide 45)
+
+-Create a list of internet speeds for every hour in a 12-hour period
+-Print the speeds using a regular for loop, to access the index as well as the data
+-How many times was the speed 0?
+
+ */
+
+package org.example.week4_lists;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static input.InputUtils.positiveDoubleInput;
+
+public class vid_6_lists_and_loops_more_ways {
+    public static void main(String[] args) {
+
+        List<Double> speeds = new ArrayList<>();
+
+        int totalHours = 12;
+
+        //regular for loop: (to gather data)
+        for (int hour = 0; hour < totalHours; hour++) {
+            double speed = positiveDoubleInput("Enter the internet speed for hour " + hour);
+            speeds.add(speed);
+        }
+        //print out all the speeds:
+        System.out.println("All the speeds are:");
+
+        //regular for loop: (because want to print the hour as well as the data:
+        for (int hour = 0; hour < speeds.size(); hour++) {
+            double speed = speeds.get(hour);
+            System.out.printf("Hour: %d Speed %.2f\n", hour, speed);
+        }
+        //count the number of times the speed was 0 (or where the internet went down)
+
+        //enhanced for loop: (counting the number of times the speed was equal to zero:
+        int zeroCount = 0;
+        for(double speed: speeds) {
+            if (speed == 0) {
+                zeroCount++;
+            }
+        }
+        System.out.println("Number of times speed was 0 (no connection) : " + zeroCount);
+
+        //Remove all zeros
+        while (speeds.contains(0.0)) {
+            speeds.remove (0.0);
+        }
+        //Questions:
+        //why remove 0.0 instead of 0?
+        // (my answer: because it's a double, not int?)
+
+        //why is a while loop used instead of a for loop?
+        //(my answer: while will only trigger when the thing is happening (speed =0), so less code)
+
+        System.out.println(speeds);
+
+        //Find the average of all the speeds:
+        double total = 0;
+        for (double speed: speeds) {
+            total = total + speed;
+        }
+        double average = total / speeds.size ();
+
+        System.out.println("The average speed is " + average);
+    }
+}
+
+//input/output:
+//Enter the internet speed for hour 0
+//5
+//Enter the internet speed for hour 1
+//6
+//Enter the internet speed for hour 2
+//7
+//Enter the internet speed for hour 3
+//0
+//Enter the internet speed for hour 4
+//0
+//Enter the internet speed for hour 5
+//0
+//Enter the internet speed for hour 6
+//6
+//Enter the internet speed for hour 7
+//7
+//Enter the internet speed for hour 8
+//8
+//Enter the internet speed for hour 9
+//9
+//Enter the internet speed for hour 10
+//0
+//Enter the internet speed for hour 11
+//
+//Error - please enter a positive number.
+//Enter the internet speed for hour 11
+//4
+//All the speeds are:
+//Hour: 0 Speed 5.00
+//Hour: 1 Speed 6.00
+//Hour: 2 Speed 7.00
+//Hour: 3 Speed 0.00
+//Hour: 4 Speed 0.00
+//Hour: 5 Speed 0.00
+//Hour: 6 Speed 6.00
+//Hour: 7 Speed 7.00
+//Hour: 8 Speed 8.00
+//Hour: 9 Speed 9.00
+//Hour: 10 Speed 0.00
+//Hour: 11 Speed 4.00
+//Number of times speed was 0 (no connection) : 4
+//[5.0, 6.0, 7.0, 6.0, 7.0, 8.0, 9.0, 4.0]
+//The average speed is 6.5
+
+***vid_6_collection_objects
+
+/*
+LinkedList, ArrayList  and Vector are Collection objects (slide 48)
+
+-They also have the type Collection
+    -They actually implement an interface called Collection
+    -For now –LinkedList, ArrayList and Vector are also Collection objects
+
+-Java provides a class called ---Collections--- which has several utility methods that operate
+    on Collection objects – sort, max, min, shuffle, reverse, copy, fill…
+https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Collections.html
+
+
+ */
+
+package org.example.week4_lists;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class vid_6_collection_objects {
+
+        //Clara's Collections methods from:
+        // https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week4_list_data_structure/CollectionsMethods.java
+//        package week4_list_data_structure;
+
+/*
+ *  Collections utility methods for ArrayList and LinkedList
+ */
+        public class CollectionsMethods {
+
+            public static void main(String[] args) {
+
+                List<String> animals = new ArrayList<>();
+
+                animals.add("Cat");
+                animals.add("Zebra");
+                animals.add("Fish");
+                animals.add("Bird");
+                animals.add("Fish");    // I meant to add "Fish" twice
+
+                System.out.println("Original animals list: " + animals);
+
+        // Sort into order - only if the type of data in the list is sortable
+                Collections.sort(animals);
+                System.out.println("Sorted animals list: " + animals);
+
+        //replace all:
+                Collections.replaceAll(animals, "Fish", "Shark");  // Replace all "Fish" elements with "Shark"
+                System.out.println("Replace \"Fish\" with \"Shark\", now the list is: " + animals);
+
+        //reverse:
+                Collections.reverse(animals);   // reverse the order of the list
+                System.out.println("In reverse order: " + animals);
+
+        //shuffle: put in random order
+                Collections.shuffle(animals);   // put elements in random order
+                System.out.println("Shuffled list: " + animals);
+
+        //minimum (for strings first thing alphabetically:)
+                // Display the minimum value = the lowest value = for strings, the first in the alphabet
+                System.out.println("First in the alphabet: " + Collections.min(animals));
+
+        //maximum (for strings, last thing alphabetically:)
+                // Display the maximum value = the lowest value = for Strings, the last in the alphabet
+                System.out.println("Last in the alphabet: " + Collections.max(animals));
+
+        //fill whole array with one thing:
+                Collections.fill(animals, "Koala");   // Fill the entire ArrayList with "Koala"
+                System.out.println("Replaced every element with Koala and now the list is: " + animals);
+
+            }
+        }
+    }
+
+
+******vid_6_another_list_creation_way
+
+package org.example.week4_lists;
+
+import java.util.List;
+
+public class vid_6_another_list_creation_way {
+    public static void main(String[] args) {
+
+        //how to create a list without adding individually to it:
+        //however---you can't change this list
+        List<String> animals = List.of("Cat", "Bird", "Zebra");
+
+        System.out.println(animals);
+        //output: [Cat, Bird, Zebra]
+
+        animals.add ("Frog"); //this won't work because the initial list can't be modified
+        //
+        animals.remove("Cat"); //this also won't work because the initial list can't be modified
+
+        //output: [Cat, Bird, Zebra]
+        //error parts because can't add or remove after making a fast list via "List.of"
+        // Exception in thread "main" java.lang.UnsupportedOperationException
+        //	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+        //	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
+        //	at org.example.week4_lists.vid_6_another_list_creation_way.main(vid_6_another_list_creation_way.java:15)
+        //
+        //Process finished with exit code 1
+    }
+}
+
 
