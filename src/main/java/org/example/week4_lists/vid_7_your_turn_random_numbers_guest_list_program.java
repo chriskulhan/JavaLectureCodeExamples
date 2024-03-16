@@ -20,20 +20,54 @@
     Places to add validation:
 Check for valid names if removing by name; or check for valid indexes if removing names by index
 End part 4's while loop if the user has removed all of the names from the guest list.
-
-
-
-
-
-
-
  */
 
 
 package org.example.week4_lists;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static input.InputUtils.stringInput;
+import static org.example.week4_lists.vid_5_your_turn_use_task_list_and_add_things.containsIgnoresCase;
+
 public class vid_7_your_turn_random_numbers_guest_list_program {
-    public static void main(String[] args) {
-//pause vid_7 2:21
+    public static boolean main(String[] args) {
+//        reference: my week_4 vid_5_loops_with_user_input_task_list_program
+        //names of the guest:
+        List<String> guestList = new ArrayList<>();
+
+        while (true) {
+            String name = stringInput("Please type the name of your next guest, or press just enter to finish:");
+            if (name.isEmpty()) {
+                break;
+            }
+            if (containsIgnoresCase(guestList, name)) {
+                System.out.println("You already added " + name);
+            } else {
+                System.out.println("Adding " + name + " to list.");
+                guestList.add(name);
+            }
+
+        }
+        Collections.sort(guestList);
+        System.out.println("Thank you, here are all of the names you added:");
+        System.out.println(guestList);
     }
-}
+        //this is an enhanced "for loop":
+//        for (String input : guestList) {
+//            System.out.println(input);
+//        }
+
+        //reference: my week 4: vid_5_your_turn_use_task_list_and_add_things
+        public static boolean containsIgnoresCase (List < String > list, String data){
+            for (String item : list) {
+                if (item.equalsIgnoreCase(data)) {
+                    //if, after ignoring case, the item is found in the list:
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
