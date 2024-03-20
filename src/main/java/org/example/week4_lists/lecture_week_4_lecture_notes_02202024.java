@@ -1,9 +1,9 @@
-package org.example.lecture_notes_02202024;
+package org.example.week4_lists;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class lecture_week_4 {
+public class lecture_week_4_lecture_notes_02202024 {
     public static void main(String[] args) {
         //mutable list - we can change it and add things
         // change things in the list
