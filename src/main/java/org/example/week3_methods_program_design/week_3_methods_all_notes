@@ -1612,4 +1612,182 @@ public static void makeArrayUpperCase(String[] array) {
 
 ***vid_10_null_value_pointer_exceptions.java
 
+/* notes from video:
+
+-null is a special value in Java
+    -any object type (strings, lists, hashmaps, arraylists, random, etc.) can have the value null
+    -null means that a variable *name* exists, but doesn't refer to or point to any data.
+
+-Primitive (int, boolean, double, etc.) types can't be null, they always have a value
+    int number = null //error!!
+
+-We can create a variable and set it to null
+    **might do that because the there isn't any data
+    ** for this variable, the data is missing or unknown:
+    String name = null;
+
+- An null object is *not* the same as an empty object
+*/
+
+package org.example.week3_methods_program_design;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_10_null_value_pointer_exceptions {
+    public static void main(String[] args) {
+
+        String name = null;
+
+List<String> myList = null; //no list - no container, nothing to put data in (there is no container)
+List<String> emptyList = new ArrayList<>(); //new empty list, we can add data
+
+        //a way to "initialize" the object is to re-create it:
+        myList = new ArrayList<>();
+
+        System.out.println(myList.size());
+        System.out.println(myList.isEmpty());
+        myList.add ("hello");
+        //these will get a nullpointerexception
+
+//- Null strings (there is no data) and empty strings (still a string, just doesn't have any characters yet) can both exist:
+
+String anotherName = ""; //empty string -different than a null string
+System.out.println(name); //not an error
+//output: null
+
+name = "Alex"; // set to a string
+System.out.println(name);
+//output: Alex
+
+
+//-Check if a values is null before using it:
+//print: there is no name:
+if (name == null) { //test if a variable is null
+System.out.println("there is no name"); //not an error
+}
+
+//alternate:
+if (name != null){ //check if the variable is null before using it.
+    System.out.println("The name " + name + " has " + name.length() + " letters.");
+    //with name.length(), object.method, if the main object "name" is null, then there is no way to find
+    //the length of something that doesn't exist.
+}
+
+//output:
+//0
+//true
+//null
+//Alex
+//The name Alex has 4 letters.
+
+
+/*
+
+
+package org.example.week3_methods_program_design;
+
+import java.util.List;
+
+public class vid_10_null_value_pointer_exceptions {
+    public static void main(String[] args) {
+        List<Integer> numbers = makeListofNumbers(0);
+        System.out.println( numbers.size());
+        //size is cause the null pointer exception
+        printList(numbers);
+    }
+
+    public static List<Integer> makeListofNumbers (int count) {
+        /*Create and return a list of sequential numbers from 1 to count
+        -if count is 0 or negative, return null
+         */
+//        if (count <= 0) {
+//            return null;
+//        } else {
+//
+//        }
+
+/*What if you don't know if a method is null or not?
+//working in a method
+ */
+
+//can test if a value is null:
+if (name == null) {
+    System.out.println("We don't know the name");
+        } else {
+
+    System.out.println("The name is " + name);
+        }
+    }
+}
+
+***vid_11_methods_concepts***
+/* Methods concepts
+
+    -We can call other methods for our programs
+        *enables us to use code written by other people
+    -We can write and call our own methods
+        * our own program, or other programs, could use these methods
+
+ */
+
+
+package org.example.week3_methods_program_design;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static input.InputUtils.intInput;
+import static input.InputUtils.stringInput;
+public class vid_11_methods_concepts {
+    public static void main(String[] args) {
+    //stringInput is the method name
+    //It has one argument, a String
+    //It returns another String
+    String name = stringInput("Enter your name:");
+    //input: 'Chris' is stored in "name", so the "stringInput(xx)" will be replaced with whatever is input:
+        //think of it like: 'String name = Chris'
+
+    String question = "Enter your favorite color: ";
+    String favoriteColor = stringInput(question);
+
+    int number = intInput ("Enter the number of books to order:");
+
+    //println is a method, too
+        //this is a statement, asking the program to do something
+        //println doesn't return anything so we don't use it in an assignment statement
+        //What's the "System.out" part? 'out' is the name of an object that defines the println
+        //so 'out' knows how to print things. There's a 'System' class that stores the 'out' object
+
+        System.out.println("The number is " + number); //this is a basic statement, do something, but don't change values
+
+        //A method can belong to the same class as you are writing code in,
+        //so you can call them directly
+        //Other methods belong to a different class, for example the 'of' method belongs to the List class
+        List<String> languages = List.of("Java", "C#", "Rust");
+
+        //Other methods belong to objects of a class
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(10);
+        numbers.add(4);
+
+        Collections.sort(numbers);
+
+        String example = "abc";
+        int lengthOfString = example.length(); //calling the 'length' method for the string named 'example'
+
+        //input/output:
+        //Enter your name:
+        //chris
+        //Enter your favorite color:
+        //indigo
+        //Enter the number of books to order:
+        //4
+        //The number is 4
+}
+}
+
+***vid_11_scope_example
 
