@@ -1,4 +1,5 @@
 /*
+
  * Divide and conquer: break a complex problem into smaller parts
     - programming is problem-solving
     - often the problems we need to solve are complex:
@@ -8,12 +9,11 @@
 *Re-use code
     - can call a method more than once, as needed
 
-*Scope of variables
+*Scope of variables (there is another video that talks about this)
     -limits the parts of a program where you can access data
         **this is good because it prevents other parts of your program from
            accidentally modifying your data.
         **allows us to re-use variable names more easily
-
 
  */
 
