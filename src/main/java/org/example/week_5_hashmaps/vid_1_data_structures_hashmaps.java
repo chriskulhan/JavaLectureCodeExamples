@@ -19,6 +19,7 @@ import java.util.HashMap;
 public class vid_1_data_structures_hashmaps {
     public static void main(String[] args) {
         //create a hashmap that will store State names with 2 letter abbreviations for the states (key-value pair)
+        //could use 'Map' instead of 'Hashmap' just below vv Both are okay
         HashMap<String, String > stateAbreviations = new HashMap<>();
         //first 'String' is the key, second 'String' is the value
 
