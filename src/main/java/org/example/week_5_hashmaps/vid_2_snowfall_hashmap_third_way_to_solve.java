@@ -27,36 +27,74 @@ public class vid_2_snowfall_hashmap_third_way_to_solve {
 
         System.out.println("In January, " + janSnowfall + " inches of snow fell");
 
-        for(String month: snowfall.keySet()) {
+        for (String month : snowfall.keySet()) {
             double snow = snowfall.get(month);
             System.out.println("The snow in " + month + " was " + snow);
         }
 
+        //*****************
+        //set this double to loop the total onto
         double total = 0;
 
-        for (Double snow: snowfall.values()) {
+        //for double snow in snowfall values
+        for (Double snow : snowfall.values()) {
+            //add each snowfall amount in turn to the above variable 'total'^^
             total += snow;
         }
 
         System.out.println("Total snowfall is " + total + " inches.");
-        String newMonth = stringInput ("Enter Month:");
-        double newSnow = positiveDoubleInput ("Enter snow for " + newMonth);
 
-        boolean overwrite = true;
+        //*****************
 
-        if (snowfall.containsKey(newMonth)) {
-            double snow = snowfall.get(newMonth);
-            System.out.println( newMonth + " is already in the Hashmap");
-            System.out.println("Snowfall for " + newMonth + "was " + snow + " inches.");
-            overwrite = yesNoInput("Do you want to overwrite the old data?");
-        }
-        if (overwrite) {
-            snowfall.put(newMonth, newSnow);
+        String newMonth = stringInput("Enter Month:");
+        double newSnow = positiveDoubleInput("Enter snow for " + newMonth);
+
+        if (snowfall.containsKey("July")) {
+            System.out.println("There was snow in July!");
         } else {
-            System.out.println("Hashmap was not modified");
+            System.out.println("There was no snow in July.");
         }
 
-    } //end of psvm
+//        boolean overwrite = true;
+
+        //double (lowercase) is a primitive type and *has* to be a number and MUST have a number
+        //primitive types aren't allowed to be null.
+
+        //Double (uppercase) is the *object* type:
+        Double snow = snowfall.get(newMonth);
+
+        //if the data is not in the hashmap
+        if (snow != null) {
+            //ask if should overwrite?
+
+            System.out.println("Snowfall for " + newMonth + "was " + snow + " inches.");
+            boolean overwrite = yesNoInput("Do you want to overwrite the old data?");
+
+            if (overwrite) {
+                snowfall.put(newMonth, newSnow);
+            } else {
+                System.out.println("Hashmap was not modified");
+            }
+        } else {
+            snowfall.put(newMonth, newSnow);
+        }
+    }//end of psvm
+
+//alternative block of code: (rearranged from just above where you ask if the snow is not there, then add it first)
+        //is snow NOT there?
+//        if (snow == null) {
+//            snowfall.put(newMonth, newSnow);
+//        } else {
+//            System.out.println("Snowfall for " + newMonth + "was " + snow + " inches.");
+//            boolean overwrite = yesNoInput("Do you want to overwrite the old data?");
+//
+//            if (overwrite) {
+//                snowfall.put(newMonth, newSnow);
+//            } else {
+//                System.out.println("Hashmap was not modified");
+//            }
+//        }
 
 } //end of main
+
 
