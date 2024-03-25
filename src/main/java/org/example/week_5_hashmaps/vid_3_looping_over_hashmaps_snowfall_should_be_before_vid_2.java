@@ -34,15 +34,15 @@ public class vid_3_looping_over_hashmaps_snowfall_should_be_before_vid_2 {
         //output: {January=3.1, February=12.4}
         // overwritten ^^!!
 
-//use the get method to fetch data:
+//use the get method to fetch data: (use .get())
         System.out.println("The snowfall in January is " + snowfall.get("January") + " inches.");
         //output: The snowfall in January is 3.1 inches.
 
-//Try to get data from the hashmap that doesn't exist:
+//Try to get data from the hashmap that doesn't exist: (using .get() will return null)
         System.out.println("The snowfall in July is " + snowfall.get("July") + " inches.");
         //output: The snowfall in July is null inches.
 
-//Check to see if data is in a hashmap:
+//Check to see if data is in a hashmap: ( .containsKey() )
         if (snowfall.containsKey("July")) {
             System.out.println("There was snow in July!");
         } else {

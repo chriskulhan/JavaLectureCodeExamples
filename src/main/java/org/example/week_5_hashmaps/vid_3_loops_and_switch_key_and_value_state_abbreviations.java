@@ -44,7 +44,8 @@ public class vid_3_loops_and_switch_key_and_value_state_abbreviations {
             //MI
         }
 
-//loop over the values:
+//loop over the HashMap values: ( .values()), not useful if you need to get the key from th value
+        //values aren't unique
         for (String abbreviation: stateAbbreviations.values()) {
             System.out.println(abbreviation);
 
@@ -102,6 +103,11 @@ public class vid_3_loops_and_switch_key_and_value_state_abbreviations {
 
             System.out.println(abbreviationsStateNames);
             //output: {MN=Minnesota, WI=Wisconsin, IA=Iowa, MI=Michigan}
+
+//How to find the size of a hashmap? (it's the number of key-value pairs)
+
+            System.out.println("There are " + stateAbbreviations.size() + " states listed.");
+            //output: There are 4 states listed.
         }
 
     } //end of psvm
