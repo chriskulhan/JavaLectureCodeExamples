@@ -24,7 +24,7 @@ import java.util.Map;
 
 import static input.InputUtils.positiveIntInput;
 
-public class vid_5_your_turn_road_trip_planner {
+public class vid_5_your_turn_road_trip_part_1_planner {
     public static void main(String[] args) {
         Map< String, Integer > citiesAndDistancesFromMpls = new HashMap<>();
 
