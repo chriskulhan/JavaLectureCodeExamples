@@ -30,7 +30,6 @@ public class vid_5_your_turn_road_trip_part_2_with_list {
         //the cities are from Minneapolis:
         List<String> citiesInRange = new ArrayList<>();
 
-
         for (String city : citiesAndDistancesFromMpls.keySet()){
             int distance = citiesAndDistancesFromMpls.get(city);
             if (distance <= maximumDistanceYouWantToDrive) {

@@ -73,7 +73,7 @@ public class vid_6_hashmaps_wrap_up_road_trip_part_3 {
             //Stillwater is 26 miles away.
             //[Stillwater]
 
-            //prefer one city per row: (continuation of the else above ^^^)
+        //prefer one city per row: (continuation of the else above ^^^)
             System.out.println("There are " + citiesInRange.size() + " cities you can drive to in your listed range. " +
                     "In no particular order: " );
             for (String city : citiesInRange) {

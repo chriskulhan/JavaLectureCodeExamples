@@ -23,7 +23,7 @@ public class vid_1_data_structures_hashmaps {
         HashMap<String, String > stateAbreviations = new HashMap<>();
         //first 'String' is the key, second 'String' is the value
 
-        //add things using the (.put method:)
+//add things using the (.put method:)
         stateAbreviations.put("Minnesota", "MN");
         stateAbreviations.put("Wisconsin", "WI");
         stateAbreviations.put("Michigan", "MI");
@@ -33,22 +33,22 @@ public class vid_1_data_structures_hashmaps {
         //output: {Minnesota=MN, Wisconsin=WI, Michigan=MI}
         //output after adding IOWA:IA {Iowa=IA, Minnesota=MN, Wisconsin=WI, Michigan=MI}
 
-        //read data: (.get method)
+//read data: (.get method)
         System.out.println(stateAbreviations.get("Minnesota"));
         //output MN
 
-        //if you try to grab a state (Iowa) that's not in the hashmap:
+//if you try to grab a state (Iowa) that's not in the hashmap:
         //can be used to determine if a key is in your hashmap:
         System.out.println(stateAbreviations.get("Iowa"));
         //output: null (before I added that data)
         //output: IA (after stateAbreviations.put("Iowa", "IA"); was added above)
 
-        //retrieve information from a hashmap and put it into a variable:
+//retrieve information from a hashmap and put it into a variable:
         String wisconsinAbbreviation = stateAbreviations.get("Wisconsin");
         System.out.println(wisconsinAbbreviation);
         //output: WI
 
-        //be careful to use the exact key as it's typed (so here lower case wisconsin will return null:
+//be careful to use the exact key as it's typed (so here lower case wisconsin will return null:
         String wisconsinAbbreviationAgain = stateAbreviations.get("wisconsin");
         System.out.println(wisconsinAbbreviationAgain);
         //output:null
