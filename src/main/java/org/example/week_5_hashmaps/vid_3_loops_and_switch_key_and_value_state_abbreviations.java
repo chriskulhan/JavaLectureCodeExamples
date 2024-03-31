@@ -44,7 +44,7 @@ public class vid_3_loops_and_switch_key_and_value_state_abbreviations {
             //MI
         }
 
-//loop over the HashMap values: ( .values()), not useful if you need to get the key from th value
+//loop over the HashMap values: ( .values()), not useful if you need to get the key from the value
         //values aren't unique
         for (String abbreviation: stateAbbreviations.values()) {
             System.out.println(abbreviation);

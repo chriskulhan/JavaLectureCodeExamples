@@ -17,11 +17,11 @@ public class classNotes_03262024_creating_a_class {
 
     //make a 'Textbook' object that will contain these four things (just above^^)
 
-    Textbook automateBoringStuff = new Textbook();
-    automateBoringStuff.title = "Automate the boring Stuff";
-    automateBoringStuff.author = "Automate the boring stuff";
-    automateBoringStuff.classAssignedTo = "ITEC 1150";
-    automateBoringStuff.edition = "2nd";
+//    Textbook automateBoringStuff = new Textbook();
+//    automateBoringStuff.title = "Automate the boring Stuff";
+//    automateBoringStuff.author = "Automate the boring stuff";
+//    automateBoringStuff.classAssignedTo = "ITEC 1150";
+//    automateBoringStuff.edition = "2nd";
 
 
     }

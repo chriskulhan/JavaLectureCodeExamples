@@ -14,12 +14,12 @@ public class vid_3_creating_adding_removing_length_of_lists {
         System.out.println(classNames);
         //output: [Programming Logic, Web Client Server, Project Management, Info Tech Concepts]
 
-        //Remove a known item (by value) from a list:
+//Remove a known item (by value) from a list:
         classNames.remove("Project Management"); //internally will use .equals to find this
         System.out.println(classNames);
         //output:[Programming Logic, Web Client Server, Info Tech Concepts]
 
-        //remove by position (by index):
+//remove by position (by index):
         classNames.remove(0); //int primitive type
         System.out.println(classNames);
         //output: [Web Client Server, Info Tech Concepts]
@@ -29,25 +29,25 @@ public class vid_3_creating_adding_removing_length_of_lists {
         //how do you remove a number from a list?
         //**Go to vid_3_removing_numbers_from_list_claras_code
 
-        //if you try and remove something that's not there, nothing happens
+//if you try and remove something that's not there, nothing happens
         classNames.remove("bobobobo"); //object
         System.out.println(classNames);
         //nothing happens: output: [Web Client Server, Info Tech Concepts]
 
-        //in order to see if something was removed, add the boolean wasRemoved before: (false)
+//in order to see if something was removed, add the boolean wasRemoved before: (false)
         boolean wasRemoved = classNames.remove("booboo");
         System.out.println(classNames + " " + wasRemoved);
         //output: [Web Client Server, Info Tech Concepts] false
         //false because it wasn't removed^^^
 
-        //to see if something was removed (true): make a new boolean variable (wasRemoved)
+//to see if something was removed (true): make a new boolean variable (wasRemoved)
         boolean wasRemovedInfoTechConcepts = classNames.remove("Info Tech Concepts");
         System.out.println(classNames + " " + wasRemovedInfoTechConcepts);
         //output: [Web Client Server] true
         System.out.println(classNames);
         //output: [Web Client Server]
 
-        //to modify an element in the list: use .set(index place, contents)
+//to modify an element in the list: use .set(index place, contents)
         classNames.set(0, "Systems Analysis");
         System.out.println(classNames);
         //output: [Systems Analysis]
@@ -65,7 +65,7 @@ public class vid_3_creating_adding_removing_length_of_lists {
         //	at org.example.week4.vid_3_creating_adding_removing_length_of_lists.main(vid_3_creating_adding_removing_length_of_lists.java:56)
         //Process finished with exit code 1
 
-        //how to find if an element is in a condition: .contains:
+//how to find if an element is in a condition: .contains:
         if (classNames.contains("C# Programming")) {
             System.out.println("The list does contain C#");
         } else {
@@ -73,7 +73,7 @@ public class vid_3_creating_adding_removing_length_of_lists {
             //output: The list does NOT contain C#
         }
 
-        //use a variable with the contains method (.contains) to find if an element is in a condition: (doesn't)
+//use a variable with the contains method (.contains) to find if an element is in a condition: (doesn't)
         String search = "C# Programming";
         //use the variable ^^^ "search" in the contains method:
         if (classNames.contains(search)) {
@@ -84,7 +84,7 @@ public class vid_3_creating_adding_removing_length_of_lists {
             //output: The list does NOT contain C# Programming
         }
 
-        //use a variable with the contains method (.contains) to find if an element is in a condition: (does)
+//use a variable with the contains method (.contains) to find if an element is in a condition: (does)
         String searchAgain = "Systems Analysis";
         //use the variable ^^^ "search" in the contains method:
         if (classNames.contains(searchAgain)) {
@@ -95,7 +95,7 @@ public class vid_3_creating_adding_removing_length_of_lists {
             //output: The list does contain Systems Analysis
         }
 
-        //to find the length of a list, use the size method (.size):
+//to find the length of a list, use the size method (.size):
         System.out.println(classNames.size());
         //output: 1
 

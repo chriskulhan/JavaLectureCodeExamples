@@ -115,7 +115,7 @@ public class vid_2_hashmap_example_snowfall {
 
         //take the yesNoInput response from just above "overwrite" and make decisions based on the response:
         if (overwrite) {
-            //if you do want overwrite, add the data:
+            //if you do want to overwrite, add the data:
             snowfall.put(newMonth, newSnow);
             System.out.println(snowfall);
         } else {
