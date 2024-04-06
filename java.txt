@@ -1,0 +1,3 @@
+The classname is Java. 
+The average enrollment is 22.16 students.
+The class code is 2545

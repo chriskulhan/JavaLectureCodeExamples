@@ -36,7 +36,7 @@ package org.example.week4_lists;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tvid_1_data_structure_lists {
+public class vid_1_data_structure_lists {
     public static void main(String[] args) {
 
         List<String> arrayList = new ArrayList<>();

@@ -1,0 +1,492 @@
+***vid_1_files_and_exceptions_intro_writing
+
+//Files and exceptions
+//  **how to read and write text files?
+
+//from PowerPoint slide 2:
+//Java has lots of ways of reading and writing files:
+
+/*
+-There are several Java library classes for file input and output or I/O
+-To enable you to read and write to many different types of files, and handle different circumstances
+    *Do you want to read in the file byte by byte,  character by character, or line by line?
+    *Are you reading, writing, appending data?
+    *Are you reading/writing sequentially, or do you need random access – the ability to read from/write
+        to any point in the file?
+    *What type of data are you writing? Text or binary?
+
+Today: Reading and writing text files sequentially; line-by-line (slide 3)
+
+-Opening a text file, and starting to read at the beginning (sequentially)
+-Creating a file and writing lines to the file (in order lines should appear in the file)
+-Opening a file and appending data to the end of that file
+-In all cases, writing text data line-by-line or reading line-by-line
+
+Writing to a file (slide 4)
+
+Steps for writing to a file:
+
+1. EITHER create and open file for writing, OR open an existing file to add data
+2. Write data (typically text)
+3. Close the file (important!) **tell java to tell the operating system is properly saved.
+
+Code follows… ignore Exception-related code for now
+
+ */
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_1_files_and_exceptions_intro_writing {
+    //File writing application. Create a class called Writing with this code.
+    // Run your program and you should see a new file called hello.txt in the root directory
+    // of your project. Double-click on it to view it in Intellij:
+
+    public static void main(String[] args) throws IOException {
+        //added "throws IOException" above
+
+        //if file doesn't exist, will be created
+        //if file DOES exist, it will be overwritten and any data in the last file will be completely lost.
+        FileWriter writer = new FileWriter("hello.txt");
+        BufferedWriter bufWriter =  new BufferedWriter(writer);
+
+        bufWriter.write("Hello\n"); //need to add a new line character after each
+        bufWriter.write("More data here\n");
+        bufWriter.write("Goodbye\n");
+        bufWriter.write("Second running will this overwrite?\n"); //added after running once.
+        //output:
+        //Hello
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+
+        //another way to write the above code:
+        bufWriter.write("Hello space newLine() added below"); //need to add a new line character after each
+        bufWriter.newLine();
+        bufWriter.write("More data here");
+        bufWriter.newLine();
+        bufWriter.write("Goodbye");
+        bufWriter.newLine();
+        bufWriter.write("Second running will this overwrite?"); //added after running once.
+        bufWriter.newLine();
+        //output: Hello space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+
+        bufWriter.close(); //don't forget to close!
+
+        //when run, won't show any output below, but there will be a file added in the root(base) directory
+        // "JavaLectureCodeExamples" called hello.txt **same as listed here ^^^
+        // (FileWriter writer = new FileWriter("hello.txt");)
+
+        //in the hello.txt file:
+        //Hello
+        //More data here
+        //Goodbye
+
+        //what happens if you run this again? the file is overwritten
+        //verify by changing
+
+        //now in the hello.txt file:
+        //Hello
+        //More data here
+        //Goodbye
+        //Second running will this overwrite? //yes! It did!
+
+    }
+}
+
+
+***vid_2_a_writing_strings_to_file
+
+//use FileWriter and BufferWriter together
+
+//from PowerPoint (slide 7)
+//
+// The FileWriter object can open, create, close, and write to a file
+//FileWriter can write out Strings or chars to a file
+//https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/io/FileWriter.html
+//If the file doesn't exist, then FileWriter will create it
+//If the file does exist, it will be overwritten
+//If you don't want to overwrite your data, then use the append flag (example in a few slides time)
+
+//slide 8:
+//
+// File I/O (input/output) is slow - about 1000 times slower than reading/writing to memory
+//If your program does a lot of I/O it can slow down considerably
+//BufferedWriter class wraps FileWriter and handles I/O in the background of your program; so memory-based
+// operations can continue while the file is being used
+
+//BufferedWriter benefits:
+// 1. wraps with a filewriter,
+// 2. is writing to disc in the background
+// 3. will make code faster
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_2_a_writing_strings_to_file {
+    public static void main(String[] args) throws IOException {
+    //added "throws IOException" above
+
+    //if file doesn't exist, will be created
+    //if file DOES exist, it will be overwritten and any data in the last file will be completely lost.
+    FileWriter writer = new FileWriter("helloAgainVid2.txt");
+    BufferedWriter bufWriter =  new BufferedWriter(writer);
+
+
+    bufWriter.write("Hello space newLine() added below"); //need to add a new line character after each
+    bufWriter.newLine();
+    bufWriter.write("More data here");
+    bufWriter.newLine();
+    bufWriter.write("Goodbye");
+    bufWriter.newLine();
+    bufWriter.write("Second running will this overwrite?"); //added after running once.
+    bufWriter.newLine();
+
+    bufWriter.close(); //don't forget to close!
+    //output:
+    //Hello space newLine() added below
+    //More data here
+    //Goodbye
+    //Second running will this overwrite?
+
+    //this FileWriter (just below vvv) erased what was written above ^^ because used the same file name
+    FileWriter writer2 = new FileWriter("helloAgainVid2Again.txt");
+        //used the same file as above, overwritten everything.
+    BufferedWriter bufWriter2 =  new BufferedWriter(writer2);
+
+
+    bufWriter2.write("new data"); //need to add a new line character after each
+    bufWriter2.newLine();
+    bufWriter2.write("testing");
+    bufWriter2.newLine();
+    bufWriter2.write("is this thing on? ");
+    bufWriter2.newLine();
+    bufWriter2.write("ending file"); //added after running once.
+    bufWriter2.newLine();
+
+    bufWriter2.close(); //don't forget!
+    //output: **the first batch of data is overwritten because I used the same file name, so only this is shown:
+    // new data
+    //testing
+    //is this thing on?
+    //ending file
+
+
+
+}
+}
+
+***vid_2_b_writing_strings_filewriter_name_change
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_2_b_writing_strings_filewriter_name_change {
+    public static void main(String[] args) throws IOException {
+        //added "throws IOException" above
+
+        //if file doesn't exist, will be created
+        //if file DOES exist, it will be overwritten and any data in the last file will be completely lost.
+        FileWriter writer = new FileWriter("helloAgainVid2.txt");
+        BufferedWriter bufWriter =  new BufferedWriter(writer);
+
+
+        bufWriter.write("Hello space newLine() added below"); //need to add a new line character after each
+        bufWriter.newLine();
+        bufWriter.write("More data here");
+        bufWriter.newLine();
+        bufWriter.write("Goodbye");
+        bufWriter.newLine();
+        bufWriter.write("Second running will this overwrite?"); //added after running once.
+        bufWriter.newLine();
+
+        bufWriter.close(); //don't forget to close!
+
+        //this FileWriter (just below vvv) erased what was written above ^^ because used the same file name
+        FileWriter writer2 = new FileWriter("helloAgainVid2Again.txt");
+        //used the same file as above, overwritten everything.
+        BufferedWriter bufWriter2 =  new BufferedWriter(writer2);
+
+
+        bufWriter2.write("new data"); //need to add a new line character after each
+        bufWriter2.newLine();
+        bufWriter2.write("testing");
+        bufWriter2.newLine();
+        bufWriter2.write("is this thing on? ");
+        bufWriter2.newLine();
+        bufWriter2.write("ending file"); //added after running once.
+        bufWriter2.newLine();
+
+        bufWriter2.close(); //don't forget!
+
+        //outputs: BOth work because they are named differently:
+
+        //output in: helloAgainVid2.txt
+        // Hello space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+
+        //output in: helloAgainVid2Again.txt
+        // new data
+        //testing
+        //is this thing on?
+        //ending file
+
+    }
+}
+
+***vid_2_c_append_data_add_more_to_file
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_2_c_append_data_add_more_to_file {
+    public static void main(String[] args) throws IOException {
+        //added "throws IOException" above
+
+        //if file doesn't exist, will be created
+        //if file DOES exist, it will be overwritten and any data in the last file will be completely lost.
+
+        //add a second argument just below ('true') after the name of the file to append (called append flag):
+        //append flag will add data to the end.
+        FileWriter writer = new FileWriter("helloAgainVid2Append.txt", true);
+        BufferedWriter bufWriter =  new BufferedWriter(writer);
+
+
+        bufWriter.write("Hello vid2c append space newLine() added below"); //need to add a new line character after each
+        bufWriter.newLine();
+        bufWriter.write("More data here");
+        bufWriter.newLine();
+        bufWriter.write("Goodbye");
+        bufWriter.newLine();
+        bufWriter.write("Second running will this overwrite?"); //added after running once.
+        bufWriter.newLine();
+
+        bufWriter.close(); //don't forget to close!
+
+        //this FileWriter (just below vvv) erased what was written above ^^ because used the same file name
+        FileWriter writer2 = new FileWriter("helloAgainVid2Append.txt", true );
+        //used the same file as above, overwritten everything.
+        BufferedWriter bufWriter2 =  new BufferedWriter(writer2);
+
+
+        bufWriter2.write("new vid2c append data"); //need to add a new line character after each
+        bufWriter2.newLine();
+        bufWriter2.write("testing");
+        bufWriter2.newLine();
+        bufWriter2.write("is this thing on? ");
+        bufWriter2.newLine();
+        bufWriter2.write("ending file"); //added after running once.
+        bufWriter2.newLine();
+
+        bufWriter2.close(); //don't forget!
+
+        //ran first group with true after append,
+        //
+        //output in helloAgainVid2Append.txt:
+        // new vid2c append data
+        //testing
+        //is this thing on?
+        //ending file
+
+        // then changed the second group to have a true after it,
+        //cumulative output in helloAgainVid2Append.txt:
+
+        // new vid2c append data
+        //testing
+        //is this thing on?
+        //ending file
+        //Hello vid2c append space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //new vid2c append data
+        //testing
+        //is this thing on?
+        //ending file
+
+
+        //then ran the whole thing again new vid2c append data
+        //cumulative output in helloAgainVid2Append.txt:
+
+        //testing
+        //is this thing on?
+        //ending file
+        //Hello vid2c append space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //new vid2c append data
+        //testing
+        //is this thing on?
+        //ending file
+        //Hello vid2c append space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //new vid2c append data
+        //testing
+        //is this thing on?
+        //ending file
+
+        //**appending to the end after each running
+
+
+
+    }
+}
+
+***vid_2_d_writing_variables_to_a_file
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class vid_2_d_writing_variables_to_a_file {
+    public static void main(String[] args) throws Exception{
+        int classCode = 2545;
+        double averageEnrollment = 22.16; //average number of students in a semester
+        String className = "Java";
+
+        //write the above to a file:
+        FileWriter writer = new FileWriter("java.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+//        bufferedWriter.write(classCode + "\n");
+//        bufferedWriter.write("The class code is" + classCode + "\n");
+//        bufferedWriter.newLine();
+
+//        bufferedWriter.write(averageEnrollment + "\n");
+        //format strings can be used:
+//        bufferedWriter.write("The average enrollment is " + averageEnrollment + "students.\n");
+
+//        bufferedWriter.newLine();
+//        bufferedWriter.write(className + "\n");
+//        bufferedWriter.write("The classname is " + className + ". \n");
+
+        //variables don't have to be written in the order you create them:
+        bufferedWriter.write("The classname is " + className + ". \n");
+        bufferedWriter.write("The average enrollment is " + averageEnrollment + " students.\n");
+        bufferedWriter.write("The class code is " + classCode + "\n");
+
+//        writer.close(); //can also use this to close the file
+        bufferedWriter.close(); //can call this and will close writer as well.
+
+        //output: written to java.txt
+        //2545
+        //22.16
+        //Java
+
+        //output written to java.txt with additions:
+        //2545
+        //22.16
+        //Java
+        //The classname is Java.
+        //The average enrollment is 22.16students.
+        //The class code is2545
+
+        //output overwritten to java.txt with changes:
+        //
+        // The classname is Java.
+        //The average enrollment is 22.16 students.
+        //The class code is 2545
+    }
+}
+
+***vid_2_e_writing_numbers
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_2_e_writing_numbers {
+    public static void main(String[] args) throws IOException{
+
+        int data1 = 67;
+        int data2 = 65;
+        int data3 = 84;
+
+        double number = 12.34;
+
+        FileWriter writer = new FileWriter("number.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+        bufferedWriter.write(data1);
+        bufferedWriter.write(data2);
+        bufferedWriter.write(data3);
+
+        //written to number.txt:
+        //CAT
+        //because unicode
+
+        //so you don't get unicode you have to append a new line after the data:
+        bufferedWriter.newLine();
+        bufferedWriter.write(data1 +"\n");
+        bufferedWriter.write(data2 +"\n");
+        bufferedWriter.write(data3 +"\n");
+        //written to number.txt:
+        //67
+        //65
+        //84
+
+//        bufferedWriter.write(number); // there is no write method that calls a double, this won't work
+
+        bufferedWriter.write(number + "\n");
+        //written to number.txt:
+        //12.34
+
+        bufferedWriter.write("testing out different ways to input integers with Integer.toString:");
+        bufferedWriter.newLine();
+        //also could use Integer.toString(data1);
+        bufferedWriter.write(Integer.toString(data1) + "\n");
+        bufferedWriter.write(Integer.toString(data1));
+        bufferedWriter.newLine();
+        bufferedWriter.write(data1 + "");
+        bufferedWriter.newLine();
+
+        //written to number.txt:
+        //testing out different ways to input integers with Integer.toString:
+        //67
+        //67
+        //67
+
+        bufferedWriter.write("test"); //write a string
+        //written to number.txt:
+        //test
+
+        //there are two different forms of the write method
+        //when you type an integer, bufferedWriter.write interprets it as a unicode value,
+        //  so 67 in unicode is 'C', 65 is 'A', 84 is 'T'.
+
+        //unicode reference: https://en.wikipedia.org/wiki/List_of_Unicode_characters
+
+        bufferedWriter.close();
+
+        //written to number.txt:
+        //CAT
+        //67
+        //65
+        //84
+        //12.34
+        //test
+
+    }
+}
