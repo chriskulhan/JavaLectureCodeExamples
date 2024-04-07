@@ -490,3 +490,778 @@ public class vid_2_e_writing_numbers {
 
     }
 }
+
+***vid_3_a_I_O_reading_a_file_should_be_before_vid_2
+
+//-Various ways to read a file (//from PowerPoint slide 16)
+//  By lines, characters, bytes?
+//  Sequential or random access?
+//-Simplest to read line-by-line from the beginning to the end
+
+//-Use a BufferedReader to "wrap" a FileReader
+//-FileReader handles opening and closing the file, and can reading a file character-by-character
+//-BufferedReader provides a 'readLine' method to collect all the characters from one line, put them together
+// into a String, and then return the String to your program
+
+//Questions for reading a file (PowerPoint slide 17)
+// - how many lines does the file have? How do you know you have reached the end of the file?
+//Answer: you don't know how many lines you have. There's no simple way to count - you must read the whole file to find out
+
+//BufferedReader's readLine() method reads one line and returns it as a String.
+// And, it prepares to read the next line of the file.
+//But, when BufferedReader gets to the end of the file, there are no more lines to read
+// - so readLine will return null
+//So to read an entire file, use a while loop that repeats while readLine() != null
+
+//Remember null = special value that means 'no data'. Same as None in Python
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_3_a_I_O_reading_a_file_should_be_before_vid_2 {
+    //create a new file to read the hello.txt file we created earlier:
+    public static void main(String[] args) throws IOException {
+        //need to add "throws IOException to PSVM above ^^
+        FileReader reader = new FileReader("hello.txt");
+        //this file was written earlier ^^^
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        //BufferedReader is going to work with the file reader to gather together a line of characters,
+        //collect that line into a string, and then provide that string to our program
+
+        //begin by reading lines one at a time:
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+        System.out.println(bufferedReader.readLine());
+
+        bufferedReader.close();
+        //output: (this is what is in hello.txt)
+        //Hello
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //Hello space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //null //this is null because there are only 8 lines of data in hello.txt
+        //and I asked this to read 9 lines ^^ (System.out.println(bufferedReader.readLine());)
+    }
+}
+
+**** vid_3_b_I_O_reading_a_file_should_be_before_vid_2
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_3_b_I_O_reading_a_file_should_be_before_vid_2 {
+    public static void main(String[] args) throws IOException {
+        //need to add "throws IOException to PSVM above ^^
+        FileReader reader = new FileReader("hello.txt");
+        //this file was written earlier ^^^
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        //BufferedReader is going to work with the file reader to gather together a line of characters,
+        //collect that line into a string, and then provide that string to our program
+
+//        //begin by reading lines one at a time:
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+//        System.out.println(bufferedReader.readLine());
+
+        //write a loop to do the above (reading of all the lines) without knowing how many lines there are:
+        //first process the first line:
+        String line = bufferedReader.readLine();
+        //to process each line, print it out:
+
+        while (line != null) {
+            System.out.println(line);
+            line = bufferedReader.readLine();
+
+        }
+        bufferedReader.close();
+        //output:  (this is everything in hello.txt)
+        //Hello
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //Hello space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+
+        //add extra data to hello.txt and rerun: (yes, last line worked)
+        //output:
+        //Hello
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //Hello space newLine() added below
+        //More data here
+        //Goodbye
+        //Second running will this overwrite?
+        //adding extra data to file so I can see if vid_3_b_I_O_reading_a_file_should_be_before_vid_2 is reading it
+
+        //delete lines from hello.txt file to see if it changes the output: (yes! it changed)
+        //output:
+        // Hello
+        //deleted a bunch of data for vid_3_b_I_O_reading_a_file_should_be_before_vid_2 example
+    }
+}
+
+***vid_3_c_make_while_loop_more_concise
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_3_c_make_while_loop_more_concise {
+    public static void main(String[] args) throws IOException {
+
+//        FileReader reader = new FileReader("hello.txt");
+//        BufferedReader bufferedReader = new BufferedReader(reader);
+
+        //change the above 2 lines ^^^ to this single line:
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("hello.txt"));
+
+        //Another way to shorten take this:
+//        String line = bufferedReader.readLine();
+//
+//        while (line != null) {
+//            System.out.println(line);
+//            line = bufferedReader.readLine();
+
+        //change it to vv:
+
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+            //this ^^ is saying "update line to bufferedReader.readLine(),
+                //then compare the result of the line variable to null"
+            System.out.println(line);
+
+        }
+
+        bufferedReader.close();
+        //output: (works the same as the longer version)
+        // Hello
+        //deleted a bunch of data for vid_3_b_I_O_reading_a_file_should_be_before_vid_2 example
+    }
+}
+
+***vid_3_d_shortened_buffered_writer_code
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class vid_3_d_shortened_buffered_writer_code {
+    public static void main(String[] args) throws Exception {
+
+        //change from this:
+//        FileWriter writer = new FileWriter("shorterCodeVid3.txt");
+//        BufferedWriter bufWriter = new BufferedWriter(writer);
+
+        //to this:
+        BufferedWriter bufWriter = new BufferedWriter(new FileWriter("shorterCodeVid3.txt"));
+
+        bufWriter.write("This is a test with shortened code vid_3");
+        bufWriter.close();
+
+        //written to file shorterCodeVid3.txt:
+        //This is a test with shortened code vid_3
+    }
+}
+
+
+*** vid_3_e_your_turn_buffered_writer_program
+
+//Your turn:
+// Start a new program
+//Write a program which uses the buffered classes to write out your name,
+//  your favorite color, and this class's code (2545) to a new file
+//Write one item per line.
+//And, the same program should read all this data in and display it.
+
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.*;
+
+import static java.nio.file.Files.write;
+
+public class vid_3_e_your_turn_buffered_writer_program {
+    public static void main(String[] args) throws IOException {
+
+        String filename = "yourTurnClassInfo.txt";
+        String name = "chris";
+        String favoriteColor = "indigo";
+        Integer classCode = 2545;
+
+        FileWriter writer = new FileWriter(filename);
+        BufferedWriter bufWriter =  new BufferedWriter(writer);
+
+        bufWriter.write(name);
+        bufWriter.newLine();
+        bufWriter.write(favoriteColor);
+        bufWriter.newLine();
+        bufWriter.write(classCode + "\n"); //needs \n to convert to a string
+
+        bufWriter.close();
+
+//        FileReader reader = new FileReader("yourTurnClassInfo.txt");
+        //can use variable, added String filename = "yourTurnClassInfo.txt" with variables above, so:
+        FileReader reader = new FileReader(filename);
+
+        BufferedReader bufferedReader = new BufferedReader(reader);
+
+        String line = bufferedReader.readLine();
+        //to process each line, print it out:
+
+        while (line != null) {
+            System.out.println(line); //have to read the first line before the loop starts
+            line = bufferedReader.readLine();
+
+        }
+        bufferedReader.close();
+
+        //what's in the file: yourTurnClassInfo.txt found in main (JavaLectureCodeExamples):
+        //chris
+        //indigo
+        //2545
+
+        //output read from file yourTurnClassInfo.txt found in main (JavaLectureCodeExamples):
+        //chris
+        //indigo
+        //2545
+
+    }
+}
+
+
+***vid_4_a_reading_and_writing_arrays_and_arraylists
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
+public class vid_4_a_reading_and_writing_arrays_and_arraylists {
+    public static void main(String[] args) throws IOException {
+
+        //Write lines to the file "ITEC 2545 Java" and "ITEC 2560 Web" etc.
+
+        List<String> classNames = List.of("Java", "Web", "C#");
+        //this ^^ is the same as, only shorter:
+//        List<String> classes = new ArrayList<>();
+//        classes.add("Java");
+//        classes.add("Web");
+//        classes.add("C#");
+
+        List<Integer> classCodes = List.of(2545, 2560, 2505);
+        //this ^^ is the same as, only shorter:
+//        List<Integer> codes = new ArrayList<>();
+//        codes.add(2545);
+//        codes.add(2560);
+//        codes.add(2505);
+
+        //Try to write classNames to a file:
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("ITEC_Classes.txt"));
+
+        //write each class name on an individual line:
+        for(String name: classNames) {
+            bufferedWriter.write(name + "\n") ;
+        }
+
+        bufferedWriter.close();
+        //appeared in file ITEC_Classes.txt in JavaLectureCodeExamples:
+        //Java
+        //Web
+        //C#
+    }
+}
+
+***vid_4_b_reading_and_writing_arrays
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
+public class vid_4_b_reading_and_writing_arrays {
+    public static void main(String[] args) throws IOException {
+
+        //Write lines to the file "ITEC 2545 Java" and "ITEC 2560 Web" etc.
+
+        List<String> classNames = List.of("Java", "Web", "C#");
+        //this ^^ is the same as, only shorter:
+//        List<String> classes = new ArrayList<>();
+//        classes.add("Java");
+//        classes.add("Web");
+//        classes.add("C#");
+
+        List<Integer> classCodes = List.of(2545, 2560, 2505);
+        //this ^^ is the same as, only shorter:
+//        List<Integer> codes = new ArrayList<>();
+//        codes.add(2545);
+//        codes.add(2560);
+//        codes.add(2505);
+
+        //Try to write classNames to a file:
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("ITEC_Classes.txt"));
+
+
+        for(int i = 0; i < classNames.size(); i++) {
+            String name = classNames.get(i);
+            int code = classCodes.get(i);
+            bufferedWriter.write("ITEC " + code + " " + name + "\n") ;
+
+            //same thing ^^ in a format string vv:
+            bufferedWriter.write(String.format("ITEC %d %s \n", code, name));
+
+            //to write the string output separately and then write in buffered writer:
+            String outputLine = String.format("ITEC %d %s \n", code, name);
+            bufferedWriter.write(outputLine);
+        }
+
+        bufferedWriter.close();
+        //overwrites file ITEC_Classes.txt in JavaLectureCodeExamples:
+        //ITEC 2545 Java
+        //ITEC 2560 Web
+        //ITEC 2505 C#
+
+        //when added the format string the overwriting in ITEC_Classes.txt in JavaLectureCodeExamples:
+        //because a loop:
+        //ITEC 2545 Java
+        //ITEC 2545 Java
+        //ITEC 2560 Web
+        //ITEC 2560 Web
+        //ITEC 2505 C#
+        //ITEC 2505 C#
+
+        //when added String outputLine:
+        //ITEC 2545 Java
+        //ITEC 2545 Java
+        //ITEC 2545 Java
+        //ITEC 2560 Web
+        //ITEC 2560 Web
+        //ITEC 2560 Web
+        //ITEC 2505 C#
+        //ITEC 2505 C#
+        //ITEC 2505 C#
+
+
+    }
+}
+
+***vid_4_c_read_data_from_an_array
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_4_c_read_data_from_an_array {
+    public static void main(String[] args) throws IOException {
+
+//        String fileName = "ITEC_Classes.txt"; //make this <<< a constant by using "final" vv:
+        //this won't impact the program, but will stop me from accidentally changing it:
+        final String filename = "ITEC_Classes.txt";
+
+        //Write lines to the file "ITEC 2545 Java" and "ITEC 2560 Web" etc.
+
+        List<String> classNames = List.of("Java", "Web", "C#");
+        //this ^^ is the same as, only shorter:
+//        List<String> classes = new ArrayList<>();
+//        classes.add("Java");
+//        classes.add("Web");
+//        classes.add("C#");
+
+        List<Integer> classCodes = List.of(2545, 2560, 2505);
+        //this ^^ is the same as, only shorter:
+//        List<Integer> codes = new ArrayList<>();
+//        codes.add(2545);
+//        codes.add(2560);
+//        codes.add(2505);
+
+        //Try to write classNames to a file:
+        //convert "ITEC_Classes.txt" to a variable from:
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("ITEC_Classes.txt"));
+        //to:
+//        String fileName = "ITEC_Classes.txt"; //move this <<< to above the List ^^^way up there
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+
+        for(int i = 0; i < classNames.size(); i++) {
+            String name = classNames.get(i);
+            int code = classCodes.get(i);
+            bufferedWriter.write("ITEC " + code + " " + name + "\n") ;
+
+            //same thing ^^ in a format string vv:
+            bufferedWriter.write(String.format("ITEC %d %s \n", code, name));
+
+            //to write the string output separately and then write in buffered writer:
+            String outputLine = String.format("ITEC %d %s \n", code, name);
+            bufferedWriter.write(outputLine);
+        }
+
+        bufferedWriter.close();
+
+        //make a bufferedReader using the String filename:
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+
+        //read in the lines one by one
+        //save them in a new arraylist:
+        //not using list.of because then it can't be changed, using ArrayList() instead:
+
+        //new ArrayLIst:
+        List<String> classDescriptions = new ArrayList<>();
+
+        //read the first line, and then do a while loop:
+        String line = bufferedReader.readLine();
+
+        //is the line ^^ empty? if it is then we don't want to go into the while loop.
+        //start the while loop with not null: (there is something in there
+        while (line != null) {
+            //I know there is something in "line" ^^, then add that line to the ArrayList "classDescriptions".
+            classDescriptions.add(line);
+            //then read the next line:
+            line = bufferedReader.readLine();
+            //readline will remove the \n character when its reading from a file
+        }
+
+        //after the loop runs:
+        System.out.println("End of file reached");
+        System.out.println(classDescriptions);
+        //I have 3 copies of everything because I left all the different formats:
+
+        //output:
+        // End of file reached
+        //[ITEC 2545 Java, ITEC 2545 Java , ITEC 2545 Java , ITEC 2560 Web, ITEC 2560 Web , ITEC 2560 Web ,
+        // ITEC 2505 C#, ITEC 2505 C# , ITEC 2505 C# ]
+
+    }
+}
+
+//notes: readline removes the \n character that is present in this file: ITEC_Classes.txt:
+//ITEC 2545 Java
+//ITEC 2545 Java
+//ITEC 2545 Java
+//ITEC 2560 Web
+//ITEC 2560 Web
+//ITEC 2560 Web
+//ITEC 2505 C#
+//ITEC 2505 C#
+//ITEC 2505 C#
+
+//when reading to this:
+//[ITEC 2545 Java, ITEC 2545 Java , ITEC 2545 Java , ITEC 2560 Web, ITEC 2560 Web , ITEC 2560 Web ,
+// ITEC 2505 C#, ITEC 2505 C# , ITEC 2505 C# ]
+
+***vid_4_d_1_your_turn_loop_example_months
+
+//your turn: (slide 23)
+//
+// Use a loop to write each item in this example array to a file
+//
+//String[] months = { "Jan", "Feb", "Mar" };
+//
+//Write one item per line
+//
+//OR: Modify the task list program you wrote in the Lists class to write your task list to a files
+//
+//Question: can you read a file into an array? Why or why not?
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class vid_4_d_1_your_turn_loop_example_months {
+
+    public static void main(String[] args) throws Exception {
+
+        String filename = "vid_4_d_months.txt";
+
+        //added April so I know the data is re-written:
+        String[] months = { "Jan", "Feb", "Mar", "April" };
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+
+        //classic for loop:
+        //note: months.length doesn't have parentheses: months.length() <<<NOPE see:
+        for (int i = 0; i < months.length; i++) {
+            String month = months[i];
+            bufferedWriter.write(month + "\n");
+        }
+        bufferedWriter.close();
+
+        //found in file:
+        //Jan
+        //Feb
+        //Mar
+        //April
+    }
+}
+
+***vid_4_d_2_task_list_modified_to_months
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static input.InputUtils.stringInput;
+
+public class vid_4_d_2_task_list_modified_to_months {
+    //code from: week4_lists: vid_5_loops_with_user_input_task_list_program
+
+    public static void main(String[] args) throws IOException {
+
+        String filename = "vid_4_d_2_months.txt";
+
+        String[] months = { "Jan", "Feb", "Mar" };
+
+//        List<String> months = new ArrayList<>();
+
+        BufferedWriter bufferedWriter = new BufferedWriter((new FileWriter(filename)));
+
+
+//        while (true) {
+//            String data = stringInput("Please type a month, or press Enter to quit");
+////            if (data.length() == 0) { //if use just presses Enter, the length of the text is 0
+//            if (data.isEmpty()) { //could use this instead of this ^^^
+//                break;
+//            }
+//            months.add(data);
+//        }
+//        System.out.println("Thank you, here are all the months you entered:");
+
+        //this is an enhanced "for loop":
+        for (String input : months) {
+//            System.out.println(input);
+            bufferedWriter.write(input);
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
+        //written to file ("vid_4_d_2_months.txt") in JavaLectureCodeExamples:
+        //Jan
+        //Feb
+        //Mar
+    }
+}
+
+
+***vid_4_d_3_notes_from_powerpoints
+
+/*
+
+**Reading and Writing Considerations – new lines with "\n", the newline character (slide 24):
+
+The BufferedWriter write methods do not add a newline for you
+Make sure you add a \n character at the end of your lines
+Or use BufferedWriter's newLine() method after each line, for example
+
+bufWriter.newLine();   //Writes a newline character
+
+When you read in lines with BufferedReader, it will read a line and strip off the newline character
+
+On a PC? You may not see your newlines properly in some text editors. If not, try using "\r\n" instead of "\n" to add newlines
+\r\n are the carriage return and linefeed characters; this is how PCs mark newlines
+Compare to Unix-based systems - Mac and Linux - which use only \n.
+Or use the newLine method to write the correct system-specific character
+
+**Other ways of Reading and Writing (slide 25)
+
+BufferedReader and BufferedWriter work with sequential streams of character data
+They can't jump to the middle of a stream or file
+Other Java classes can handle random access in a file: http://docs.oracle.com/javase/tutorial/essential/io/rafs.html
+And, you'll have to use different classes if you want to work with bytes directly
+http://docs.oracle.com/javase/tutorial/essential/io/bytestreams.html
+
+Reading and writing bytes (slide 26)
+
+Create a Path object from a String file path
+No loop, but more work to process the individual lines (see below for code:)
+
+ */
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
+public class vid_4_d_3_notes_from_powerpoints {
+    public static void main(String[] args) throws IOException {
+        Path helloFilePath = Path.of("hello.txt");
+        byte[] bytes = Files.readAllBytes((helloFilePath));
+        String allLines = new String(bytes);
+        System.out.println("All lines test to see changes\n" + allLines); //this is printed
+        allLines = allLines.replace("\r", ""); //needed in windows, not mac or linux
+        String[] lines = allLines.split("\n");
+        System.out.println(Arrays.toString(lines));
+
+        //what's in hello.txt:
+        //Hello
+        //deleted a bunch of data for vid_3_b_I_O_reading_a_file_should_be_before_vid_2 example
+
+        //output that's printed:
+        //All lines test to see changes
+        //Hello
+        //deleted a bunch of data for vid_3_b_I_O_reading_a_file_should_be_before_vid_2 example
+        //[Hello, deleted a bunch of data for vid_3_b_I_O_reading_a_file_should_be_before_vid_2 example]
+    }
+}
+
+***vid_5_intro_to_exception_handling
+
+/*
+Error Handling:
+-An Exception is Java's way of telling you that there is an error that stops the program continuing
+-Programs throw exceptions when there is an error
+-Exceptions are objects
+-There are lots of different types of Exceptions
+
+-When your code throws an exception, it crashes
+-If it's a problem with your code, troubleshoot and fix the error
+-Not initializing a variable = NullPointerException
+-Reading a non-existent index = ArrayIndexOutOfBounds, IndexOutOfBounds
+-Modifying an ArrayList inside an enhanced for loop = ConcurrentModificationException
+
+-What if it's a problem outside your code? Like a file not found?
+-You catch that exception, and do something to deal with the error condition
+
+//prepare in case a file will throw an exception:
+-Use try and catch blocks
+-try block contains code that might throw an exception
+-catch block contains code that can attempt to deal with the exception and allow the program to continue running
+    -or quit the program safely
+    -and/or log the error message for debugging
+    -and/or notify the user that something has gone wrong
+
+ */
+
+package org.example.week_6_files_and_exceptions;
+
+public class vid_5_intro_to_exception_handling {
+    public static void main(String[] args) {
+//        slide 29: (purposely contains an error:)
+
+//        String[] names = { "Andy", "Ben", "Cody"} ;
+//        for (int i = 0 ; i <= 3 ; i++) { //the error is on this line. The i<=3 is always true, change to names.length belowVVV
+//            System.out.println(names[i]);
+//        }
+        //This code generates an
+        //ArrayIndexOutOfBoundsException
+        //Click on the link in the exception message to jump to the line that caused the exception
+
+        //the fix to the error:
+        String[] names = { "Andy", "Ben", "Cody"} ;
+        for (int i = 0 ; i < names.length ; i++) {
+            System.out.println(names[i]);
+            //output:
+            //Andy
+            //Ben
+            //Cody
+        }
+//        String name;
+//forgot to write code to initialize this
+//String. Its value is null
+
+//Try to call a method on this String...
+//        int characters = name.length();
+//a NullPointerException is thrown because the variable "name" is null, fix it by making sure the variable isn't null
+
+    }
+}
+
+***vid_5_throw_an_exception_example
+
+package org.example.week_6_files_and_exceptions;
+
+public class vid_5_throw_an_exception_example {
+    public static void main(String[] args) {
+        //1.
+//        String hopeThisIsANumber = "5";
+//
+//        int number = Integer.parseInt(hopeThisIsANumber);
+//        //parseInt will try to convert the string to an integer (string 5 to number 5)
+//
+//        System.out.println("The number is " + number);
+//        //output: The number is 5
+
+        //2.
+        //What if hopeThisIsANumber is not a number?
+        //what if this data is user input or from a file?
+        //don't have control over what this data might be.
+//        String hopeThisIsANumber = "cat";
+//
+//        int number = Integer.parseInt(hopeThisIsANumber);
+//        //parseInt will try to convert the string to an integer (string 5 to number 5)
+//
+//        System.out.println("The number is " + number);
+//        //output:
+//        // Exception in thread "main" java.lang.NumberFormatException: For input string: "cat"
+//        //	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+//        //	at java.base/java.lang.Integer.parseInt(Integer.java:661)
+//        //	at java.base/java.lang.Integer.parseInt(Integer.java:777)
+//        //	at org.example.week_6_files_and_exceptions.vid_5_throw_an_exception_example.main(vid_5_throw_an_exception_example.java:16)
+//        //
+//        //Process finished with exit code 1
+
+        //3.
+////////////****Surround the code that might crash with a try and a catch block:
+
+        //the line the problem happened was below this vvv, so the 'hopeThisIsANumber' can be moved out of the try/catch block;
+        //this matters because then the variable 'hopeThisIsANumber' can be used in the output below:
+//        String hopeThisIsANumber = "cat";
+            String hopeThisIsANumber = "50";
+        try {
+            int number = Integer.parseInt(hopeThisIsANumber);
+            //java will skip the next line if there is an error, and will go directly to the catch block
+            //parseInt will try to convert the string to an integer (string 5 to number 5)
+
+            System.out.println("The number is " + number);
+            //an exception (NumberFormatException) is an object (or a variable), need to give it a name here 'e':
+        } catch (NumberFormatException e) {
+            System.out.println("'" + hopeThisIsANumber + "'" + " is not a valid integer string");
+            //output: 'cat' is not a valid integer string
+        }
+
+        //the program doesn't crash, and this shows that:
+        System.out.println("This is the end of the program.");
+        //output: This is the end of the program.
+
+    }
+}
+
