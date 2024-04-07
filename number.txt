@@ -1,10 +1,5 @@
-CAT
 67
 65
 84
-12.34
-testing out different ways to input integers with Integer.toString:
-67
-67
-67
-test
+
+cat
