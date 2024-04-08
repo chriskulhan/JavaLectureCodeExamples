@@ -22,23 +22,23 @@ import java.io.IOException;
 public class vid_8_b_questions_about_exceptions {
     public static void main(String[] args) {
 
-    //from: week 6 vid_6_c_handling_exceptions
+        //from: week 6 vid_6_c_handling_exceptions
 
         BufferedReader bufReader = null;
         try {
             bufReader = new BufferedReader(new FileReader("test.txt"));
 //        BufferedReader bufReader = new BufferedReader(reader); //move this outside the try block so
             //it can be used in the finally block below
-        String line = bufReader.readLine();
+            String line = bufReader.readLine();
 
-        while (line != null) {
-            System.out.println(line);
-            line = bufReader.readLine();
-        }
-        //try to do something with the output:
+            while (line != null) {
+                System.out.println(line);
+                line = bufReader.readLine();
+            }
+            //try to do something with the output:
 
 //        System.out.println(line.toUpperCase()); //don't do this. if you want to change data,
-                //do that inside the loop so they will catch mistakes there.
+            //do that inside the loop so they will catch mistakes there.
 
         } catch (IOException e) {
             System.out.println("Sorry, error or we can't find this file." + e);
@@ -57,4 +57,3 @@ public class vid_8_b_questions_about_exceptions {
     }
     //output: Sorry, error or we can't find this file.java.io.FileNotFoundException: test.txt (No such file or directory)
 }
-
