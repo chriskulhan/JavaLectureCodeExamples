@@ -1833,4 +1833,296 @@ public class vid_8_d_try_with_resources {
     }
 }
 
+***vid_9_a_code_checker_program
+
+/*
+Try with resources:  (slide 59)
+
+-Use try-with-resources for file input/output
+-You can also use it with database code (later)
+    *Closes database connections whether there is an error, or not
+
+-Some other types of exceptions can use this style
+
+-If you need to catch other exceptions: use regular try-catch blocks
+
+ */
+
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class vid_9_a_code_checker_program {
+    //base code from Clara: (https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week6_files_exceptions/ReadNumbersFromFile.java)
+    //changed to reflect try/catch blocks
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+        String filename = "numbers.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            //use try "with resources" when there is a thing that is opened and closed
+            //advantage: the resource is closed for you automatically
+
+            String line = reader.readLine();
+
+            while (line != null) {
+                // ignore anything that isn't an integer.
+                try {
+                    int number = Integer.parseInt(line);
+                    numbers.add(number);
+                } catch (NumberFormatException e) {
+                    // ignore lines that are not numbers
+                    System.out.println(line + " is not an integer, ignoring. ");
+                }
+                line = reader.readLine();
+            }
+
+            System.out.println(numbers);
+        } catch (IOException e) {
+            System.out.println("Error reading file " + e);
+        }
+    }
+}
+
+***vid_9_b_your_turn_code_style_check
+
+/*
+Your Turn – Code Style Check
+
+-Read another Java file into your program
+-For example, a file you worked on in a lab
+-Check the length of every line – are any lines longer than 100 characters?
+-If there are any lines longer than 100 characters, print a message with the line
+    text, and line number
+-https://google.github.io/styleguide/javaguide.html
+-Use try-with-resources exception handling
+
+ */
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_9_b_your_turn_code_style_check {
+    //made a copy of vid_4_d_1_your_turn_loop_example_months.java and saved it to the
+    //root directory (JavaLectureCodeExamples)
+
+//1. how to set up the try/catch block:
+
+
+//      public static void main(String[] args) throws IOException {
+//          //1. Read in the file from JavaLectureCodeExamples (vid_4_d_1_your_turn_loop_example_months.java)
+//
+//          String filename = "vid_4_d_1_your_turn_loop_example_months.java";
+//
+//          try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+//              //read the file:
+//
+//
+//          } catch (IOException e) {
+//              System.out.println("Error reading file " + filename + " because " + e);
+//          }
+//      }
+//}
+
+    //2. continue, adding to the try block:
+    //2a. read the file
+    public static void main(String[] args){
+        //1. Read in the file from JavaLectureCodeExamples (vid_4_d_1_your_turn_loop_example_months.java)
+
+        String filename = "vid_4_d_1_your_turn_loop_example_months.java";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            //read the file:
+
+        //2b.
+            String line = reader.readLine();
+            while(line != null) {
+                System.out.println(line);
+                //update the line within the loop by adding this line:
+                line = reader.readLine();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading file " + filename + " because " + e);
+        }
+    }
+}
+
+//output: (reads in the entire file correctly: and it's just text)
+// /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=58359:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/chriskulhanek/IdeaProjects/JavaLectureCodeExamples/target/classes:/Users/chriskulhanek/.m2/repository/edu/minneapolis/input-utils/1.0.2/input-utils-1.0.2.jar org.example.week_6_files_and_exceptions.vid_9_b_your_turn_code_style_check
+////your turn: (slide 23)
+////
+//// Use a loop to write each item in this example array to a file
+////
+////String[] months = { "Jan", "Feb", "Mar" };
+////
+////Write one item per line
+////
+////OR: Modify the task list program you wrote in the Lists class to write your task list to a files
+////
+////Question: can you read a file into an array? Why or why not?
+//
+//package org.example.week_6_files_and_exceptions;
+//
+//import java.io.BufferedWriter;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//
+//public class vid_4_d_1_your_turn_loop_example_months {
+//
+//    public static void main(String[] args) throws Exception {
+//
+//        String filename = "vid_4_d_months.txt";
+//
+//        //added April so I know the data is re-written:
+//        String[] months = { "Jan", "Feb", "Mar", "April" };
+//
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+//
+//        //classic for loop:
+//        //note: months.length doesn't have parentheses: months.length() <<<NOPE see:
+//        for (int i = 0; i < months.length; i++) {
+//            String month = months[i];
+//            bufferedWriter.write(month + "\n");
+//        }
+//        bufferedWriter.close();
+//
+//        //found in file:
+//        //Jan
+//        //Feb
+//        //Mar
+//        //April
+//    }
+//}
+//
+//Process finished with exit code 0
+
+
+***vid_9_c_style_check_continued_line_length
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_9_c_style_check_continued_line_length {
+    public static void main(String[] args){
+        //1. Read in the file from JavaLectureCodeExamples (vid_4_d_1_your_turn_loop_example_months.java)
+
+        String filename = "vid_4_d_1_your_turn_loop_example_months.java";
+        //3a. add variable here to check how long the lines are:
+        int maxLineLength = 75;
+        //checked at 100 length, there was nothing
+        //checked at 75 length and there were 3 lines that were too long.
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("vid_4_d_1_your_turn_loop_example_months.java"))) {
+
+            String line = reader.readLine();
+
+            //create a variable that's a line counter:
+            int lineCounter = 1;
+
+            while(line != null) {
+                //3b. check how long the maxLineLength is and only print if it's too long:
+                if (line.length() > maxLineLength) {
+                    System.out.println("The line " + lineCounter + " is too long. ");
+                    System.out.println(line);
+                }
+                //update the line within the loop by adding this line:
+                line = reader.readLine();
+                //part of the line counter: to increase the line number variable with each loop
+                lineCounter ++;
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading file " + filename + " because " + e);
+        }
+    }
+}
+///Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=58442:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/chriskulhanek/IdeaProjects/JavaLectureCodeExamples/target/classes:/Users/chriskulhanek/.m2/repository/edu/minneapolis/input-utils/1.0.2/input-utils-1.0.2.jar org.example.week_6_files_and_exceptions.vid_9_c_style_check_continued_line_length
+//The line 9 is too long.
+////OR: Modify the task list program you wrote in the Lists class to write your task list to a files
+//The line 28 is too long.
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+//The line 31 is too long.
+//        //note: months.length doesn't have parentheses: months.length() <<<NOPE see:
+//
+//Process finished with exit code 0
+
+
+***vid_9_d_add_a_boolean_to_code_check
+
+package org.example.week_6_files_and_exceptions;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class vid_9_d_add_a_boolean_to_code_check {
+    public static void main(String[] args){
+        //1. Read in the file from JavaLectureCodeExamples (vid_4_d_1_your_turn_loop_example_months.java)
+
+        String filename = "vid_4_d_1_your_turn_loop_example_months.java";
+        //3a. add variable here to check how long the lines are:
+        int maxLineLength = 75;
+        //checked at 100 length, there was nothing
+        //checked at 75 length and there were 3 lines that were too long.
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("vid_4_d_1_your_turn_loop_example_months.java"))) {
+
+            // count the number of lines too long:
+            int numberOfLinesTooLong = 0;
+            //add a boolean
+            boolean linesTooLong = false;
+            String line = reader.readLine();
+
+            //create a variable that's a line counter:
+            int lineCounter = 1;
+
+            while(line != null) {
+                //3b. check how long the maxLineLength is and only print if it's too long:
+                if (line.length() > maxLineLength) {
+                    System.out.println("The line " + lineCounter + " is too long. ");
+                    System.out.println(line);
+                    //part of boolean addition:
+                    linesTooLong = true;
+                    numberOfLinesTooLong ++;
+                }
+                //update the line within the loop by adding this line:
+                line = reader.readLine();
+                //part of the line counter: to increase the line number variable with each loop
+                lineCounter ++;
+            }
+            //check if linesTooLong is true:
+            if(linesTooLong) {
+                System.out.println("there were " + numberOfLinesTooLong + " lines that were too long");
+                //when int maxLineLength = 75;
+                //there were 2 lines that were too long
+
+            } else {
+                System.out.println("there were no lines that were too long.");
+                //when int maxLineLength = 100;
+                //output: there were no lines that were too long.
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading file " + filename + " because " + e);
+        }
+    }
+}
+
+
+
+
+
 
