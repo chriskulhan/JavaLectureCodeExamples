@@ -2,7 +2,7 @@
 Files and Exceptions
 
 In general, most programs have program code, but also need to interact with
-other things outside of the program. This includes:
+other things outside the program. This includes:
 
 -The user (separate topic (user experience))
     **improving human-computer interactions
