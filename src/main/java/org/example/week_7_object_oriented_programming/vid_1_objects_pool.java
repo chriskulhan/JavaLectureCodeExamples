@@ -66,11 +66,12 @@ public class vid_1_objects_pool {
     //make a field/variable (same thing) to store those two variables:
     //use this class to make pool objects
 
+
     //each pool will have its own name variable
-    private String nameField; //field/variable
+    private String nameField; //field/variable/"instance variable"
 
     //each pool will have a length:
-    private Double lengthField; //another field/variable
+    private Double lengthField; //another field/variable/"instance variable"
 
     //special method called a "constructor" that has the same name as the class:
     //here the class is: "vid_1_objects_pool"
@@ -79,6 +80,7 @@ public class vid_1_objects_pool {
     //constructor is used for creating a class
     //give the constructor some parameters within the parentheses: here: "(String name, double length)"
 
+//THIS IS THE CONSTRUCTOR vvv: (creates/sets up the  "vid_1_objects_pool")
     vid_1_objects_pool(String nameParameter, double lengthParameter) {
         this.nameField = nameParameter;
         this.lengthField = lengthParameter;
@@ -92,6 +94,13 @@ public class vid_1_objects_pool {
     //this is a public method that returns a double ("public double")
     //name of method: ("distanceForLaps")
     //the number of lap swum will be an integer "(int laps)"
+
+//This is the "instance method" vvv that belongs to this class ("vid_1_objects_pool"):
+    //side note: another name for object is "instance of a class".
+
+    //relevant example: the pool object (in the related file: vid_1_swimmingPoolProgram,
+    // this is and "instance of the object": vid_1_objects_pool ymca = new vid_1_objects_pool ("YMCA", 50);)
+    // is an instance of the "vid_1_objects_pool" class.
 
     public double distanceForLaps (int laps){
         //multiply the number of laps by the length of the pool:

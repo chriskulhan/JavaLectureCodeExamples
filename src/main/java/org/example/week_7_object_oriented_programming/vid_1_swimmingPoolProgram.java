@@ -39,6 +39,17 @@ public class vid_1_swimmingPoolProgram {
         //Synchronizing output directories…
         //4/13/24, 10:40 AM - Build completed successfully in 3 sec, 655 ms
 
+        //make another  "vid_1_objects_pool" object:
+
+        vid_1_objects_pool como = new vid_1_objects_pool ("Como Park", 80);
+        //total distance if someone swam 12 laps:
+        System.out.println("How far did someone swim if they finished 12 laps at Como Park pool? Answer: " +
+                como.distanceForLaps(12) + " meters.");
+        //output: How far did someone swim if they finished 12 laps at Como Park pool? Answer: 960.0 meters.
+
+        System.out.println(como.distanceForLaps(10));
+        //output: 800.0
+
 
     }
 }
