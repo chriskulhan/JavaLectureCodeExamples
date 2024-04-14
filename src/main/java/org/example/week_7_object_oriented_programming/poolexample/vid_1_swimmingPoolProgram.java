@@ -1,4 +1,6 @@
-package org.example.week_7_object_oriented_programming;
+package org.example.week_7_object_oriented_programming.poolexample;
+
+import org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool;
 
 public class vid_1_swimmingPoolProgram {
     public static void main(String[] args) {
@@ -18,26 +20,6 @@ public class vid_1_swimmingPoolProgram {
         //***output in the "Run" place:
             //The total distance is 300.0
 
-        //***output in the "Build Output" place:
-
-        //Executing pre-compile tasks…
-        //Running 'before' tasks
-        //Checking sources
-        //Copying resources... [JavaLectureCodeExamples]
-        //Checking dependencies… [JavaLectureCodeExamples]
-        //Dependency analysis found 0 affected files
-        //Updating dependency information… [JavaLectureCodeExamples]
-        //Parsing java… [JavaLectureCodeExamples]
-        //Writing classes… [JavaLectureCodeExamples]
-        //Dependency analysis found 0 affected files
-        //Adding nullability assertions… [JavaLectureCodeExamples]
-        //Adding pattern assertions… [JavaLectureCodeExamples]
-        //Running 'after' tasks
-        //javac 21.0.1 was used to compile java sources
-        //Finished, saving caches…
-        //Executing post-compile tasks…
-        //Synchronizing output directories…
-        //4/13/24, 10:40 AM - Build completed successfully in 3 sec, 655 ms
 
         //make another  "vid_1_objects_pool" object:
 
@@ -49,6 +31,26 @@ public class vid_1_swimmingPoolProgram {
 
         System.out.println(como.distanceForLaps(10));
         //output: 800.0
+
+//        System.out.println(como);
+        //output: org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool@5674cd4d
+        //why? telling us what type of object it is, but the memory address (@5674cd4d) isn't very useful
+        //in order to make this better, make a toString(); instance method in vid_1_objects_pool to
+
+        //rerun after adding this "toString" instance method in vid_1_objects_pool:
+            //public String toString() {
+        //        String description = this.nameField + " pool is " + lengthField + " meters long.";
+        //        return description;
+
+        System.out.println(como);
+        //output: Como Park pool is 80.0 meters long.
+        //this is the string from the toString method ^^^
+
+        //see what this might look like for ymca:
+        System.out.println(ymca);
+        //output: YMCA pool is 50.0 meters long.
+        //this has used the toString instance method in vid_1_objects_pool to make this string ^^^
+
 
 
     }

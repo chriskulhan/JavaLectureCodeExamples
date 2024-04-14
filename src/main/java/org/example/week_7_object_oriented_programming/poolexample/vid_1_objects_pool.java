@@ -1,4 +1,4 @@
-/* notes:
+/* vid_1_notes:
  ***A Java Object: (slide 2)
 
 -Is made from a class definition
@@ -58,7 +58,7 @@ Use that class definition to create and use objects in your program
 //write a program to create a swimming pool class
     //then make swimming pool objects
 
-package org.example.week_7_object_oriented_programming;
+package org.example.week_7_object_oriented_programming.poolexample;
 
 public class vid_1_objects_pool {
 
@@ -83,7 +83,10 @@ public class vid_1_objects_pool {
 //THIS IS THE CONSTRUCTOR vvv: (creates/sets up the  "vid_1_objects_pool")
     vid_1_objects_pool(String nameParameter, double lengthParameter) {
         this.nameField = nameParameter;
+        //could be nameField = nameParameter; (without the "this." because it can't be confused)
+
         this.lengthField = lengthParameter;
+        //could be lengthField = lengthParameter; (without the "this." because it can't be confused)
         //these variables within this class (vid_1_objects_pool) will
         //let us create objects associated with these variables:
     }
@@ -112,8 +115,58 @@ public class vid_1_objects_pool {
         // and is different than a variable defined within the method (example here is laps):
             //laps is just above and just below without a "this." because it's within this method.
         double total = laps * this.lengthField; //this could be shortened to: "return lap * this.lengthField;"
+        //this could also be: double total = laps * lengthField; (because "this." isn't always necessary if it can't be confused)
         return total;
 
         //head over to the "vid_1_swimmingPoolProgram" to use this new method
     }
+
+
+    //add @Override before the public String toString() method:
+    //because when you print any object (arraylist, hashmap, "vid_1_objects_pool" (this is an object), integer, etc.)
+    //System.out.println(como) in vid_1_swimmingPoolProgram is
+    //  calling the method "toString()" in vid_1_objects_pool for
+    //  the vid_1_objects_pool object that is called "como".
+
+    //if you provide a "toString()" method in a class, (the class here is vid_1_objects_pool), that returns something
+    //descriptive, then that's what gets printed when you System.out.println(como)
+    @Override
+
+
+    // vid_2_notes_order_of_operations:
+    //add a new "instance method" to this class (class named vid_1_objects_pool)
+
+//Why create toString method in vid_1_objects_pool????:
+//        //check in vid_1_swimmingPoolProgram and see what is in the como thing in vid_1_swimmingPoolProgram
+            //added:
+                //System.out.println(como);
+                    //output: org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool@5674cd4d
+                    //why? telling us what type of object it is, but the memory address (@5674cd4d) isn't very useful
+                    //in order to make this better, make a toString(); instance method in vid_1_objects_pool:
+
+    //convention to refer to instance variables as "this."
+    // can omit "this." if there can be no confusion about the names
+    //so below: this.nameField and this.lengthField are known to be instance variables:
+    public String toString() {
+        String description = this.nameField + " pool is " + this.lengthField + " meters long.";
+        //could instead be: String description = nameField + " pool is " + lengthField + " meters long.";
+        return description;
+        }
+        //rerun the System.out.println(como) after adding this toString method^^^;
+        //in vid_1_swimmingPoolProgram, now what happens?
+        //
+        //add this in vid_1_swimmingPoolProgram and run it:
+        //    System.out.println(como);
+            //output: Como Park pool is 80.0 meters long.
+            //this is the string from the toString method ^^^
+
+            //see what this might look like for ymca:
+        //        System.out.println(ymca);
+            //output: YMCA pool is 50.0 meters long.
+            //this has used the toString instance method in vid_1_objects_pool to make this string ^^^
+
+
+//
+//    }
+
 }
