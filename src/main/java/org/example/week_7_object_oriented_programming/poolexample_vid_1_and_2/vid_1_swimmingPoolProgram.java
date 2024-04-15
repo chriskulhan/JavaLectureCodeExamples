@@ -1,6 +1,4 @@
-package org.example.week_7_object_oriented_programming.poolexample;
-
-import org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool;
+package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2;
 
 public class vid_1_swimmingPoolProgram {
     public static void main(String[] args) {
@@ -31,6 +29,19 @@ public class vid_1_swimmingPoolProgram {
 
         System.out.println(como.distanceForLaps(10));
         //output: 800.0
+
+        //todone (vid_2_your_turn) create a new pool with name "Edina", length 50;
+        vid_1_objects_pool edina = new vid_1_objects_pool ("Edina", 50);
+
+        //todone (vid_2_your_turn) What's the total distance for swimming 12 laps in the Edina pool?
+        System.out.println("What's the total distance for swimming 12 laps in the Edina pool? Answer: " +
+                edina.distanceForLaps(12) + " meters. ");
+        //output: What's the total distance for swimming 12 laps in the edina pool? Answer: 600.0 meters.
+
+        //todone (vid_2_your_turn) print Edina pool info:
+        System.out.println(edina);
+        //output: edina pool is 50.0 meters long.
+
 
 //        System.out.println(como);
         //output: org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool@5674cd4d

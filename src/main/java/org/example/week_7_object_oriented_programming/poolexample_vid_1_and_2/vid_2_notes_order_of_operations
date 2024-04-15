@@ -1,4 +1,6 @@
 /*vid_2_notes:
+(java reference that I didn't use, but exists: https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html)
+(google style guide, not used here but useful in the future: https://google.github.io/styleguide/javaguide.html)
 
 0. check to see what happens when you try to look in vid_1_swimmingPoolProgram at what lives in
     the como object by printing it:
@@ -52,7 +54,8 @@
             //could instead be: String description = nameField + " pool is " + lengthField + " meters long.";
             return description;
             }
-4. in vid_1_objects_pool:
+4. in vid_1_objects_pool: Add @Override
+        **to help make sure the thing below it (here: toString() ) is spelled correctly:
     add an @Override before the toString() method in vid_1_objects_pool vvv:
 
     //public String toString() {
@@ -61,11 +64,19 @@
     //        return description;
     //        }
 
+5. Your turn add a new pool object in vid_1_swimmingPoolProgram:
+
+        //todone (vid_2_your_turn) create a new pool with name "Edina", length 50;
+        vid_1_objects_pool edina = new vid_1_objects_pool ("Edina", 50);
+
+        //todone (vid_2_your_turn) What's the total distance for swimming 12 laps in the Edina pool?
+        System.out.println("What's the total distance for swimming 12 laps in the Edina pool? Answer: " +
+                edina.distanceForLaps(12) + " meters. ");
+        //output: What's the total distance for swimming 12 laps in the edina pool? Answer: 600.0 meters.
+
+        //todone (vid_2_your_turn) print Edina pool info:
+        System.out.println(edina);
+        //output: edina pool is 50.0 meters long.
+    **
+
  */
-
-
-
-package org.example.week_7_object_oriented_programming;
-
-public class vid_2_notes_order_of_operations {
-}

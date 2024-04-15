@@ -1,0 +1,217 @@
+1. Start with: vid_3_a_ITEC_course_manager_no_objects
+    from: Clara's programs online: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week7_first_classes/ITECCourseManager_NoObjects.java
+
+2. Modify program to be Object Oriented:
+//from powerpoint slide 13:
+
+    -Let's model an object
+    -Create ITECCourse object (create an ITECCourse "class" in Intellij)
+    -A Course object will contain data about one ITEC course
+    -We can encapsulate ITECCourse properties into one object
+
+    -Create ITECCourse objects from a ITECCourse class
+        -Remember a class is instructions for making an object
+        -One class can make as many objects as you need
+    -We can change the data ITECCourse objects stored by modifying the class definition
+    -What if we want to add the classroom the course will be taught in? We can just modify the
+        ITECCourse class definition
+    -Much simpler and safer than adding another variable to our code for all our courses;
+        easier to remember the variable name
+    -String maintenanceCourseClassroom = "T3020";
+    -String datacomCourseClassroom = "T3050";           // yuck
+
+3. The Object Oriented Version (slide 14)
+
+    -Objects store data but can also do things
+    -Put them to work for you!
+    -What if we want to add code to check if the number of students enrolled doesn't exceed the max?
+    -We can do that in the ITECCourse class
+        -How? By adding a method to "ITECCourse" class
+
+4. Defining a class (slide 15) notes
+
+    -Use the keyword class plus the name of the class
+    -Convention is to start class name with an uppercase letter (StartTheClassWithUpperCase), not: (startTheClassWith...)
+    -Usually write each class definition in its own file
+    -The file name must match the class name
+    -So ITECCourse needs to be in a file called ITECCourse.java
+
+    public class ITECCourse{
+         // code here
+    }
+
+    (slide 16)
+
+    -You can write several classes in the same file
+    -Or put them in different files (for now, make sure you put them in the same package)
+    -Let's put the ITECCourse class in a separate .java file
+    -New project, create a new Class
+    -File > New… > Java Class
+    -Call it ITECCourse
+
+5. refactor this code: vid_3_a_ITEC_course_manager_no_objects to be object oriented.
+    -working in: ITEC_courses_vid_3_object_oriented_coding
+
+    a. Start by making a class to represent ITEC Course objects called "ITECCourse_vid_3_working_version"
+    b. add fields/variables/data/instance variables:
+        //I added "Field" to all the fields so I don't get confused:
+
+        String nameField;
+
+        int codeField;
+        //example 1150
+
+        List<String> studentsField;
+        //list of student names
+
+        int maxStudentsField;
+
+    c. Add a method to deal with how to add a student:
+        void addStudentField(String studentName) {
+            //make sure variable studentsField isn't null:
+            if (studentsField == null) {
+                //initialize the variable here (make the arraylist)
+                studentsField = new ArrayList<>();
+            }
+            //add the studentName
+        studentsField.add(studentName);
+
+    d. take this code from: vid_3_a_ITEC_course_manager_no_objects
+
+        public static void writeCourseInfo(String name, int code, ArrayList<String>students, int maxStudents) {
+            System.out.println("Course Name: " + name);
+            System.out.println("Course Code: " + code);
+            System.out.println("Students enrolled:");
+            for (String student : students) {
+                System.out.println(student);
+            }
+            System.out.println("There are " + getNumberOfStudents(students) + " students enrolled");
+            System.out.println("The max number of students that can enroll in this course is  " + maxStudents);
+        }
+
+    e. paste it here: ITECCourse_vid_3_working_version and reconfigure to:
+        //remove "static" and the objects "String name, int code, ArrayList<String>students, int maxStudents" from the first line:
+        //from: public static void writeCourseInfo(String name, int code, ArrayList<String>students, int maxStudents) {
+        // (because this is going to be part of the "ITECCourse_vid_3" object/class and will have the variables
+        //already inside this class (nameField, codeField, studentsField,etc.)
+
+        //to this: (I added "Field" after each field for now so I can understand what is going on, so from 'name' to 'nameField');
+
+        public void writeCourseInfo() {
+            System.out.println("Course Name: " + nameField);
+            System.out.println("Course Code: " + codeField);
+            System.out.println("Students enrolled:");
+            for (String student : studentsField) {
+                System.out.println(student);
+            }
+            System.out.println("There are " + getNumberOfStudents(studentsField) + " students enrolled");
+            System.out.println("The max number of students that can enroll in this course is  " + maxStudentsField);
+        }
+
+    f. take "getNumberOfStudents" method from: vid_3_a_ITEC_course_manager_no_objects
+        - comment out the things you added to "ITECCourse_vid_3_working_version" so they don't get used by two things at once:
+        - remove 'public' and 'static' from the method and also change the variables from
+
+         -students to studentsField so it goes from:
+          public static int getNumberOfStudents(ArrayList<String> students) {
+                return students.size();
+            }
+
+        -turns into:
+          int getNumberOfStudents(ArrayList<String> studentsField) {
+                              return studentsField.size();
+            }
+
+    g. the 'getNumberOfStudents' method in 'ITECCourse_vid_3_working_version' doesn't need
+        arguments because they are in the ITECCourse_vid_3_working_version object already.
+
+        so go from:
+            int getNumberOfStudents(ArrayList<String> studentsField) {
+                return studentsField.size();
+            }
+
+        to this:
+             int getNumberOfStudents() {
+                return studentsField.size();
+             }
+    h. remove argument for *all* getNumberOfStudents():
+
+        go from:
+        System.out.println("There are " + getNumberOfStudents(studentsField) + " students enrolled");
+
+        to this:
+        System.out.println("There are " + getNumberOfStudents() + " students enrolled");
+
+6. Refactor code from "vid_3_a_ITEC_course_manager_no_objects" to "vid_3_b_ITEC_course_manager_no_objects"
+    a. make a new ITECCourse object in the above:
+        go from:
+           public static void main(String[] args) {
+
+                //create an example course:
+                String maintenanceCourseName = "Microcomputer Systems Maintenance";
+                int maintenanceCourseCode = 1310;
+                ArrayList<String> maintenanceCourseStudentList = new ArrayList<>();
+                int maintenanceCourseMaxStudents = 20;
+
+        to this:
+            public static void main(String[] args) {
+
+                //this name 'ITECCourse_vid_3_working_version' isn't convention, but I'm using while I'm learning:
+                ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working_version();
+
+                //create an example course:
+                String maintenanceCourseName = "Microcomputer Systems Maintenance";
+                int maintenanceCourseCode = 1310;
+                ArrayList<String> maintenanceCourseStudentList = new ArrayList<>();
+                int maintenanceCourseMaxStudents = 20;
+
+    b. then remove the individual variables : 'maintenanceCourse', 'maintenanceCourseName', 'maintenanceCourseCode'
+        by setting the fields in 'ITECCourse_vid_3_working_version' object:
+            String nameField;
+            int codeField;
+            //example 1150
+            List<String> studentsField;
+            //list of student names
+            int maxStudentsField;
+
+        by setting "name of object" '.' "name of field"   = ...etc. (see below for example)
+
+        from this: (in vid_3_b_ITEC_course_manager_no_objects):
+            public static void main(String[] args) {
+
+                //this name 'ITECCourse_vid_3_working_version' isn't convention, but I'm using while I'm learning:
+                //this line (just below vv) creates the new 'ITECCourse_vid_3_working_version' course object
+                //it will represent "Microcomputer Systems Maintenance".
+                ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working_version();
+
+                //create an example course:
+                String maintenanceCourseName = "Microcomputer Systems Maintenance";
+                int maintenanceCourseCode = 1310;
+                ArrayList<String> maintenanceCourseStudentList = new ArrayList<>();
+                int maintenanceCourseMaxStudents = 20;
+
+        to this:
+            public static void main(String[] args) {
+
+                //this name 'ITECCourse_vid_3_working_version' isn't convention, but I'm using while I'm learning:
+                //this line (just below vv) creates the new 'ITECCourse_vid_3_working_version' course object
+                //it will represent "Microcomputer Systems Maintenance".
+                ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working_version();
+
+               //change this:
+        //        String maintenanceCourseName = "Microcomputer Systems Maintenance";
+
+                //to this:
+                maintenanceCourse.nameField = "Microcomputer Systems Maintenance";
+
+                int maintenanceCourseCode = 1310;
+                ArrayList<String> maintenanceCourseStudentList = new ArrayList<>();
+                int maintenanceCourseMaxStudents = 20;
+
+
+
+
+
+
+
+

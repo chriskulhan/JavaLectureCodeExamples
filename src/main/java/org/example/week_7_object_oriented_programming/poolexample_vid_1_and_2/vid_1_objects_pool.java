@@ -1,3 +1,10 @@
+//links to resources Clara shared:
+
+//https://beginnersbook.com/2013/04/oops-concepts/
+//https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+//https://devqa.io/overriding-tostring-java-class/
+
+
 /* vid_1_notes:
  ***A Java Object: (slide 2)
 
@@ -58,7 +65,7 @@ Use that class definition to create and use objects in your program
 //write a program to create a swimming pool class
     //then make swimming pool objects
 
-package org.example.week_7_object_oriented_programming.poolexample;
+package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2;
 
 public class vid_1_objects_pool {
 
@@ -72,6 +79,8 @@ public class vid_1_objects_pool {
 
     //each pool will have a length:
     private Double lengthField; //another field/variable/"instance variable"
+
+    //could add more fields/variables/instance variables. More than 2 is okay.
 
     //special method called a "constructor" that has the same name as the class:
     //here the class is: "vid_1_objects_pool"
@@ -130,12 +139,14 @@ public class vid_1_objects_pool {
 
     //if you provide a "toString()" method in a class, (the class here is vid_1_objects_pool), that returns something
     //descriptive, then that's what gets printed when you System.out.println(como)
+
+    //@Override is used to make sure "toString()" just below is spelled correctly and
+    // will help verify you are using the right method name:
+    //using @Override to replace the default version of "toString()" with a custom version, so the
+    //normal "toString()" method has to be overridden:
     @Override
 
-
-    // vid_2_notes_order_of_operations:
-    //add a new "instance method" to this class (class named vid_1_objects_pool)
-
+//add a new "instance method" to this class (class named vid_1_objects_pool)
 //Why create toString method in vid_1_objects_pool????:
 //        //check in vid_1_swimmingPoolProgram and see what is in the como thing in vid_1_swimmingPoolProgram
             //added:
