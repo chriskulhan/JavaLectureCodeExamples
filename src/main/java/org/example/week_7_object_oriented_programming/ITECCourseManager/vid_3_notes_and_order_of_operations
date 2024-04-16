@@ -203,15 +203,194 @@
 
                 //to this:
                 maintenanceCourse.nameField = "Microcomputer Systems Maintenance";
+        ------
+                //change this:
+        //        int maintenanceCourseCode = 1310;
 
-                int maintenanceCourseCode = 1310;
-                ArrayList<String> maintenanceCourseStudentList = new ArrayList<>();
-                int maintenanceCourseMaxStudents = 20;
+                //to this:
+                maintenanceCourse.codeField = 1310;
+        -----
+                //change this:
+        //        int maintenanceCourseMaxStudents = 20;
+
+                //to this:
+                maintenanceCourse.maxStudentsField = 20;
+        ----
+                //change these:
+        //        maintenanceCourseStudentList.add("Anna");
+        //        maintenanceCourseStudentList.add("Bill");
+        //        maintenanceCourseStudentList.add("Carl");
+
+                //to these:
+                maintenanceCourse.addStudent("Anna");
+                maintenanceCourse.addStudent("Bill");
+                maintenanceCourse.addStudent("Carl");
+        ----
+                //find out info about the ITEC course and who is registered by adding:
+                maintenanceCourse.writeCourseInfo();
+
+                //create another example course:
+
+                ITECCourse_vid_3_working_version datacomCourse = new ITECCourse_vid_3_working_version();
+                //change this:
+        //        String datacomCourseName = "Data Communications";
+
+                //to this:
+                datacomCourse.nameField = "Data Communications";
+
+                //change this:
+        //        int dataComCourseCode = 1425;
+
+                //to this:
+                datacomCourse.codeField = 1425;
+
+                //leave this arraylist alone:
+                ArrayList<String> datacomCourseStudentList = new ArrayList<>();
+
+                //change this:
+        //        int dataComCourseMaxStudents = 30;
+
+                //to this:
+                datacomCourse.maxStudentsField = 30;
+    c. add student info
+            //change this:
+    //        //Add some students
+    //        datacomCourseStudentList.add("Dave");
+    //        datacomCourseStudentList.add("Ed");
+    //        datacomCourseStudentList.add("Flora");
+
+            //to this:
+            //Add some students
+            datacomCourse.addStudent("Dave");
+            datacomCourse.addStudent("Ed");
+            datacomCourse.addStudent("Flora");
+
+    d. write course info:
+            //change to this:
+            maintenanceCourse.writeCourseInfo();
+
+            //replaces these "writeCourseInfo" things:
+            //Print information about these courses
+            //commented out so this doesn't get confused
+    //        writeCourseInfo(maintenanceCourseName, maintenanceCourseCode, maintenanceCourseStudentList, maintenanceCourseMaxStudents);
+    //        writeCourseInfo(datacomCourseName, datacomCourseCode, datacomCourseStudentList, datacomCourseMaxStudents);
+    //    }
+
+    e. run the program from 'vid_3_b_ITEC_course_manager_no_objects'
+
+    //___________________________****************__________________
+    //when this is run, there are some things that are ported from here:
+    //vid_3_b_ITEC_course_manager_no_objects
+    //to here: ITECCourse_vid_3_working_version
+    //and back again.
+
+    //the shape the data is ported into is from the "writeCourseInfo" method in ITECCourse_vid_3_working_version
+
+    //the individual data pieces are housed in: vid_3_b_ITEC_course_manager_no_objects
+
+    //output:
+    ***output from the first data object "maintenanceCourse"
+
+    //Course Name: Microcomputer Systems Maintenance
+    //Course Code: 1310
+    //Students enrolled:
+    //Anna
+    //Bill
+    //Carl
+    //There are 3 students enrolled
+    //The max number of students that can enroll in this course is  20
 
 
+    ***output from the second data object: "datacomCourse"
+    //Course Name: Data Communications
+    //Course Code: 1425
+    //Students enrolled:
+    //Dave
+    //Ed
+    //Flora
+    //There are 3 students enrolled
+    //The max number of students that can enroll in this course is  30
 
+        //made another version: vid_3_c_ITEC_course_manager_with_objects_cleaned_up
 
+        **This version is better, but could be even better: (slide 20)
 
+        -Fewer variables in ITECCourseManager
+        -And we can add extra features to our Course objects
 
+        -But still a lot of code in ITECCourseManager (can this be improved upon?):
 
+            -Can add a constructor to clean up creating these objects
+            -A constructor is a special method called when the object is created
+            -The constructor ***_must have the same name as the class_***
+            -Used to set up and initialize the object
+            -(Similar to  __init__ in Python)
+
+   7. add a constructor to: ITECCourse_vid_3_working_version
+   **convention is to add the constructor after the data/field/instance variables:
+
+        int maxStudentsField;// (I left this as a place marker)
+        _________________
+
+        //***add constructor here (step 7 in vid_3_notes_and_order_of_operations):
+
+        //constructors have to have the same name as the class here: "ITECCourse_vid_3_working_version"
+        //will have arguments that correspond to the variables/data/instance variables above.
+        //so: nameField will have argument/parameter: courseName with type String
+        //codeField will have argument/parameter: courseCode with type int
+        //and maxStudentsField will have argument/parameter: courseMaxStudents with type int
+        //
+        ITECCourse_vid_3_working_version(String courseName, int courseCode, int courseMaxStudents) {
+            nameField = courseName;
+            codeField = courseCode;
+            maxStudentsField = courseMaxStudents;
+            //now check vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+            //there is some red squiggles there now.
+        }
+
+        ___________________
+        //need to write a method to add a student: (I left this as a place marker)
+        void addStudent(String studentName) {
+
+    8a. go back to vid_3_c_ITEC_course_manager_with_objects_cleaned_up and look for red marked areas:
+
+    ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working_version();
+
+    AND
+
+    ITECCourse_vid_3_working_version datacomCourse = new ITECCourse_vid_3_working_version();
+
+    both have red squiggles by the parentheses.
+
+    **Fix ITECCourse_vid_3_working_version datacomCourse = new ITECCourse_vid_3_working_version();
+        by adding the 3 arguments from ITECCourse_vid_3_working_version
+
+    ---->change this in vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+
+        from this:
+               ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working_version();
+
+       to this:
+          ITECCourse_vid_3_working_version maintenanceCourse = new ITECCourse_vid_3_working
+            _version("Microcomputer Systems Maintenance", 1310, 20);
+
+       |>by taking the below vvv info and put it in the argument place (in the parentheses) above^^^
+            maintenanceCourse.nameField = "Microcomputer Systems Maintenance";
+            maintenanceCourse.codeField = 1310;
+           ArrayList<String> maintenanceCourseStudentList = new ArrayList<>(); // todo ask: this wasn't used????
+           maintenanceCourse.maxStudentsField = 20;
+
+    8b.    go back to vid_3_c_ITEC_course_manager_with_objects_cleaned_up and look for red marked areas:
+               //take this:
+       //        ITECCourse_vid_3_working_version datacomCourse = new ITECCourse_vid_3_working_version();
+
+               //add the below vv  parameters/arguments within the parentheses to here:
+               ITECCourse_vid_3_working_version datacomCourse = new ITECCourse_vid_3_working_version("Data Communications",1425,30);
+
+       //        datacomCourse.nameField = "Data Communications";
+       //        datacomCourse.codeField = 1425;
+       //
+       //        ArrayList<String> datacomCourseStudentList = new ArrayList<>(); todo: what happens to this?
+       //
+       //        datacomCourse.maxStudentsField = 30;
 

@@ -13,11 +13,27 @@ public class ITECCourse_vid_3_working_version {
     //example 1150
     List<String> studentsField;
     //list of student names
-
     int maxStudentsField;
 
+    //***add constructor here (step 7 in vid_3_notes_and_order_of_operations):
+
+    //constructors have to have the same name as the class here: "ITECCourse_vid_3_working_version"
+    //will have arguments that correspond to the variables/data/instance variables above.
+    //so: nameField will have argument/parameter: courseName with type String
+    //codeField will have argument/parameter: courseCode with type int
+    //and maxStudentsField will have argument/parameter: courseMaxStudents with type int
+    //
+    ITECCourse_vid_3_working_version(String courseName, int courseCode, int courseMaxStudents) {
+        nameField = courseName;
+        codeField = courseCode;
+        maxStudentsField = courseMaxStudents;
+        //now check vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+        //there is some red squiggles there now.
+    }
+
+
     //need to write a method to add a student:
-    void addStudentField(String studentName) {
+    void addStudent(String studentName) {
         //make sure variable studentsField isn't null:
         if (studentsField == null) {
             //initialize the variable here (make the arraylist)
