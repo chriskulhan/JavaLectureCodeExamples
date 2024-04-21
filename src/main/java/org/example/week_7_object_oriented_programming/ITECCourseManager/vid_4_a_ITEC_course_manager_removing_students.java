@@ -102,8 +102,12 @@ public class vid_4_a_ITEC_course_manager_removing_students {
 
         //modify the fields (change the max students):
 //        softwareDevelopmentProjectsCourse.maxStudentsField = 30;
+
         softwareDevelopmentProjectsCourse.setMaxStudentsField(30);
         softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+        //now output includes the max students allowed is 30:
+        //output: The max number of students that can enroll in this course is 30
 
         ITECCourse_vid_3_working_version smallCourse = new ITECCourse_vid_3_working_version
                 ("Made up course",4567,3);

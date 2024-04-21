@@ -80,3 +80,89 @@
     **
 
  */
+
+ 6. Add access modifiers (learned about in video 5) to this program
+    **add public in from of the pool class: vid_1_objects_pool
+    from this:
+
+    vid_1_objects_pool(String nameParameter, double lengthParameter) {
+            this.nameField = nameParameter;
+            //could be nameField = nameParameter; (without the "this." because it can't be confused)
+
+            this.lengthField = lengthParameter;
+            //could be lengthField = lengthParameter; (without the "this." because it can't be confused)
+            //these variables within this class (vid_1_objects_pool) will
+            //let us create objects associated with these variables:
+        }
+    to this:
+
+    public vid_1_objects_pool(String nameParameter, double lengthParameter) {
+            this.nameField = nameParameter;
+            //could be nameField = nameParameter; (without the "this." because it can't be confused)
+
+            this.lengthField = lengthParameter;
+            //could be lengthField = lengthParameter; (without the "this." because it can't be confused)
+            //these variables within this class (vid_1_objects_pool) will
+            //let us create objects associated with these variables:
+        }
+
+**can't access the nameField in the vid_1_swimmingPoolProgram
+
+7. create getter and setter methods in: vid_1_objects_pool
+
+    a. press command-N (control-N on a pc)
+    b. select getter and setter
+    c. select both nameField and LengthField
+    d. now getter and setter methods will appear in: vid_1_objects_pool
+        look like:
+            public String getNameField() {
+                return nameField;
+            }
+
+            public void setNameField(String nameField) {
+                this.nameField = nameField;
+            }
+
+            public Double getLengthField() {
+                return lengthField;
+            }
+
+            public void setLengthField(Double lengthField) {
+                this.lengthField = lengthField;
+            }
+
+8. Now need to change the way the private data is snagged
+    from:    vid_1_objects_pool
+    by:     vid_1_swimmingPoolProgram
+
+    changed this in vid_1_swimmingPoolProgram:
+
+    //        ymca.nameField = "ymca"; //this isn't allowed
+                //will need to make getter and setter methods in vid_1_objects_pool that can
+                // restrict the info that is available
+
+        //so, if I wanted to change the name of ymca, now that there are getter and setter methods:
+
+            ymca.setNameField("Minneapolis YMCA"); //this is how to access the name now.
+
+            //run this and see what if the new name shows up: (it does!)
+            //some of the output:
+            // Minneapolis YMCA pool is 50.0 meters long.
+
+9. USe the getter and setter methods to do validation:
+    example:
+    go to:    vid_1_objects_pool
+    **check to make sure the length is positive:
+
+    goes from this:
+        public void setLengthField(Double lengthField) {
+            this.lengthField = lengthField;
+        }
+    to this:
+        public void setLengthField(Double lengthField) {
+            if (lengthField < 0 || lengthField > 100){
+                return; //can all kinds of things here based on the need of the program
+                //could print an error message, return and ignore, raise an exception, etc.
+            }
+            this.lengthField = lengthField;
+        }

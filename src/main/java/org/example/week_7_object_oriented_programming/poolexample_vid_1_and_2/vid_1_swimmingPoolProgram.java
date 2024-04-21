@@ -12,6 +12,20 @@ public class vid_1_swimmingPoolProgram {
         //ymca is the "vid_1_objects_pool" object defined by that class
         //distanceForLaps is the method defined in "vid_1_objects_pool" that will do the math for us
 
+        //added after watching video 5 and changing the pool object to public
+
+//        ymca.nameField = "ymca"; //this isn't allowed
+        //will need to make getter and setter methods in vid_1_objects_pool that can
+        // restrict the info that is available
+        //so, if I wanted to change the name of ymca, now that there are getter and setter methods:
+        ymca.setNameField("Minneapolis YMCA"); //this is how to access the name now.
+        //run this and see what if the new name shows up: (it does!)
+        //some of the output:
+        // Minneapolis YMCA pool is 50.0 meters long.
+
+
+
+
         double totalSwam = ymca.distanceForLaps(6);
         System.out.println("The total distance is " + totalSwam);
 

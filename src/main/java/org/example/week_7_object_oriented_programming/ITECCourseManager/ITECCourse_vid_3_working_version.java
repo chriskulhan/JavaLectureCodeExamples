@@ -20,15 +20,34 @@ public class ITECCourse_vid_3_working_version {
         return nameField;
     }
 
+    public void setNameField(String nameField) {
+        this.nameField = nameField;
+    }
+
     public int getCodeField() {
         return codeField;
+    }
+
+    public void setCodeField(int codeField) {
+        this.codeField = codeField;
     }
 
     public int getMaxStudentsField() {
         return maxStudentsField;
     }
 
-    //***add constructor here (step 7 in vid_3_notes_and_order_of_operations):
+//    public void setMaxStudentsField(int maxStudentsField) {
+//        this.maxStudentsField = maxStudentsField;
+//    }
+    //add a check to setMaxStudents:
+    public void setMaxStudentsField(int maxStudentsField) {
+        if (maxStudentsField < 0){
+            return; //ignore this invalid value
+        }
+    this.maxStudentsField = maxStudentsField;
+    }
+
+//***add constructor here (step 7 in vid_3_notes_and_order_of_operations):
 
     //constructors have to have the same name as the class here: "ITECCourse_vid_3_working_version"
     //will have arguments that correspond to the variables/data/instance variables above.

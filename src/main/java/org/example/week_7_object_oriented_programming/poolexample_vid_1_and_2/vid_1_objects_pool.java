@@ -90,7 +90,7 @@ public class vid_1_objects_pool {
     //give the constructor some parameters within the parentheses: here: "(String name, double length)"
 
 //THIS IS THE CONSTRUCTOR vvv: (creates/sets up the  "vid_1_objects_pool")
-    vid_1_objects_pool(String nameParameter, double lengthParameter) {
+    public vid_1_objects_pool(String nameParameter, double lengthParameter) {
         this.nameField = nameParameter;
         //could be nameField = nameParameter; (without the "this." because it can't be confused)
 
@@ -129,7 +129,6 @@ public class vid_1_objects_pool {
 
         //head over to the "vid_1_swimmingPoolProgram" to use this new method
     }
-
 
     //add @Override before the public String toString() method:
     //because when you print any object (arraylist, hashmap, "vid_1_objects_pool" (this is an object), integer, etc.)
@@ -180,4 +179,31 @@ public class vid_1_objects_pool {
 //
 //    }
 
+
+    public String getNameField() {
+        return nameField;
+    }
+
+    public void setNameField(String nameField) {
+        this.nameField = nameField;
+    }
+
+    public Double getLengthField() {
+        return lengthField;
+    }
+
+    //check to make sure the length is positive:
+    //go from this:
+//    public void setLengthField(Double lengthField) {
+//        this.lengthField = lengthField;
+//    }
+
+    //to this:
+    public void setLengthField(Double lengthField) {
+        if (lengthField < 0 || lengthField > 100){
+            return; //can all kinds of things here based on the need of the program
+            //could print an error message, return and ignore, raise an exception, etc.
+        }
+        this.lengthField = lengthField;
+    }
 }

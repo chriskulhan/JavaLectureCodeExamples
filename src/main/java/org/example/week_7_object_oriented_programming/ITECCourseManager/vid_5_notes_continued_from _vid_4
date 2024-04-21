@@ -44,7 +44,7 @@ There is red in the code with nameField and codeField
 1. GO here: ITECCourse_vid_3_working_version
 click anywhere in the window
 click command-N
-select getters
+select getters and setters
 click to select nameField, codeField, and getMaxStudentField
 these show up in the place you clicked:
 
@@ -52,12 +52,24 @@ these show up in the place you clicked:
         return nameField;
     }
 
+    public void setNameField(String nameField) {
+        this.nameField = nameField;
+    }
+
     public int getCodeField() {
         return codeField;
     }
 
+    public void setCodeField(int codeField) {
+        this.codeField = codeField;
+    }
+
     public int getMaxStudentsField() {
         return maxStudentsField;
+    }
+
+    public void setMaxStudentsField(int maxStudentsField) {
+        this.maxStudentsField = maxStudentsField;
     }
 
 2. check in vid_4_a_ITEC_course_manager_removing_students still has red
@@ -93,4 +105,27 @@ from this:         //modify the fields (change the max students):
                    softwareDevelopmentProjectsCourse.maxStudentsField = 30;
                    softwareDevelopmentProjectsCourse.writeCourseInfo();
 
-to this:
+to this:         //modify the fields (change the max students):
+         //        softwareDevelopmentProjectsCourse.maxStudentsField = 30;
+                 softwareDevelopmentProjectsCourse.setMaxStudentsField(30);
+                 softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+
+***Advantage to having get and set methods:
+    A. Control access
+    B. Reject invalid data (-30 for max number of students for example)
+
+5. Add a check in ITECCourse_vid_3_working_version to address modifiers on max students
+    From this:
+    //    public void setMaxStudentsField(int maxStudentsField) {
+    //        this.maxStudentsField = maxStudentsField;
+    //    }
+        //add a check to setMaxStudents:
+
+    To this:
+        public void setMaxStudentsField(int maxStudentsField) {
+            if (maxStudentsField < 0){
+                return; //ignore this invalid value
+            }
+        this.maxStudentsField = maxStudentsField;
+        }
