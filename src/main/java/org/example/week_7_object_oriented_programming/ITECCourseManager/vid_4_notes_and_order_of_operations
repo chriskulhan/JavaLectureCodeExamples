@@ -1,0 +1,182 @@
+//add to: vid_4_a_ITEC_course_manager_removing_students
+
+1. Add new course and some data inside
+Below: datacomCourse.writeCourseInfo();
+
+        ITECCourse_vid_3_working_version softwareDevelopmentProjectsCourse = new ITECCourse_vid_3_working_version
+                ("Software Development Projects",2903,24);
+
+        softwareDevelopmentProjectsCourse.addStudent("Larry");
+        softwareDevelopmentProjectsCourse.addStudent("Moe");
+        softwareDevelopmentProjectsCourse.addStudent("Curly");
+        softwareDevelopmentProjectsCourse.addStudent("June");
+
+        softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+2. Add some accessing and printing of different types of data:
+
+below:         softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+  int totalEnrolled = softwareDevelopmentProjectsCourse.getNumberOfStudents();
+       //        System.out.println("The total number of students enrolled in Software Development is " + totalEnrolled);
+               System.out.println("The total number of students enrolled in " + softwareDevelopmentProjectsCourse.nameField + " course is " + totalEnrolled);
+
+               //print the code:
+               System.out.println("ITEC " + softwareDevelopmentProjectsCourse.codeField + " " + softwareDevelopmentProjectsCourse.nameField);
+               //output: ITEC 2903 Software Development Projects
+
+               //modify the fields (change the max students):
+               softwareDevelopmentProjectsCourse.maxStudentsField = 30;
+               softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+3. add "remove students" method here: ITECCourse_vid_3_working_version
+    **from Clara's code https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week7_first_classes/OOPITECCourseManager_AccessModifiers/ITECCourseManager.java
+
+        public void removeStudent(String studentName) {
+            if (studentsField.contains(studentName)) {
+                studentsField.remove(studentName);
+                System.out.println(studentName + " was un-enrolled from " + this.nameField);
+            } else {
+                System.out.println(studentName + " was not found in " + this.nameField);
+            }
+          }
+4. test to see if remove student method worked: add code here :vid_4_a_ITEC_course_manager_removing_students
+    **below this; maintenanceCourse.addStudent("Carl");
+
+           //remove student
+            maintenanceCourse.removeStudent("Carl");
+            //now Carl doesn't appear in the output
+
+5. try to remove a student who doesn't exist:
+    **below:   maintenanceCourse.removeStudent("Carl");
+
+    maintenanceCourse.removeStudent("Mark");
+            //part of output:
+            //Mark was not found in Microcomputer Systems Maintenance
+
+6. add another course here: vid_4_a_ITEC_course_manager_removing_students
+    **below: softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+        ITECCourse_vid_3_working_version smallCourse = new ITECCourse_vid_3_working_version
+                ("Made up course",4567,3);
+        smallCourse.addStudent("Joe");
+        smallCourse.addStudent("Eryn");
+        smallCourse.addStudent("Amanda");
+        smallCourse.addStudent("Blink");
+
+        smallCourse.writeCourseInfo();
+        //output:
+        // Joe
+        //Eryn
+        //Amanda
+        //Blink
+        //There are 4 students enrolled
+        //The max number of students that can enroll in this course is 3
+
+7. check in add students if the maximum number of students exceeds the number of students trying to enroll:
+    **add it to: ITECCourse_vid_3_working_version
+    **from this:     void addStudent(String studentName) {
+                    //make sure variable studentsField isn't null:
+            //        if (studentsField == null) {
+            //            //initialize the variable here (make the arraylist)
+            //            studentsField = new ArrayList<>();
+                    //add the studentName
+                    studentsField.add(studentName);
+
+    **To this:         public void addStudent(String studentName) {
+                           if(studentsField.size() == maxStudentsField) {
+                               System.out.println("Course is full - can't add " + studentName);
+                               System.out.println("The maximum number of students is " + maxStudentsField);
+                           }
+                           //add the studentName
+                           studentsField.add(studentName);
+
+                       }
+
+8. What was done in this course manager program: (the whole thing, not just this video)
+
+(slide 36)
+-We have modeled an object by thinking about what ITECCourse objects should be responsible for
+    -Things that ITECCourse objects should be responsible for, should go in the ITECCourse class.
+        Free up ITECCourseManager from these tasks
+
+        //these live in: ITECCourse_vid_3_working_version
+        1. name of the course (here nameField)
+        2. code of the course (here codeField)
+        3. list of the students (here studentsField)
+        4. maximum number of students (here maxStudentsField)
+
+        5. constructor that can set up an ITEC Course
+        //this lives in: ITECCourse_vid_3_working_version
+        looks like:
+
+            ITECCourse_vid_3_working_version(String courseName, int courseCode, int courseMaxStudents) {
+                nameField = courseName;
+                codeField = courseCode;
+                maxStudentsField = courseMaxStudents;
+                //now check vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+                //there is some red squiggles there now.
+
+                studentsField = new ArrayList<>(); //add this <<< to replace vvv
+                // if (studentsField == null) {
+                //initialize the variable here (make the arraylist)
+                //from the "void addStudent" method just below
+            }
+
+        6. method to add a student here:    ITECCourse_vid_3_working_version
+        //looks like:
+            public void addStudent(String studentName) {
+                if(studentsField.size() == maxStudentsField) {
+                    System.out.println("Course is full - can't add " + studentName);
+                    System.out.println("The maximum number of students is " + maxStudentsField);
+                }
+                //add the studentName
+                studentsField.add(studentName);
+            }
+
+        7. method to remove a student here: ITECCourse_vid_3_working_version
+        //looks like:
+            public void removeStudent(String studentName) {
+                if (studentsField.contains(studentName)) {
+                    studentsField.remove(studentName);
+                    System.out.println(studentName + " was un-enrolled from " + this.nameField);
+                } else {
+                    System.out.println(studentName + " was not found in " + this.nameField);
+                }
+            }
+
+        8.  method to write all the course info in here: ITECCourse_vid_3_working_version
+        //looks like:
+            public void writeCourseInfo() {
+                System.out.println("Course Name: " + nameField);
+                System.out.println("Course Code: " + codeField);
+                System.out.println("Students enrolled:");
+                for (String student : studentsField) {
+                    System.out.println(student);
+                }
+                System.out.println("There are " + getNumberOfStudents() + " students enrolled");
+                System.out.println("The max number of students that can enroll in this course is " + maxStudentsField);
+            }
+
+        9. a method that can write out the number of students in each course here:
+             int getNumberOfStudents() {
+                    return studentsField.size();
+                }
+
+
+-We have abstraction –  (means taking details from the course manager)
+    the things the ITECCourse objects can do are written in the ITECCourse class,
+    and ITECCourseManager doesn't have to deal with that detail – for example, checking the if there
+        is room for a student in a class
+
+Encapsulation:
+-ITECCourseManager doesn't have to know how ITECCourse objects work
+    -It just needs to know how to make them, and what it can do with them
+    -If we changed how ITECCourse worked internally, ITECCourseManager doesn't care, doesn't need to
+        know, and isn't affected. So we can change the ArrayList to an Array or LinkedList or whatever
+            and ITECCourseManager doesn't care (so long as we don’t change the methods ITECCourseManager
+            was using)
+
+-And we could easily re-use ITECCourse objects in another program
+
+-We have some encapsulation…

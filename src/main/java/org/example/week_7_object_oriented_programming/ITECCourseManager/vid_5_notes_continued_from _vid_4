@@ -1,0 +1,96 @@
+Encapsulation (slide 37)
+
+-A well-designed object hides how it works internally
+-It only shares the data that is necessary (private data)
+-It should have a well-designed set of methods which other code can use to work with this object
+
+Why? (slide38)
+
+1. This facilitates reuse – if there is a well-defined, documented interface, it is easier to use that object
+2. You know what the publicly accessible parts of the objects are, so you know what it's OK to change and what
+    will affect other parts of your code
+3. Helps prevent accidentally modifying an object's data. Doesn't stop you doing it, just makes it a little harder
+
+
+Three different types of access modifier fields:
+Public, Protected, Private (slide 39)
+
+-Often make all instance variables (aka fields) _private_
+-Make methods that will be used by other classes in the same package _protected_
+-Make methods that any other class can use _public_
+-final (constant) variables can be made public, protected or private, as appropriate
+-Make all other methods private (only used internally)
+
+slide 40:
+
+-Public: any other class can access this method or variable
+-Protected: other classes in the same package can access this method or variable (also subclasses, later class)
+-Private: only this object can access this private variable. No other objects can access this method or variable
+
+If you don't specify an access modifier, package-protected is assumed (like protected; available in same package, but subclasses in a different package can't access it)
+
+****Add access modifiers to ITECCourse_vid_3_working_version
+
+added public and private to various parts
+
+**add access modifiers to vid_4_a_ITEC_course_manager_removing_students
+
+There is red in the code with nameField and codeField
+--add accessors and mutators to allow the nameField and codeField to remain private but still be used.
+(also known as get and set methods)
+
+***getters and setters can be generated automatically in Intellij***
+
+1. GO here: ITECCourse_vid_3_working_version
+click anywhere in the window
+click command-N
+select getters
+click to select nameField, codeField, and getMaxStudentField
+these show up in the place you clicked:
+
+    public String getNameField() {
+        return nameField;
+    }
+
+    public int getCodeField() {
+        return codeField;
+    }
+
+    public int getMaxStudentsField() {
+        return maxStudentsField;
+    }
+
+2. check in vid_4_a_ITEC_course_manager_removing_students still has red
+    **Have to call the getter method in side of this space
+    SO change this:
+            int totalEnrolled = softwareDevelopmentProjectsCourse.getNumberOfStudents();
+    //        System.out.println("The total number of students enrolled in Software Development is " + totalEnrolled);
+            System.out.println("The total number of students enrolled in " + softwareDevelopmentProjectsCourse.nameField
+                    + " course is " + totalEnrolled);
+
+            //print the code:
+            System.out.println("ITEC " + softwareDevelopmentProjectsCourse.codeField + " "
+                    + softwareDevelopmentProjectsCourse.nameField);
+            //output: ITEC 2903 Software Development Projects
+
+            //modify the fields (change the max students):
+            softwareDevelopmentProjectsCourse.maxStudentsField = 30;
+            softwareDevelopmentProjectsCourse.writeCourseInfo();
+    to this:
+                //add in the access modifiers (getter method:)
+
+                System.out.println("The total number of students enrolled in " + softwareDevelopmentProjectsCourse.getNameField()
+                                + " course is " + totalEnrolled);
+
+                System.out.println("ITEC " + softwareDevelopmentProjectsCourse.getCodeField() + " "
+                        + softwareDevelopmentProjectsCourse.getNameField());
+
+                System.out.println("ITEC " + softwareDevelopmentProjectsCourse.getCodeField() + " "
+                        + softwareDevelopmentProjectsCourse.getNameField());
+
+4. set max students in vid_4_a_ITEC_course_manager_removing_students
+from this:         //modify the fields (change the max students):
+                   softwareDevelopmentProjectsCourse.maxStudentsField = 30;
+                   softwareDevelopmentProjectsCourse.writeCourseInfo();
+
+to this:

@@ -394,3 +394,30 @@
        //
        //        datacomCourse.maxStudentsField = 30;
 
+    8c do this for the remaining data that is added for the various types of variables
+
+    8d. move the addStudents validation (if null, etc.) from vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+        into the constructor so the validation is automatic.
+        **if it exists already in the constructor, it's not necessary to check if it exists
+
+        ITECCourse_vid_3_working_version(String courseName, int courseCode, int courseMaxStudents) {
+            nameField = courseName;
+            codeField = courseCode;
+            maxStudentsField = courseMaxStudents;
+            //now check vid_3_c_ITEC_course_manager_with_objects_cleaned_up
+            //there is some red squiggles there now.
+
+      here>>      ******studentsField = new ArrayList<>(); //add this <<< to replace vvv
+            // if (studentsField == null) {
+            //initialize the variable here (make the arraylist)
+            //from the "void addStudent" method just below
+        }
+
+        //need to write a method to add a student:
+        void addStudent(String studentName) {
+            //make sure variable studentsField isn't null:
+   ***>>>from here // if (studentsField == null) {
+    //            //initialize the variable here (make the arraylist)
+    //            studentsField = new ArrayList<>();
+            //add the studentName
+            studentsField.add(studentName);
