@@ -1,0 +1,183 @@
+***Make my first GUI:
+
+-Recommended: create a new package for this project
+-Right-click on your package
+-New > Swing UI Designer > GUIForm
+-Base Layout Manager = GridLayoutManager(IntelliJ)
+-Give your form a name: HelloGUI
+-Makes sure Create bound class is checked; the Class name is HelloGUI
+
+Try adding some components from palette to form:
+
+-Drag some components from palette to your form
+-Once you've added some components, you can move and resize them within the layout
+-Swing has various layout managers used to control positions of components in a GUI
+-Different LayoutManagers handle components differently
+-For example, components can be contained in a grid, and/or have positions relative to each other
+
+LayoutManager (slide 9)
+
+-A layout manager contains GUI components
+-It manages the position of components, and arranges them in the application window
+-Helps keep your GUI looking nice if the application window is resized
+-Saves you having to decide the absolute position of each element in the window
+-Common LayoutManangers are GridBagLayout,  FormLayout, FlowLayout
+-Pictures of GUIs laid out with different layout managers:
+-http://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+
+-A LayoutManager can contain components and panels containing other LayoutManagers
+    – useful for more complex GUIs
+
+
+IntelliJ autogenerates code to create the GUI components
+
+-And hides it from you
+-Much like C# / Visual Studio does, if you've taken that class
+-If you chose Create bound class when creating the GUI for, you should also have a new class called HelloGUI.a that has a reference to each of the components in the GUI
+-You can add your GUI event handlers and logic here
+-Or calls to other classes to implement the logic
+
+
+Give your JPanel a name
+
+-A JPanel component is added to your GUI form
+-JPanel is a Swing class that is used to hold other GUI components
+-Click on the JPanel and set the field name to mainPanel
+-mainPanel is a variable name that you will use in your code
+
+Add a JButton to your JPanel
+
+-Drag a JButton from the Palette to your JPanel
+-In properties, change the button text to Click Me!
+-If this is the first property you change, you'll notice the field name changes too
+-If not, set the fieldName to clickMeButton
+
+Add a JLabel to your JPanel (slide 13)
+
+-Drag a JLabel to your JPanel
+-Place it anywhere.
+-In properties, change the JLabel text to I'm a label!
+-You'll also need to set the field name
+-I called mine myFirstLabel
+
+Code
+
+-3 things to work with:
+-HelloGUI.form – your GUI designer
+-HelloGUI.java – event handlers go here
+-Main.java – default Java class with your main method in; creates the GUI
+
+HelloGUI.java
+
+-Contains references to your GUI components
+-IntelliJ has generated code to link these to your GUI
+-You’ll configure your GUI and add event handlers in this class
+
+Code to add to HelloGUI.java
+
+-HelloGUI extends JFrame
+-A JFrame is a GUI window
+-Add a constructor
+
+HelloGUI extends JFrame
+A JFrame is a GUI window
+Add a constructor
+_____________________________
+Where the First_GUI_Project_vid_1 started:
+
+0. add things to the HelloGUI.form
+by dragging and dropping them into the JPanel
+-they will automatically be generated in: HelloGUI.java:
+
+package org.example.week_8_GUI.First_GUI_Project_vid_1;
+
+import javax.swing.*;
+
+//1. tell HelloGUI it's a jFrame. add "extends JFrame" below:
+public class HelloGUI extends JFrame{
+    private JPanel mainPanel;
+    private JButton clickMeButton;
+    private JTextField myFirstLabel;
+
+    //2. add constructor: This HelloGUI object will be created
+    HelloGUI() {
+        //3. set ContentPane (mainPanel)
+            //--telling the JFrame window that the main component is
+            //  the jPanel called mainPanel
+        setContentPane(mainPanel);
+
+        //4. call method "pack"  (pack all the components in, organize
+        //  them, lay them out, put them in the right places, make sure they're
+        // the correct sizes, etc.
+        pack ();
+
+        //5. make sure we can see our jFrame:
+        setVisible(true);
+
+        //6. when you close a jFrame, it doesn't close the jFrame
+        //if you want the program to close, you have to tell it to close.
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+}
+    //by default JFrames aren't visible
+
+6. in Main under First_GUI_Project_vid_1:
+
+public class Main {
+    public static void main(String[] args) {
+        HelloGUI gui = new HelloGUI();
+    }
+}
+
+***Run program from Main and a tiny window will pop up with a "Click Me!" button and
+//an "I'm a label" label
+
+**close the box or stop the program running
+
+7. Now add some functionality to the button and the label in HelloGUI.java (this is the constructor)
+//add event listener
+        // (step 7 in vid_1_order_of_operations):
+        //think about the event you want to happen
+        //add a click event (event listener)
+
+        //this is an entire event listener with a method, helped from autocomplete:
+        //belowVVV///
+        // (new ActionListener() {
+        //            @Override
+        //            public void actionPerformed(ActionEvent e) {
+        //
+        //            }
+        //        });
+
+        //when the button is clicked, a new action listener object will be created from this class definition
+        //and the "actionPerformed" method will be called.
+        clickMeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+8. set the text after the event happens to something: (this happens in HelloGUI.java)
+    **added "myFirstLabel.setText("Hello GUI programmers!! ");" below vvv
+
+            clickMeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                //todone code action goes here; whatever you want to happen when the button is clicked.
+                    myFirstLabel.setText("Hello GUI programmers!! ");
+
+9. run the program from "Main"
+
+**what happens is when the 'Click Me!' box is clicked,
+the label below turns to: 'Hello GUI programmers!!' in the box
+
+10. set preferred size of the box (to make it so the message fits inside the box without resizing):
+**in HelloGUI.java
+//after:
+        setContentPane(mainPanel);
+
+-->        setPreferredSize(new Dimension(500,500)); // <<--length and width both 500
+
+//run from Main again, box is now MUCH bigger.
+
