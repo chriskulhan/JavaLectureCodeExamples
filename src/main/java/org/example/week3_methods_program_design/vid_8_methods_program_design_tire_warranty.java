@@ -59,16 +59,16 @@
 //
 // */
 //
-///*Build: Car tire shopper program  (using Agile) --slide 36--
+///*Build: Car Tire shopper program  (using Agile) --slide 36--
 //
 //**should find price per mile warranty
 //
 //-Requirement: create a price comparison program for a customer buying car tires
 //-Car tires are sold with specific warranties, in miles driven, which roughly corresponds
-//    to how long the tire is expected to last
+//    to how long the Tire is expected to last
 //-Cheaper tires (usually) have shorter warranties
 //-There are many different tires with different prices and warranties
-//-The program should help the user decide which tire is best value for money, by calculating
+//-The program should help the user decide which Tire is best value for money, by calculating
 //    and comparing price-per-miles for two or more tires
 // */
 //
@@ -84,27 +84,27 @@
 ////
 ////        //for Agile method, start here:
 ////
-////        //get input from the user on the type of tire:
-////        String tireName = stringInput("Enter the name of the tire:");
+////        //get input from the user on the type of Tire:
+////        String tireName = stringInput("Enter the name of the Tire:");
 ////
-////        //price of the tire:
-////        double price = doubleInput("Enter the price for a " + tireName + " tire:");
+////        //price of the Tire:
+////        double price = doubleInput("Enter the price for a " + tireName + " Tire:");
 ////
 ////        //how many miles is the warranty? (example; 65000)
 ////        double miles = doubleInput("Enter the warranty miles for " + tireName);
 ////
 ////        //figure out the price per mile:
 ////        double pricePerMile = price / miles;
-////        System.out.println("The " + tireName + " tire costs $" + pricePerMile + " dollars per mile. ");
+////        System.out.println("The " + tireName + " Tire costs $" + pricePerMile + " dollars per mile. ");
 ////
 ////        //output:
-////        //Enter the name of the tire:
+////        //Enter the name of the Tire:
 ////        //goodyear
-////        //Enter the price for a goodyear tire:
+////        //Enter the price for a goodyear Tire:
 ////        //56
 ////        //Enter the warranty miles for goodyear
 ////        //35000
-////        //The goodyear tire costs $0.0016 dollars per mile.
+////        //The goodyear Tire costs $0.0016 dollars per mile.
 ////
 ////    }
 ////}
@@ -118,36 +118,36 @@
 ////
 //////here is the method:
 ////    public static String getTireInfo() {
-////        //get input from the user on the type of tire:
-////        String tireName = stringInput("Enter the name of the tire:");
+////        //get input from the user on the type of Tire:
+////        String tireName = stringInput("Enter the name of the Tire:");
 ////
-////        //price of the tire:
-////        double price = doubleInput("Enter the price for a " + tireName + " tire:");
+////        //price of the Tire:
+////        double price = doubleInput("Enter the price for a " + tireName + " Tire:");
 ////
 ////        //how many miles is the warranty? (example; 65000)
 ////        double miles = doubleInput("Enter the warranty miles for " + tireName);
 ////
 ////        //figure out the price per mile:
 ////        double pricePerMile = price / miles;
-////        System.out.println("The " + tireName + " tire costs $" + pricePerMile + " dollars per mile. ");
+////        System.out.println("The " + tireName + " Tire costs $" + pricePerMile + " dollars per mile. ");
 ////
 ////        //output:
-////        //Enter the name of the tire:
+////        //Enter the name of the Tire:
 ////        //goodyear
-////        //Enter the price for a goodyear tire:
+////        //Enter the price for a goodyear Tire:
 ////        //56
 ////        //Enter the warranty miles for goodyear
 ////        //35000
-////        //The goodyear tire costs $0.0016 dollars per mile.
+////        //The goodyear Tire costs $0.0016 dollars per mile.
 ////        return tireName; //had to add this for the program to run
 ////        //output:
-////        //Enter the name of the tire:
+////        //Enter the name of the Tire:
 ////        //goodyear
-////        //Enter the price for a goodyear tire:
+////        //Enter the price for a goodyear Tire:
 ////        //56
 ////        //Enter the warranty miles for goodyear
 ////        //34000
-////        //The goodyear tire costs $0.0016470588235294118 dollars per mile.
+////        //The goodyear Tire costs $0.0016470588235294118 dollars per mile.
 ////        //goodyear
 ////    }
 ////}
@@ -168,41 +168,41 @@
 ////
 ////    //here is the method:
 ////    public static String getTireInfo() {
-////        //get input from the user on the type of tire:
-////        String tireName = stringInput("Enter the name of the tire:");
+////        //get input from the user on the type of Tire:
+////        String tireName = stringInput("Enter the name of the Tire:");
 ////
-////        //price of the tire:
-////        double price = doubleInput("Enter the price for a " + tireName + " tire:");
+////        //price of the Tire:
+////        double price = doubleInput("Enter the price for a " + tireName + " Tire:");
 ////
 ////        //how many miles is the warranty? (example; 65000)
 ////        double miles = doubleInput("Enter the warranty miles for " + tireName);
 ////
 ////        //figure out the price per mile:
 ////        double pricePerMile = price / miles;
-////        System.out.println("The " + tireName + " tire costs $" + pricePerMile + " dollars per mile. ");
+////        System.out.println("The " + tireName + " Tire costs $" + pricePerMile + " dollars per mile. ");
 ////
 ////        return tireName;
 ////        //output:
 ////        //How many different types of tires are you comparing?
 ////        //2
-////        //Enter the name of the tire:
+////        //Enter the name of the Tire:
 ////        //good year
-////        //Enter the price for a good year tire:
+////        //Enter the price for a good year Tire:
 ////        //burnout
 ////        //Error - please enter a number.
-////        //Enter the price for a good year tire:
+////        //Enter the price for a good year Tire:
 ////        //24
 ////        //Enter the warranty miles for good year
 ////        //34000
-////        //The good year tire costs $7.058823529411765E-4 dollars per mile.
+////        //The good year Tire costs $7.058823529411765E-4 dollars per mile.
 ////        //good year
-////        //Enter the name of the tire:
+////        //Enter the name of the Tire:
 ////        //bridge
-////        //Enter the price for a bridge tire:
+////        //Enter the price for a bridge Tire:
 ////        //30
 ////        //Enter the warranty miles for bridge
 ////        //20000
-////        //The bridge tire costs $0.0015 dollars per mile.
+////        //The bridge Tire costs $0.0015 dollars per mile.
 ////        //bridge
 ////    }
 ////}
@@ -244,7 +244,7 @@
 //        }
 //    //use "alt" "enter" when "printReportTable" is red in color to create the method from just above:
 //    private static void printReportTable(String[] tireReports) {
-//        // loop over each tire:
+//        // loop over each Tire:
 //        for (int t = 0 ; t < tireReports.length; t++) {
 //            System.out.println(tireReports[t]);
 //        }
@@ -253,18 +253,18 @@
 //
 //    //here is the method:
 //    public static String getTireInfo() {
-//        //get input from the user on the type of tire:
-//        String tireName = stringInput("Enter the name of the tire:");
+//        //get input from the user on the type of Tire:
+//        String tireName = stringInput("Enter the name of the Tire:");
 //
-//        //price of the tire:
-//        double price = doubleInput("Enter the price for a " + tireName + " tire:");
+//        //price of the Tire:
+//        double price = doubleInput("Enter the price for a " + tireName + " Tire:");
 //
 //        //how many miles is the warranty? (example; 65000)
 //        double miles = doubleInput("Enter the warranty miles for " + tireName);
 //
 //        //figure out the price per mile:
 //        double pricePerMile = price / miles;
-//        System.out.println("The " + tireName + " tire costs $" + pricePerMile + " dollars per mile. ");
+//        System.out.println("The " + tireName + " Tire costs $" + pricePerMile + " dollars per mile. ");
 //
 ////        return tireName;
 //

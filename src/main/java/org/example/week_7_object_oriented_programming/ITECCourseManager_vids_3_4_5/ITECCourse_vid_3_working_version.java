@@ -1,4 +1,4 @@
-package org.example.week_7_object_oriented_programming.ITECCourseManager;
+package org.example.week_7_object_oriented_programming.ITECCourseManager_vids_3_4_5;
 
 import java.util.ArrayList;
 import java.util.List;

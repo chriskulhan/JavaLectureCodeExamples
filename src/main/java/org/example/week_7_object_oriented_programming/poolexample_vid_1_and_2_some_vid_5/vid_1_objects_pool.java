@@ -65,7 +65,7 @@ Use that class definition to create and use objects in your program
 //write a program to create a swimming pool class
     //then make swimming pool objects
 
-package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2;
+package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2_some_vid_5;
 
 public class vid_1_objects_pool {
 

@@ -1,4 +1,4 @@
-package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2;
+package org.example.week_7_object_oriented_programming.poolexample_vid_1_and_2_some_vid_5;
 
 public class vid_1_swimmingPoolProgram {
     public static void main(String[] args) {
@@ -23,15 +23,11 @@ public class vid_1_swimmingPoolProgram {
         //some of the output:
         // Minneapolis YMCA pool is 50.0 meters long.
 
-
-
-
         double totalSwam = ymca.distanceForLaps(6);
         System.out.println("The total distance is " + totalSwam);
 
         //***output in the "Run" place:
             //The total distance is 300.0
-
 
         //make another  "vid_1_objects_pool" object:
 

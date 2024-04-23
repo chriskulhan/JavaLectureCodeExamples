@@ -17,7 +17,7 @@ public class vid_8_tires4_claras_code {
     }
 
     private static String getTireInfo() {
-        String name = stringInput("What is the name of the tire?");
+        String name = stringInput("What is the name of the Tire?");
         double price = positiveDoubleInput("Enter the price of " + name);
         int mileWarranty = positiveIntInput("Enter the number of miles warranty");
 

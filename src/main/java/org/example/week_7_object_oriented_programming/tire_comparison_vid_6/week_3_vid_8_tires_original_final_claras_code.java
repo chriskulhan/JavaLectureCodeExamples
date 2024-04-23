@@ -1,9 +1,9 @@
 //https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/tires/TiresFinal.java
-package org.example.week3_methods_program_design;
+package org.example.week_7_object_oriented_programming.tire_comparison_vid_6;
 
 import static input.InputUtils.*;
 
-public class vid_8_tires_final_claras_code {
+public class week_3_vid_8_tires_original_final_claras_code {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Tire Price Comparison Calculator");

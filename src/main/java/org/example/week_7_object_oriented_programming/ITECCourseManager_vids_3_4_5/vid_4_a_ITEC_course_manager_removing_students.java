@@ -1,4 +1,4 @@
-package org.example.week_7_object_oriented_programming.ITECCourseManager;
+package org.example.week_7_object_oriented_programming.ITECCourseManager_vids_3_4_5;
 
 public class vid_4_a_ITEC_course_manager_removing_students {
 

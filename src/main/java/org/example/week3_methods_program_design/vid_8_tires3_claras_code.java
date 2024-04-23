@@ -15,11 +15,11 @@ public class vid_8_tires3_claras_code {
     }
 
     public static String getTireInfo() {
-        String tireName = stringInput("Enter name of tire");
+        String tireName = stringInput("Enter name of Tire");
         double price = doubleInput("Enter price for " + tireName);
         double miles = doubleInput("Enter warranty miles for " + tireName);
         double pricePerMile = price / miles;
-        return "The " + tireName + " tire costs " + pricePerMile + " dollars per miles.";
+        return "The " + tireName + " Tire costs " + pricePerMile + " dollars per miles.";
     }
 }
 
