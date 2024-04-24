@@ -1,0 +1,95 @@
+CurrencyConverter.java before adding validation:
+
+
+package org.example.week_8_GUI.currency_converter;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CurrencyConverter extends JFrame{
+    private JTextField dollarsTextField;
+    private JButton convertButton;
+    private JLabel eurosResultLabel;
+    private JPanel mainPanel;
+
+    //add field:
+    private double dollarsToEurosExchangeRate = 0.84;
+    //$1 = 0.84 Euros
+
+    //add constructor:
+    CurrencyConverter() {
+        setContentPane(mainPanel);
+
+        //changes how big the form is: should be before pack:
+        setPreferredSize(new Dimension(400,300));
+
+        pack();
+        setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        //add action listener: (autocomplete helps)
+        convertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //what was typed in the jTextField dollarsTextField?
+                //whatever is typed into a JText area is a string:
+                String dollarString = dollarsTextField.getText();
+
+                //convert to a number,
+                double dollars = Double.parseDouble(dollarString); //todo handle exceptions
+
+                // convert to Euros
+                double euros = dollars * dollarsToEurosExchangeRate;
+
+                //display result in eurosResultLabel
+                String resultString = String.format("%.2f dollars is equivalent to %.2f Euros.", dollars, euros);
+                eurosResultLabel.setText(resultString);
+
+            }
+        });
+    }
+}
+
+** add a JComboBox **this adds a drop down menu in CurrencyConverter.form
+**add field name: CurrencyComboBox
+
+now add the code for Currency COmbo box: in CurrencyConverter.java
+    //vid_2_a. make a hashmap for currencies and their conversion rates:
+    //make these final because they aren't going to change:
+    //start with making variables:
+    private final String EUROS = "Euros";
+    private final String POUNDS = "Pounds";
+
+    //make a hashmap for conversion rates: String (name) and double (conversion rate)
+    //this will be a Map.of because it's not going to change:
+    private Map<String, Double> exchangeRates = Map.of(EUROS, 0.84, POUNDS, 0.75);
+
+    vid_2_b. set up the comboBox in CurrencyConverter.java
+    after: setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            //vid_2_b. add the currencyComboBox:
+            currencyComboBox.addItem(EUROS);
+            currencyComboBox.addItem(POUNDS);
+    comment out this in the try block:
+    after: double dollars = Double.parseDouble(dollarString); //todonot handle exceptions
+
+                   // convert to Euros
+
+                   //vid_2_b comment this out:
+//                    double euros = dollars * dollarsToEurosExchangeRate;
+//
+//                    //display result in eurosResultLabel
+//                    String resultString = String.format("%.2f dollars is equivalent to %.2f Euros.", dollars, euros);
+//                    eurosResultLabel.setText(resultString);
+
+   c. does this work now? run main in currency_converter
+   **yes the drop down works, but the math isn't math-ing yet.
+
+  vid_2_d specify what a JCOmboBox can have in it, can only have strings in it:
+      //make this JComboBox only accept strings by changing this:
+  //    private JComboBox currencyComboBox;
+
+      //to this:
+      private JComboBox<String> currencyComboBox;
+
