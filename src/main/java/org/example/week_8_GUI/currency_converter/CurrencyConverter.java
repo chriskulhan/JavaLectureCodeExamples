@@ -9,7 +9,7 @@ import java.util.Map;
 public class CurrencyConverter extends JFrame{
     private JTextField dollarsTextField;
     private JButton convertButton;
-    private JLabel eurosResultLabel;
+    private JLabel conversionResultLabel;
     private JPanel mainPanel;
 
     //vid_2_d
@@ -43,6 +43,10 @@ public class CurrencyConverter extends JFrame{
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        //add enter to click the "Convert" button by adding:
+        //getRootPane().setDefaultButton() add "convertButton" to select this button:
+        getRootPane().setDefaultButton(convertButton);
+
         //vid_2_b. add the currencyComboBox:
         currencyComboBox.addItem(EUROS);
         currencyComboBox.addItem(POUNDS);
@@ -52,7 +56,7 @@ public class CurrencyConverter extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //what was typed in the jTextField dollarsTextField?
-                //whatever is typed into a JText area is a string:
+                //whatever is typed into a JText area is stored a string here in "dollarString":
                 String dollarString = dollarsTextField.getText();
 
                 //vid_3 add a try block:
@@ -61,16 +65,42 @@ public class CurrencyConverter extends JFrame{
                 try {
                     //convert to a number,
                     double dollars = Double.parseDouble(dollarString); //todo handle exceptions
-
+                    //adding from vid_3
                     // convert to Euros
+
+//                    String toCurrency = currencyComboBox.getSelectedItem(); //this will be an error by itself
+                    //the error listed for the just above^^ line of code is: provided and Object, needs a string
+                    //need to force the above string ^^^ (String toCurrency = currencyComboBox.getSelectedItem())
+                    // into the type string, or "cast" it. Looks like this:
+                    String toCurrency = (String) currencyComboBox.getSelectedItem();
+                    //this works because the JComboBox only contains strings (see this line of code way above:
+                    //private JComboBox<String> currencyComboBox;)
+
+                    double exchangeRate = exchangeRates.get(toCurrency);
 
                     //vid_2_b comment this out:
 //                    double euros = dollars * dollarsToEurosExchangeRate;
-//
+
+                    //comments in: vid_2_and_3_order_of_operations
+                    //convert to target currency: using the above^^^  double euros = dollars * dollarsToEurosExchangeRate;
+                    //change to:
+                    double convertedValue = dollars * exchangeRate;
+
+
 //                    //display result in eurosResultLabel
 //                    String resultString = String.format("%.2f dollars is equivalent to %.2f Euros.", dollars, euros);
-//                    eurosResultLabel.setText(resultString);
+
                     //type of exception: (found in the stack trace when the error shows): (when typing a non-number)
+
+                    //add this back in with addition of exchangeRate:
+                    String resultString = String.format("%.2f dollars is equivalent to %.2f %s.", dollars,
+                            convertedValue, toCurrency);
+                    //
+                    // vid_2_and_3_order_of_operations, step h:
+                    // change this here and in CurrencyConverter.form from:
+//                    eurosResultLabel.setText(resultString);
+//                    to this:
+                    conversionResultLabel.setText(resultString);
 
                 } catch (NumberFormatException nfe) {
                     //tell the user something hasn't work:
