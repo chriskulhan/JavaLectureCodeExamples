@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public class vid_10_d_input_utils_double_input_method {
 
-
     static Scanner scanner = new Scanner(System.in);
 
 

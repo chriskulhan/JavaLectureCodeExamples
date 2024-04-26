@@ -1,0 +1,69 @@
+**what is an API?
+- An api is a way for two computers to talk to each other
+
+**for this class, we will use a public API (instead of creating a server and website, etc.)
+    Github (for example)
+    parts of github talk to each other using internal APIs
+    -users
+    -repositories
+    -github classroom creates your assignments
+    -project management
+
+    How would a business use Github (needs to talk/update a program in github)
+    -example of an external API request (public API requests)
+
+    **not all companies allow public API requests
+
+    week 10 Q2 will write code in java programs (or python or C#, cotlin, swift, adroid app, etc.)
+        that talk to github at github APIs
+
+**working on Q1:
+
+example in python:
+import requests //include a library that helps make API requests
+
+//the program needs to know the URL for the API request
+url: 'https//week_10/q1_compliment/RandomCompliment.java'
+
+//make a request, store the response
+//this line also converts the response from JSON to python objects
+
+compliment_response = requests.get(url).json()
+//a dictionary - like a java hashmap
+
+print(compliment_response)
+//this is a JSON response:
+//like python arrays and python lists
+//like java hashmaps, keys, and values
+
+//output: {'text': 'You light up a room!'}
+
+text = compliment_response.get('text')
+
+print(text)
+//output: You light up a room!
+
+*****java MUST have types
+***python just makes a guess of the type
+
+**cannot make a variable in Java and figure out the type later???
+    NOPE!
+
+**know what data is expected in a response from the API and store the data
+**can convert JSONObject and JSONArrays, but this is awkward.
+
+**Another way:
+    class ComplimentResponse {
+    String text;
+    }
+    ---Convert the JSON response into a Java Object
+    ---Map the keys in JSON to fields in Java Objects
+
+
+Thing we know:
+    1. The structure of the response
+
+    2. can make a class that maps to that structure (the keys and the response to the fields in the class)
+    3. match the keys in the response to the fields in the class, when we define a class
+    4. can ask a library (Unirest) to convert the JSON repsonse to a java object
+    5. Now we have objects we can use in our program

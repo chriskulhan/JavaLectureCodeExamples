@@ -8,6 +8,7 @@
     <properties>
       <background color="-15037047"/>
       <font name="Adobe Fangsong Std"/>
+      <foreground color="-256"/>
     </properties>
     <border type="none"/>
     <children>

@@ -67,7 +67,7 @@ LayoutManager (slide 9)
 -It manages the position of components, and arranges them in the application window
 -Helps keep your GUI looking nice if the application window is resized
 -Saves you having to decide the absolute position of each element in the window
--Common LayoutManangers are GridBagLayout,  FormLayout, FlowLayout
+-Common LayoutManagers are GridBagLayout,  FormLayout, FlowLayout
 -Pictures of GUIs laid out with different layout managers:
 -http://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 
@@ -75,11 +75,12 @@ LayoutManager (slide 9)
     – useful for more complex GUIs
 
 
-IntelliJ autogenerates code to create the GUI components
+IntelliJ auto-generates code to create the GUI components
 
 -And hides it from you
 -Much like C# / Visual Studio does, if you've taken that class
--If you chose Create bound class when creating the GUI for, you should also have a new class called HelloGUI.a that has a reference to each of the components in the GUI
+-If you chose Create bound class when creating the GUI for, you should also have a new class called
+    HelloGUI.a that has a reference to each of the components in the GUI
 -You can add your GUI event handlers and logic here
 -Or calls to other classes to implement the logic
 
