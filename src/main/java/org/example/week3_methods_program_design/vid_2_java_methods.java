@@ -13,9 +13,9 @@ import static input.InputUtils.stringInput;
 
 public class vid_2_java_methods {
     //Clara's code she called it HelloMethods in the examples (2545) on github:
-    // main method: (runs first)
+    // Main method: (runs first)
 
-        //This is the main method - the first code to run
+        //This is the Main method - the first code to run
         public static void main(String[] args) {
 
             String name = stringInput("Please enter your name");
@@ -24,7 +24,7 @@ public class vid_2_java_methods {
             //other place where makeGreeting is.
             System.out.println(greeting);
 
-        }    // This is the end of the main method.
+        }    // This is the end of the Main method.
 
 
         // A new method that we've created.

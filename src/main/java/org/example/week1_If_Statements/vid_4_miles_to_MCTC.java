@@ -1,6 +1,6 @@
 /*Your turn
-In the same project, create a new Java class and add a main method, as before
-In your main method, ask the user for the distance between their house and MCTC, in miles
+In the same project, create a new Java class and add a Main method, as before
+In your Main method, ask the user for the distance between their house and MCTC, in miles
 Use the positiveDoubleInput method
 Your program should convert this distance to kilometers, and display the distance in kilometers
 To convert miles to kilometers: multiply by 1.6

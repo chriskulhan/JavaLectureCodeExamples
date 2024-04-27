@@ -48,7 +48,7 @@ Checked vs. Unchecked Exceptions (slide 42)
 
 -If you have a method which is likely to throw an exception, you can specify that in the method header
 
-public static void main(String args[]) throws IOException {
+public static void Main(String args[]) throws IOException {
 
 -Any code that calls that method must handle the exception, or it must declare that it will throw it to its own calling method
 -The compiler will enforce this
@@ -56,7 +56,7 @@ public static void main(String args[]) throws IOException {
 -So code that uses these methods must handle IOExceptions, or declare that they will throw the exception to their
     calling method
 -The idea is to remind programmers to handle IO errors -> better, less crashy code
--If main throws an exception, then the program crashes – there's nothing left to handle this exception
+-If Main throws an exception, then the program crashes – there's nothing left to handle this exception
 
 slide 44:
 -Hence, this. We are saying that we are not going to deal with IOException and we'll just let the program crash if
@@ -67,7 +67,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileReadingApp {
-	public static void main(String[] args) throws IOException {
+	public static void Main(String[] args) throws IOException {
 
 		FileReader reader = new FileReader("test.txt");
 		BufferedReader bufReader = new BufferedReader(reader);
@@ -104,13 +104,13 @@ public class vid_6_a_types_of_errors_notes {
 
         //output with errors:
         // /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=55189:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/chriskulhanek/IdeaProjects/JavaLectureCodeExamples/target/classes:/Users/chriskulhanek/.m2/repository/edu/minneapolis/input-utils/1.0.2/input-utils-1.0.2.jar org.example.week_6_files_and_exceptions.vid_6_a_types_of_errors_notes
-        //Exception in thread "main" java.io.FileNotFoundException: test.txt (No such file or directory)
+        //Exception in thread "Main" java.io.FileNotFoundException: test.txt (No such file or directory)
         //	at java.base/java.io.FileInputStream.open0(Native Method)
         //	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
         //	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
         //	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
         //	at java.base/java.io.FileReader.<init>(FileReader.java:60)
-        //	at org.example.week_6_files_and_exceptions.vid_6_a_types_of_errors_notes.main(vid_6_a_types_of_errors_notes.java:95)
+        //	at org.example.week_6_files_and_exceptions.vid_6_a_types_of_errors_notes.Main(vid_6_a_types_of_errors_notes.java:95)
         //
         //Process finished with exit code 1
     }

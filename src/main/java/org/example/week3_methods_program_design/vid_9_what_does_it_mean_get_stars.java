@@ -21,12 +21,12 @@ public class vid_9_what_does_it_mean_get_stars {
     This one does work.
     -When starsOutOfTen is passed to the getStarsOutOfTen method, a copy is
      made of the variables. So there are two separate, independent variables.
-    -If getStarsOutOfTen modifies stars, then main will never know. starsOutOfTen won't change.
+    -If getStarsOutOfTen modifies stars, then Main will never know. starsOutOfTen won't change.
 
     So though the variable stars is modified in getStarsOutOfTen,
-    the main method does not see the changes.
+    the Main method does not see the changes.
 
-    And getStarsOutOfTen has to RETURN stars to main, so main can use the new data.
+    And getStarsOutOfTen has to RETURN stars to Main, so Main can use the new data.
 
      */
 

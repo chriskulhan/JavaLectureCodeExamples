@@ -131,7 +131,7 @@ package org.example.week_7_object_oriented_programming.poolexample;
 import org.example.week_7_object_oriented_programming.poolexample.vid_1_objects_pool;
 
 public class vid_1_swimmingPoolProgram {
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         //make a new object for the class we just created
         vid_1_objects_pool ymca = new vid_1_objects_pool ("YMCA", 50);
                 //hover over vid_1_objects_pool just above, and you can see the two parameters that are needed

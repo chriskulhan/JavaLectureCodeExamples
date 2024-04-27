@@ -27,7 +27,7 @@ public class vid_11_scope_example_broken_into_methods_part_c {
 
 //2. making a decision: (deciding/calculate status)
 
-        //cut this and put it into a new method AFTER the end of the main method:
+        //cut this and put it into a new method AFTER the end of the Main method:
 //        if (numberOfCredits >= 12) {
 //            status = "full-time";
 //        } else if (numberOfCredits >= 6) {
@@ -52,7 +52,7 @@ public class vid_11_scope_example_broken_into_methods_part_c {
 //1b. stating the data to the user:  (User interface part 2)
         System.out.println("Your status is " + statusMessage);
 
-    } //end of main method code
+    } //end of Main method code
 
     //todo create new method to figure out student status
 //    public static ??return type?? calculateStudentStatus (???) {

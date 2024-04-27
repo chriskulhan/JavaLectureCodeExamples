@@ -1,17 +1,17 @@
 /*Scope of a variable:
 -Where does the variable exist??
 -It only exists within each part.
---anything you declare in main only exists there
---anything you declare in the other methods only exist there, but you can send them to main using parameters
+--anything you declare in Main only exists there
+--anything you declare in the other methods only exist there, but you can send them to Main using parameters
  */
 
 /*Your Turn: (slide 19)
 Re-write the Python program at the start of class in Java
-In the main method, ask the user how many credits they have earned
+In the Main method, ask the user how many credits they have earned
 Ask the user how many credits their program needs
 Write a method called howManyCreditsToGraduate that takes two parameters - credits earned and credits needed
 howManyCreditsToGraduate should calculate the number of credits needed and return it
-The main method should print a message with the number of credits needed to graduate
+The Main method should print a message with the number of credits needed to graduate
 
  */
 

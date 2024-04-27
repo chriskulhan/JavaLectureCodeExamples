@@ -14,7 +14,7 @@ public class HelloGUI extends JFrame{
     //2. add constructor: This HelloGUI object will be created
     HelloGUI() {
         //3. set ContentPane (mainPanel)
-            //--telling the JFrame window that the main component is
+            //--telling the JFrame window that the Main component is
             //  the jPanel called mainPanel
         setContentPane(mainPanel);
 

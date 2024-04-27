@@ -17,7 +17,7 @@ public class vid_9_what_does_it_mean_get_stars_bug {
 
     Now there are two, separate variables. If one changes, the other one is not changed.
 
-    So even if starsOutOfTen changes stars, the main method's starsOutOfTen is not changed
+    So even if starsOutOfTen changes stars, the Main method's starsOutOfTen is not changed
 
     So this program doesn't work - it always prints 8/10
     */

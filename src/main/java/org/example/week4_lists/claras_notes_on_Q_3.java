@@ -10,7 +10,7 @@ import static input.InputUtils.yesNoInput;
 public class claras_notes_on_Q_3 {
     public static void main(String[] args) {
 
-        /* You don't need to modify this main method, but it won't affect the
+        /* You don't need to modify this Main method, but it won't affect the
         tests if you do. You may wish to add or modify this method to help test
         your new code.
         */

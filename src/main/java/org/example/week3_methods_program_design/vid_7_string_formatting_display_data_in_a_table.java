@@ -3,7 +3,7 @@ package org.example.week3_methods_program_design;
 //not the exact code (I wrote the below from the videos:
 
 public class vid_7_string_formatting_display_data_in_a_table {
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        int[] classCodes = {2545, 2505, 2560};
 //        String[] classNames = {"Java", "C#", "Web"};
 
@@ -19,7 +19,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
             //2560Web
 
         //how to put them in a table (with a column for the classCodes and a column for the classNames
-//        public static void main(String[] args) {
+//        public static void Main(String[] args) {
 //            int[] classCodes = {2545, 2505, 2560};
 //            String[] classNames = {"Java", "C#", "Web"};
 //            for (int c = 0; c < classCodes.length; c++) {
@@ -28,7 +28,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
 //            System.out.printf("%d%s", code, name);
             //output:2545Java2505C#2560Web
 
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        int[] classCodes = {2545, 2505, 2560};
 //        String[] classNames = {"Java", "C#", "Web"};
 //        for (int c = 0; c < classCodes.length; c++) {
@@ -48,7 +48,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
             //the 10 signifies a total of 10 characters including the characters found in the variable printed
             // (6 spaces, 4 characters with numbers, for example):
 
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        int[] classCodes = {2545, 2505, 2560};
 //        String[] classNames = {"Java", "C#", "Web"};
 //        for (int c = 0; c < classCodes.length; c++) {
@@ -64,7 +64,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
             //Make columns, aligned to the left:
             //  ****by adding a negative number between the percent and variable signifier
 
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        int[] classCodes = {2545, 2505, 2560};
 //        String[] classNames = {"Java", "C#", "Web"};
 //        for (int c = 0; c < classCodes.length; c++) {
@@ -80,7 +80,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
             //add a heading to a table: place this: before the for loop:
 //        System.out.printf("%-10s%-10s\n", "Code", "Name");
 //
-//            public static void main(String[] args) {
+//            public static void Main(String[] args) {
 //                int[] classCodes = {2545, 2505, 2560};
 //                String[] classNames = {"Java", "C#", "Web"};
 //        for (int c = 0; c < classCodes.length; c++) {
@@ -97,7 +97,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
 
             //to make the above table cleaner, use a variable for the header and the table contents spacing:
 
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        int[] classCodes = {2545, 2505, 2560};
 //        String[] classNames = {"Java", "C#", "Web"};
 //
@@ -170,7 +170,7 @@ public class vid_7_string_formatting_display_data_in_a_table {
 // * Using string formatting to display data in a table */
 //
 //public class Table {
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        String[] classCodes = {"ITEC 2545", "ITEC 2560", "ITEC 2505", "ITEC 2905"};
 //        String[] names = {"Java", "Web", "C#", "Capstone"};

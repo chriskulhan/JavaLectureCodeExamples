@@ -12,7 +12,7 @@ public class vid_4_methods_reusing_methods {
         double number = doubleInput("Please enter a number and I'll square it");
         square(number);
 
-    }    // This is the end of the main method.
+    }    // This is the end of the Main method.
 
     // This method takes one argument, a number
     // It calculates the square of that number (by multiplying it by itself)

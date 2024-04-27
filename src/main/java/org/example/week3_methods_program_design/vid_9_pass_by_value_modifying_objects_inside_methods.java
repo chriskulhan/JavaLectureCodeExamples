@@ -12,7 +12,7 @@ name = "C#";
 The original String is replaced with an entirely new String in memory with a new reference.
 So in a method call like this:
 
-public static void main(String[] args) {
+public static void Main(String[] args) {
   String name = "Java";   // one string is created
   method(name);
 }
@@ -31,10 +31,10 @@ Some background: https://www.baeldung.com/java-string-immutable
 
 
 /*what happens when you modify the data in a parameter?
-        -with integers and strings, the variable stays the same in the main method,
-        even if it changes in the method the main calls from.
+        -with integers and strings, the variable stays the same in the Main method,
+        even if it changes in the method the Main calls from.
 //what happens to the data in the method that method is called from?
-    -the variable can change in a method it's being called from, but will stay the same in the main method.
+    -the variable can change in a method it's being called from, but will stay the same in the Main method.
 
 
  */
@@ -58,7 +58,7 @@ public class vid_9_pass_by_value_modifying_objects_inside_methods {
         double [] speeds = {4,5,10,12}; //this is in miles per hour
         convertToKilometers(speeds);
         System.out.println(Arrays.toString(speeds));
-        //when you call a method with an array as the argument, if that array's modified in the method, it's modified in main.
+        //when you call a method with an array as the argument, if that array's modified in the method, it's modified in Main.
         //output: [6.4, 8.0, 16.0, 19.200000000000003]
     }
 
@@ -92,7 +92,7 @@ public class vid_9_pass_by_value_modifying_objects_inside_methods {
 
 }
 
-//if a method modifies an object type method, then the method is also modified in the main place where the object was created.
+//if a method modifies an object type method, then the method is also modified in the Main place where the object was created.
 /*powerpoint slide week 3-50)
 
 What does it mean?

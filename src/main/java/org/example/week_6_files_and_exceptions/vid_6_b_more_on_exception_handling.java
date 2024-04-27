@@ -17,7 +17,7 @@ public class vid_6_b_more_on_exception_handling {
     //
     //cat
 
-//    public static void main(String[] args) throws IOException {
+//    public static void Main(String[] args) throws IOException {
 //        List<Integer> numbers = new ArrayList<>();
 //        String filename = "number.txt";
 //
@@ -43,11 +43,11 @@ public class vid_6_b_more_on_exception_handling {
 
     //output:
     ///Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=55148:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/chriskulhanek/IdeaProjects/JavaLectureCodeExamples/target/classes:/Users/chriskulhanek/.m2/repository/edu/minneapolis/input-utils/1.0.2/input-utils-1.0.2.jar org.example.week_6_files_and_exceptions.vid_6_b_more_on_exception_handling
-    //Exception in thread "main" java.lang.NumberFormatException: For input string: ""
+    //Exception in thread "Main" java.lang.NumberFormatException: For input string: ""
     //	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
     //	at java.base/java.lang.Integer.parseInt(Integer.java:671)
     //	at java.base/java.lang.Integer.parseInt(Integer.java:777)
-    //	at org.example.week_6_files_and_exceptions.vid_6_b_more_on_exception_handling.main(vid_6_b_more_on_exception_handling.java:20)
+    //	at org.example.week_6_files_and_exceptions.vid_6_b_more_on_exception_handling.Main(vid_6_b_more_on_exception_handling.java:20)
     //
     //Process finished with exit code 1
 

@@ -56,13 +56,13 @@ public class vid_3_creating_adding_removing_length_of_lists {
 //        classNames.set(1, "Systems Analysis");
 //        System.out.println(classNames);
         //output:
-        // Exception in thread "main" java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+        // Exception in thread "Main" java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
         //	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
         //	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
         //	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
         //	at java.base/java.util.Objects.checkIndex(Objects.java:385)
         //	at java.base/java.util.ArrayList.set(ArrayList.java:470)
-        //	at org.example.week4.vid_3_creating_adding_removing_length_of_lists.main(vid_3_creating_adding_removing_length_of_lists.java:56)
+        //	at org.example.week4.vid_3_creating_adding_removing_length_of_lists.Main(vid_3_creating_adding_removing_length_of_lists.java:56)
         //Process finished with exit code 1
 
 //how to find if an element is in a condition: .contains:

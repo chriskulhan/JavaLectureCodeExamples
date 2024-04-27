@@ -27,7 +27,7 @@ package org.example.week3_methods_program_design;
 import static input.InputUtils.doubleInput;
 
 public class vid_3_more_methods_arguments_and_parameters {
-    //This is the main method - the first code to run
+    //This is the Main method - the first code to run
     public static void main(String[] args) {
 
         double miles = doubleInput("Please enter number of miles:");
@@ -37,7 +37,7 @@ public class vid_3_more_methods_arguments_and_parameters {
         //then push "tab" and Intellij will suggest the type of parameter including the type
         System.out.println(miles + " miles is equal to " + km + " kilometers.");
 
-    }    // This is the end of the main method.
+    }    // This is the end of the Main method.
 
     // This method takes one argument, a number of miles
     // It calculates the equivalent in kilometers, and returns that value

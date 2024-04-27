@@ -1,4 +1,4 @@
-//figuring out how to call the method from the main method when the name doesn't match
+//figuring out how to call the method from the Main method when the name doesn't match
     // spoiler: only the DATA moves between the two in the 'parentheses portals' (my shorthand)
     //  that's why the words in the parentheses don't have to match. They are only ports to "throw"
     // data from and "catch" data, and the names don't have to perfectly match up.
@@ -27,7 +27,7 @@ public class vid_11_scope_example_broken_into_methods_part_b { //start of class 
 
 //2. making a decision: (deciding/calculate status)
 
-        //cut this and put it into a new method AFTER the end of the main method:
+        //cut this and put it into a new method AFTER the end of the Main method:
 //        if (numberOfCredits >= 12) {
 //            status = "full-time";
 //        } else if (numberOfCredits >= 6) {
@@ -50,7 +50,7 @@ public class vid_11_scope_example_broken_into_methods_part_b { //start of class 
 //1b. stating the data to the user:  (User interface part 2)
 //        System.out.println("Your status is " + status);
 
-    } //end of main method code
+    } //end of Main method code
 
         //todo create new method to figure out student status
 //    public static ??return type?? calculateStudentStatus (???) {

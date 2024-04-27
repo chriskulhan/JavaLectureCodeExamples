@@ -4,7 +4,7 @@
 package org.example.week3_methods_program_design;
 
 public class vid_4_squares_with_loop {
-    //This is the main method - the first code to run
+    //This is the Main method - the first code to run
     public static void main(String[] args) {
 
         System.out.println("Here are the squares of the numbers 1 to 10");
@@ -14,7 +14,7 @@ public class vid_4_squares_with_loop {
             System.out.println("The square of " + x + " is " + xSquared);
         }
 
-    }    // This is the end of the main method.
+    }    // This is the end of the Main method.
 
 
     // This method takes one argument, a number

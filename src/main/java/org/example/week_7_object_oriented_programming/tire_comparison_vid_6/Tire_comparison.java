@@ -17,7 +17,7 @@ public class Tire_comparison {
         List<Tire> tireReports = new ArrayList<>();
 
         do {
-            Tire tire = getTireInfo(); //first Tire is the Tire object (main file),
+            Tire tire = getTireInfo(); //first Tire is the Tire object (Main file),
             //second tire is what is passed in the method????? (unsure about this definition)
             tireReports.add(tire);
         } while (yesNoInput("More tires to add to comparison?"));

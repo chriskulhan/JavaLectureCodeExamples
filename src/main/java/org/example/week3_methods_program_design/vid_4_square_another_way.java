@@ -15,7 +15,7 @@ public class vid_4_square_another_way {
         System.out.println("The square of " + number + " is " + squaredNumber);
 
 
-    }    // This is the end of the main method.
+    }    // This is the end of the Main method.
 
 
     // This method takes one argument, a number

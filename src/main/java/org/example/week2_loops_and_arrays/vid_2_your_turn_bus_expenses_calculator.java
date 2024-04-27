@@ -10,7 +10,7 @@ import static input.InputUtils.doubleInput;
 
 public class vid_2_your_turn_bus_expenses_calculator {
     //this is wrong. I focused on the wrong variable and didn't ask how much PER DAY
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        double costPerDay = doubleInput ("How much do you spend on bus fare every day?");
 //        int timesPerWeek = intInput ("How many times do you ride the bus per week?");
 //

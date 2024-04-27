@@ -48,8 +48,8 @@ public class week_2_question_6 {
         // Don't modify any other elements in the array.
 
         // If you modify an object within a method, it's the same object that the method is called with.
-        // The speeds parameter variable in this method is just another name for speedsRecorded in the main method.
-        // So you don't actually need to return anything for main to know that you have modified the array.
+        // The speeds parameter variable in this method is just another name for speedsRecorded in the Main method.
+        // So you don't actually need to return anything for Main to know that you have modified the array.
         // This doesn't work with int or String values, so there will be many times where you will need to return a value.
 
         int startLoop = 0;

@@ -4,7 +4,7 @@ Write a method that has two parameters:
 a number of miles driven, and
 a number of gallons of gas used on a car journey
 Your method should calculate and return the MPG for the car journey
-Your main method should
+Your Main method should
 Ask the user for the miles and gas used
 Call your method
 Use the returned data to display the MPG
@@ -16,7 +16,7 @@ import static input.InputUtils.doubleInput;
 
 public class vid_4_your_turn_MPG_calculator {
     public static void main(String[] args) {
-        //the main method is used to interact with the user
+        //the Main method is used to interact with the user
 
         double milesDriven = doubleInput("How many miles have you driven on your trip?");
         double gallonsGasConsumed = doubleInput("How many gallons of gas has your car used so far?");

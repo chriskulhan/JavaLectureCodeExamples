@@ -21,7 +21,7 @@ import java.io.IOException;
 //public class vid_8_d_try_with_resources {
 //    //from week 6: vid_1_files_and_exceptions_intro_writing
 //
-//    public static void main(String[] args) throws IOException {
+//    public static void Main(String[] args) throws IOException {
 //
 //        FileWriter writer = new FileWriter("hello.txt");
 //        BufferedWriter bufWriter =  new BufferedWriter(writer);

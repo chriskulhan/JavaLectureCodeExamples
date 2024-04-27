@@ -13,8 +13,8 @@ public class vid_4_example_arrays {
         //error: because the array goes from 0 to 4:
         //numbers[5] = 3;
         //output :
-        // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
-        //	at org.example.week2_loops_and_arrays.vid_4_example_arrays.main(vid_4_example_arrays.java:14)
+        // Exception in thread "Main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+        //	at org.example.week2_loops_and_arrays.vid_4_example_arrays.Main(vid_4_example_arrays.java:14)
         //
         //Process finished with exit code 1
 

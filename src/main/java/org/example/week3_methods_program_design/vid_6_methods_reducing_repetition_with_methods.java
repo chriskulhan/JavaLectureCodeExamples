@@ -16,7 +16,7 @@
 //import static input.InputUtils.intInput;
 //
 //public class vid_6_methods_reducing_repetition_with_methods {
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        // Calculate operating cost and profit for a lemonade stand.
 //        // The lemonade stand sells lemonade, and cookies too.

@@ -80,7 +80,7 @@
 //
 //public class vid_8_methods_program_design_tire_warranty {
 //    //iteration one:
-////    public static void main(String[] args) {
+////    public static void Main(String[] args) {
 ////
 ////        //for Agile method, start here:
 ////
@@ -110,7 +110,7 @@
 ////}
 //
 ////    //iteration two: Make the set of variables their own method:
-////    public static void main(String[] args) {
+////    public static void Main(String[] args) {
 ////        //call the method from this place:
 ////        String report = getTireInfo();
 ////        System.out.println(report);
@@ -153,7 +153,7 @@
 ////}
 ////
 ////    //iteration three: add in how many tires the user is buying and make a loop:
-////    public static void main(String[] args) {
+////    public static void Main(String[] args) {
 ////        //add input from user about the number of tires:
 ////        int numberOfTiresToCompare = positiveIntInput("How many different types of tires are you comparing?");
 ////
@@ -219,7 +219,7 @@
 ///*Iteration four: //iteration three: add in how many tires the user is buying and make a loop:
 //
 // */
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        int numberOfTiresToCompare = positiveIntInput("How many different types of tires are you comparing?");
 //

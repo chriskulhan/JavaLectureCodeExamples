@@ -1,0 +1,97 @@
+More components and events
+
+-JCheckBox and JSlider
+
+-Slider changed event listener
+-Checkbox checked/unchecked listener
+-Detecting text typed into JTextField
+
+Order of operations:
+
+-1. make a new "package" for all the things to live in (here movie_GUI_vid_4
+0. make a new "Swing UI Designer" -> "GUI form" (found where we add all things)
+    -make sure GridLayoutManager is selected
+    -and bound all classes is toggles checked
+1. MovieGUI.java is automatically made
+2. add Main class *outside* the MovieGUI place but inside the package
+    -add this:
+    public class Main {
+                   public static void main(String[] args) {
+                       MovieGUI gui = new MovieGUI();
+                   }
+               }
+3. Go to MovieGUI.form
+    add: JLabel: movieName
+        JTextField (for one line input)
+            (side note JTextArea are similar, but for multiline input)
+        JLabel: Rating
+        JSlider beside Rating:
+        JLabel for the right side of the Jslider for value : 0 stars
+            **This label will get a field because it will be changed by the program
+        JCheckBox: Would you watch again?
+        JLabel: movieOpinion, will be updated as the other things are updated
+
+4. add field names in the component tree area:
+    JPanel: field name: mainPanel
+    JTextField: field name: movieTitleTextField
+    slider text field: ratingSlider
+    JLabel field: sliderValueLabel
+    JCheckbox field: wouldSeeAgainCheckBox
+    JLabel where result will show: movieOpinionLabel
+
+5. configure JSlider (field: ratingSlider) in component tree under Property:
+    value: (initial value) set to: 0
+    minimum: 0
+    maximum: 5
+
+6. make sure you don't check "custom create button" on any the components
+
+7a. work in MovieGUI.java:
+    This is already here imported from Swing:
+    package org.example.week_8_GUI.movie_GUI_vid_4;
+
+    import javax.swing.*;
+
+    public class MovieGUI {
+
+        private JTextField movieTitleTextField;
+        private JSlider ratingSlider;
+        private JCheckBox wouldSeeAgainCheckBox;
+        private JPanel mainPanel;
+        private JLabel sliderValueLabel;
+        private JLabel movieOpinionLabel;
+    }
+    **add "extends JFrame"
+    From this: public class MovieGUI {
+    To this: public class MovieGUI extends JFrame{
+
+7b. Set up the methods in MovieGUI.java:
+    //create constructor:
+    MovieGUI() {
+        //set the content pane with the name of your JPanel. Here: "main panel":
+        setContentPane(mainPanel);
+        //figure out how big each component is and pack them into the panel
+        pack();
+        //make sure it can be seen:
+        setVisible(true);
+        //exits when the window closes:
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        //set up method that will deal with all the event handlers:
+        //this method belongs to the MovieGUI class
+        configureEventHandlers();
+
+    }
+    //set the method that will deal with all the event handlers:
+    private void configureEventHandlers(){
+        //todo finish this method
+    }
+
+    //write a method to update the opinion in the JLabel called "movieOpinionLabel":
+    private void updateOpinion() {
+        //todo finish this
+    }
+
+
+
+

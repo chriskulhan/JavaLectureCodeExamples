@@ -1,7 +1,7 @@
 //package org.example.week4;
 ////from week 4 question 3 movie watch list assignment:
 //public class classnotes02272024 {
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        for (String testMovie : movies) { //test movie in turn to see if it matches
 //            if (testMovie.equalsIgnoreCase(movie)) {

@@ -22,7 +22,7 @@ public class vid_5_your_turn_use_task_list_and_add_things {
         List<String> todoList = new ArrayList<>();
 
         //how does the below "String data" interact with the above "todoList"? There is nothing tethering it together? No words match
-        //Is it just because it's within the same method that the computer knows? <confused> (I think this is my main block
+        //Is it just because it's within the same method that the computer knows? <confused> (I think this is my Main block
         //throughout this class. I don't know when the computer knows and when it doesn't.) I can pattern match and
         //make both "sides" of the code flow if I know the "pivot point" or how they talk to each other.
 

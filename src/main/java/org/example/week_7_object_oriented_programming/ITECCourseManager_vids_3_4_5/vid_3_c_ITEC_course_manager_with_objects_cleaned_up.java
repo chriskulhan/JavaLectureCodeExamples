@@ -6,7 +6,7 @@
 //
 //public class vid_3_c_ITEC_course_manager_with_objects_cleaned_up {
 //
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        //when write "new ITECCourse_vid_3_working_version();", you are calling a constructor that
 //        //was just added here: ITECCourse_vid_3_working_version that looks like this:

@@ -9,7 +9,7 @@
 //        //NOT this_is_an_example
 //        //also NOT: thisIsAnExample
 //
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        //create an example course:
 //        String maintenanceCourseName = "Microcomputer Systems Maintenance";

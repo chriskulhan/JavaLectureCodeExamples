@@ -26,7 +26,7 @@
 //    //nothing keeping all the different types of data together
 //    //what if we want to ADD more types of data? Like the time the class meets, or the location, etc.
 //
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        //create an example course:
 //        String maintenanceCourseName = "Microcomputer Systems Maintenance";

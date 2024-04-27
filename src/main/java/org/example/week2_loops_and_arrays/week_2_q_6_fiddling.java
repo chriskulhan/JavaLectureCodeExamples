@@ -7,7 +7,7 @@
 //public class week_2_q_6_fiddling {
 //    static String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 //
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        // You don't need to modify this method.
 //        double[] bills = getBillAmounts(months);

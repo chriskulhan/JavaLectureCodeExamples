@@ -22,11 +22,11 @@ public class vid_5_throw_an_exception_example {
 //
 //        System.out.println("The number is " + number);
 //        //output:
-//        // Exception in thread "main" java.lang.NumberFormatException: For input string: "cat"
+//        // Exception in thread "Main" java.lang.NumberFormatException: For input string: "cat"
 //        //	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
 //        //	at java.base/java.lang.Integer.parseInt(Integer.java:661)
 //        //	at java.base/java.lang.Integer.parseInt(Integer.java:777)
-//        //	at org.example.week_6_files_and_exceptions.vid_5_throw_an_exception_example.main(vid_5_throw_an_exception_example.java:16)
+//        //	at org.example.week_6_files_and_exceptions.vid_5_throw_an_exception_example.Main(vid_5_throw_an_exception_example.java:16)
 //        //
 //        //Process finished with exit code 1
 

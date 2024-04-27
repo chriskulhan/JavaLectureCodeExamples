@@ -50,7 +50,7 @@ public class vid_7_your_turn_random_numbers_guest_list_program {
             if (name.isEmpty()) {
                 break;
             }
-            //goes to bottom (below main method) 2c. to check for duplicates:
+            //goes to bottom (below Main method) 2c. to check for duplicates:
             if (containsIgnoresCase(guestList, name)) {
                 System.out.println("You already added " + name);
             } else {
@@ -133,7 +133,7 @@ public class vid_7_your_turn_random_numbers_guest_list_program {
 
 
         //reference: my week 4: vid_5_your_turn_use_task_list_and_add_things
-        //2c. Your program should reject duplicate names: (place after main method)
+        //2c. Your program should reject duplicate names: (place after Main method)
         public static boolean containsIgnoresCase (List < String > list, String data){
             for (String item : list) {
                 if (item.equalsIgnoreCase(data)) {

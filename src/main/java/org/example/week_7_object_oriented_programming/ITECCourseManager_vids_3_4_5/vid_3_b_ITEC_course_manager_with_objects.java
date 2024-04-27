@@ -10,7 +10,7 @@
 //    //nothing keeping all the different types of data together
 //    //what if we want to ADD more types of data? Like the time the class meets, or the location, etc.
 //
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        //this name 'ITECCourse_vid_3_working_version' isn't convention, but I'm using while I'm learning:
 //        //this line (just below vv) creates the new 'ITECCourse_vid_3_working_version' course object

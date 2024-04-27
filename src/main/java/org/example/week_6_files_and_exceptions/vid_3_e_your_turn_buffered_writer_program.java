@@ -47,12 +47,12 @@ public class vid_3_e_your_turn_buffered_writer_program {
         }
         bufferedReader.close();
 
-        //what's in the file: yourTurnClassInfo.txt found in main (JavaLectureCodeExamples):
+        //what's in the file: yourTurnClassInfo.txt found in Main (JavaLectureCodeExamples):
         //chris
         //indigo
         //2545
 
-        //output read from file yourTurnClassInfo.txt found in main (JavaLectureCodeExamples):
+        //output read from file yourTurnClassInfo.txt found in Main (JavaLectureCodeExamples):
         //chris
         //indigo
         //2545

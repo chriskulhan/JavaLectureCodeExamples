@@ -46,7 +46,7 @@ public class vid_8_a_throwing_exceptions_from_method {
 
     //output: The file does_not_exist.txt was not found. Fix and try again.
 
-    //add "throws IOException" below because the issue isn't in the below method. forcing main to deal with the problem.
+    //add "throws IOException" below because the issue isn't in the below method. forcing Main to deal with the problem.
     private static List<String> readFromFile(String filename) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
         List<String> lines = new ArrayList<>();

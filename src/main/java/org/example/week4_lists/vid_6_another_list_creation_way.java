@@ -18,10 +18,10 @@ public class vid_6_another_list_creation_way {
 
         //output: [Cat, Bird, Zebra]
         //error parts because can't add or remove after making a fast list via "List.of"
-        // Exception in thread "main" java.lang.UnsupportedOperationException
+        // Exception in thread "Main" java.lang.UnsupportedOperationException
         //	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
         //	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
-        //	at org.example.week4_lists.vid_6_another_list_creation_way.main(vid_6_another_list_creation_way.java:15)
+        //	at org.example.week4_lists.vid_6_another_list_creation_way.Main(vid_6_another_list_creation_way.java:15)
         //
         //Process finished with exit code 1
     }

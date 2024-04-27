@@ -1,7 +1,7 @@
 //your turn: Create a new Java class:
 
-//Create a main method (psvm shortcut)
-//Add this code to the main method
+//Create a Main method (psvm shortcut)
+//Add this code to the Main method
 //Alt+Enter or Option+Enter to import List, ArrayList
 //Run and test
 
@@ -11,7 +11,7 @@
 //import java.util.List;
 //
 //public class vid_1_data_structure_lists {
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //
 //        List<String> arrayList = new ArrayList<>();
 //        arrayList.add("Hello");

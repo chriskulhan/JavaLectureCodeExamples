@@ -24,7 +24,7 @@ public class vid_9_b_your_turn_code_style_check {
 //1. how to set up the try/catch block:
 
 
-//      public static void main(String[] args) throws IOException {
+//      public static void Main(String[] args) throws IOException {
 //          //1. Read in the file from JavaLectureCodeExamples (vid_4_d_1_your_turn_loop_example_months.java)
 //
 //          String filename = "vid_4_d_1_your_turn_loop_example_months.java";
@@ -85,7 +85,7 @@ public class vid_9_b_your_turn_code_style_check {
 //
 //public class vid_4_d_1_your_turn_loop_example_months {
 //
-//    public static void main(String[] args) throws Exception {
+//    public static void Main(String[] args) throws Exception {
 //
 //        String filename = "vid_4_d_months.txt";
 //

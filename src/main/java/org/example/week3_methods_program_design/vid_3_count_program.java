@@ -4,7 +4,7 @@ import static input.InputUtils.intInput;
 
 //from Clara's code: https://github.com/claraj/Java2545Examples/blob/main/src/main/java/week3_methods/Counting.java
 public class vid_3_count_program {
-    //This is the main method - the first code to run
+    //This is the Main method - the first code to run
     public static void main(String[] args) {
 
         //print a list of numbers in order
@@ -16,7 +16,7 @@ public class vid_3_count_program {
         //call the count function:
         count(smallNumber, largeNumber);
 
-    }    // This is the end of the main method.
+    }    // This is the end of the Main method.
 
 
     // A new method that we've created called vid_3_count_program

@@ -11,7 +11,7 @@ B. Catching the exception and doing something about it
 If it's possible to recover; or if the exception should be logged or recorded somehow
  */
 
-//Handling exception option A: add "throws IOException" into main,
+//Handling exception option A: add "throws IOException" into Main,
 
 //Handling exception option B:  (slide 47):
 
@@ -45,7 +45,7 @@ public class vid_6_c_handling_exceptions {
             bufReader.close();
             //then add a catch block (what type of exception?)
             //file not found is a type of IOException
-            //the catch block only runs if the IOException is thrown (and throws IOException is not in main)
+            //the catch block only runs if the IOException is thrown (and throws IOException is not in Main)
         } catch (IOException e){
             System.out.println("Sorry, we can't find this file.");
             //output: Sorry, we can't find this file.

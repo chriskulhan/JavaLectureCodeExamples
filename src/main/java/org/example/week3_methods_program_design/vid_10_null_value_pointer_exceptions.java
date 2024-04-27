@@ -57,7 +57,7 @@ System.out.println("there is no name"); //not an error
 //alternate:
 if (name != null){ //check if the variable is null before using it.
     System.out.println("The name " + name + " has " + name.length() + " letters.");
-    //with name.length(), object.method, if the main object "name" is null, then there is no way to find
+    //with name.length(), object.method, if the Main object "name" is null, then there is no way to find
     //the length of something that doesn't exist.
 }
 
@@ -77,7 +77,7 @@ package org.example.week3_methods_program_design;
 import java.util.List;
 
 public class vid_10_null_value_pointer_exceptions {
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         List<Integer> numbers = makeListofNumbers(0);
         System.out.println( numbers.size());
         //size is cause the null pointer exception

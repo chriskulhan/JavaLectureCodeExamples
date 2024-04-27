@@ -95,6 +95,6 @@ public class vid_2_snowfall_hashmap_third_way_to_solve {
 //            }
 //        }
 
-} //end of main
+} //end of Main
 
 
