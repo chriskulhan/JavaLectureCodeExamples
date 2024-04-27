@@ -92,6 +92,604 @@ Order of operations:
         //todo finish this
     }
 
+7c. Write an event handler in MovieGUI.java in configureEventHandlers method:
+    a. rating slider
+        **respond to a change event
 
+    From this:      private void configureEventHandlers(){
+                        //todo finish this method
+                    }
+    To this:    private void configureEventHandlers(){
+                    ratingSlider.addChangeListener(new ChangeListener() {
+                        @Override
+                        public void stateChanged(ChangeEvent e) {
+
+                        }
+                    });
+                }
+
+7d. call a method: updateOpinion();
+
+To this:      public void stateChanged(ChangeEvent e) {
+                 //call method: (tag in this method and then bop down to it to change the
+                 // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                 updateOpinion();
+                        }
+                     });
+                 }
+7e. work in private void updateOpinion () {
+    to update all the text that will be in here:
+    From this:     private void updateOpinion() {
+                       //todo finish this
+                   }
+    To this:     private void updateOpinion() {
+                     String movieName = movieTitleTextField.getText();
+                     int rating = ratingSlider.getValue();
+                     boolean seeAgain = wouldSeeAgainCheckBox.isSelected();
+
+                     //string using the above inputs ^^^
+                     //%s = movieName
+                     //%d = rating (number of stars)
+                     //%s = seeAgain (would or would not see again)
+                     String template = "You rated %s %d stars. You %s see again.";
+
+                    //add this to change the 'would' to 'would not' depending on check status
+                    String seeAgainString = "would";
+            //        if (seeAgain == false) { //could also be written:
+                        if (!seeAgain) {
+                        seeAgainString = "would not";
+                     }
+                 }
+7f. set the opinion label: in MovieGUI.java:
+    **continuation of above:
+
+            //create opinion:
+            String opinion = String.format(template, movieName, rating, seeAgainString);
+
+            //set the movieOpinionLabel using the above string:
+            movieOpinionLabel.setText(opinion);
+        }
+
+8. run the Main method to see what it looks like:
+    **so far
+    the result at the bottom:
+    movieName shows up
+    stars change in the below message, but not the lable
+    the box is too small
+    would watch again changes, but not at the correct time.
+
+9. Add another event handler: change the opinion if the checkbox is checked:
+working in: MovieGUI.java ->
+FROM:     private void configureEventHandlers(){
+              //this will be called every time a change event happens for the rating slider:
+              ratingSlider.addChangeListener(new ChangeListener() {
+                  @Override
+                  public void stateChanged(ChangeEvent e) {
+                      //call method: (tag in this method and then bop down to it to change the
+                      // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                      updateOpinion();
+                  }
+              });
+          }
+
+TO:     private void configureEventHandlers(){
+            //this will be called every time a change event happens for the rating slider:
+            ratingSlider.addChangeListener(new ChangeListener() {
+                @Override
+                public void stateChanged(ChangeEvent e) {
+                    //call method: (tag in this method and then bop down to it to change the
+                    // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                    updateOpinion();
+                }
+            });
+            //add event handler to change the opinion if the checkbox is checked or not checked:
+            wouldSeeAgainCheckBox.addChangeListener(new ChangeListener() {
+                @Override
+                public void stateChanged(ChangeEvent e) {
+                    updateOpinion();
+                }
+            });
+        }
+
+9b. run Main again check to see it's working
+    **it does! Slider changes automatically, and so does the opinion
+
+10. Make the stars label the right of the slider work
+label "0 stars", textField:   sliderValueLabel
+    add code to ratingSlider.changeListener
+
+IN/BELOW:  private void configureEventHandlers(){
+
+FROM:   //this will be called every time a change event happens for the rating slider:
+        ratingSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                //call method: (tag in this method and then bop down to it to change the
+                // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                updateOpinion();
+            }
+        });
+
+TO:   ratingSlider.addChangeListener(new ChangeListener() {
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            //use this to change the label to the right of the slider to match the number of stars:
+            String valueLabelText = ratingSlider.getValue() + " stars "; //could use a format string
+            //sliderValueLabel (looks like "0 stars"):
+            sliderValueLabel.setText(valueLabelText);
+
+            //call method: (tag in this method and then bop down to it to change the
+            // message in "Movie Opinion" with textfield: movieOpinionLabel)
+            updateOpinion();
+        }
+    });
+
+11. work in MovieGUI.form -> private void updateOpinion()
+FROM:     private void updateOpinion() {
+              String movieName = movieTitleTextField.getText();
+              int rating = ratingSlider.getValue();
+              boolean seeAgain = wouldSeeAgainCheckBox.isSelected();
+
+              //string using the above inputs ^^^
+              //%s = movieName
+              //%d = rating (number of stars)
+              //%s = seeAgain (would or would not see again)
+              String template = "You rated %s %d stars. You %s see again.";
+
+              //add this to change the 'would' to 'would not' depending on check status
+              String seeAgainString = "would";
+      //        if (seeAgain == false) { //could also be written:
+                  if (!seeAgain) {
+                      seeAgainString = "would not";
+                  }
+
+              //create opinion:
+              String opinion = String.format(template, movieName, rating, seeAgainString);
+
+              //set the movieOpinionLabel using the above string:
+              movieOpinionLabel.setText(opinion);
+          }
+TO:  ***Added ternary operator: String seeAgainString = (seeAgain) ? "would" : "would not";
+
+private void updateOpinion() {
+           String movieName = movieTitleTextField.getText();
+           int rating = ratingSlider.getValue();
+           boolean seeAgain = wouldSeeAgainCheckBox.isSelected();
+
+           //string using the above inputs ^^^
+           //%s = movieName
+           //%d = rating (number of stars)
+           //%s = seeAgain (would or would not see again)
+           String template = "You rated %s %d stars. You %s see again.";
+
+           //add this to change the 'would' to 'would not' depending on check status
+   //        String seeAgainString = "would";
+   ////        if (seeAgain == false) { //could also be written:
+   //            if (!seeAgain) {
+   //                seeAgainString = "would not";
+   //            }
+           //added in vid_4_notes number 11.
+               //alternative ***_ternary operator_***:
+           //write condition "seeAgain" in parentheses: seeAgain is a boolean
+           //add a question mark
+           //add the value you want the seeAgain to be set to if the boolean (seeAgain) is true: "would"
+           //add value you want seeAgain to be set to if the boolean (seeAgain) is false: "would not"
+           String seeAgainString = (seeAgain) ? "would" : "would not";
+
+
+           //create opinion:
+           String opinion = String.format(template, movieName, rating, seeAgainString);
+
+           //set the movieOpinionLabel using the above string:
+           movieOpinionLabel.setText(opinion);
+       }
+
+12. run Main: ternary operator works!
+
+13. **Add an event listener for typing in the text box**
+
+IN: MovieGUI.java -> private void configureEventHandlers(){
+//adding movieTitleTextField.getDocument().addDocumentListener(new DocumentListener() {
+
+FROM:     private void configureEventHandlers(){
+              //this will be called every time a change event happens for the rating slider:
+              ratingSlider.addChangeListener(new ChangeListener() {
+                  @Override
+                  public void stateChanged(ChangeEvent e) {
+                      //use this to change the label to the right of the slider to match the number of stars:
+                      String valueLabelText = ratingSlider.getValue() + " stars "; //could use a format string
+                      //sliderValueLabel (looks like "0 stars"):
+                      sliderValueLabel.setText(valueLabelText);
+
+                      //call method: (tag in this method and then bop down to it to change the
+                      // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                      updateOpinion();
+                  }
+              });
+              //add event handler to change the opinion if the checkbox is checked or not checked:
+              wouldSeeAgainCheckBox.addChangeListener(new ChangeListener() {
+                  @Override
+                  public void stateChanged(ChangeEvent e) {
+                      updateOpinion();
+                      //this updates the opinion and changes the message
+                  }
+              });
+          }
+TO:    private void configureEventHandlers(){
+           //this will be called every time a change event happens for the rating slider:
+           ratingSlider.addChangeListener(new ChangeListener() {
+               @Override
+               public void stateChanged(ChangeEvent e) {
+                   //use this to change the label to the right of the slider to match the number of stars:
+                   String valueLabelText = ratingSlider.getValue() + " stars "; //could use a format string
+                   //sliderValueLabel (looks like "0 stars"):
+                   sliderValueLabel.setText(valueLabelText);
+
+                   //call method: (tag in this method and then bop down to it to change the
+                   // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                   updateOpinion();
+               }
+           });
+           //add event handler to change the opinion if the checkbox is checked or not checked:
+           wouldSeeAgainCheckBox.addChangeListener(new ChangeListener() {
+               @Override
+               public void stateChanged(ChangeEvent e) {
+                   updateOpinion();
+                   //this updates the opinion and changes the message
+               }
+           });
+           //get document is an object that represents the text that's inside the JTextField (here: movieTitleTextField)
+           //add the documentLister to see when it's changing:
+           //then add "new DocumentListener" (etc. using autocomplete) **this gives 3 methods!
+           movieTitleTextField.getDocument().addDocumentListener(new DocumentListener() {
+               @Override
+               //text is added when text is typed
+               public void insertUpdate(DocumentEvent e) {
+                   //add:
+                   updateOpinion();
+               }
+
+               @Override
+               //text is removed when text is deleted or removed:
+               public void removeUpdate(DocumentEvent e) {
+                   //add:
+                   updateOpinion();
+               }
+
+               @Override
+               //called when the font size (for example) is changed:
+               //ignore:
+               public void changedUpdate(DocumentEvent e) {
+
+               }
+           });
+       }
+14. run Main to see if it works (works!)
+
+15. change the preferred size so the box will be bigger:
+setPreferredSize(new Dimension(400, 300));
+in: MovieGUI.java -> MovieGUI()
+FROM:     MovieGUI() {
+              //set the content pane with the name of your JPanel. Here: "main panel":
+              setContentPane(mainPanel);
+              //figure out how big each component is and pack them into the panel
+              pack();
+              //make sure it can be seen:
+              setVisible(true);
+              //exits when the window closes:
+              setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+              //set up method that will deal with all the event handlers:
+              //this method belongs to the MovieGUI.java class
+              configureEventHandlers();
+
+          }
+TO:    MovieGUI() {
+           //set the content pane with the name of your JPanel. Here: "main panel":
+           setContentPane(mainPanel);
+
+           //make sure setPreferred size is before the pack:
+           setPreferredSize(new Dimension(400, 300));
+
+           //figure out how big each component is and pack them into the panel
+           pack();
+           //make sure it can be seen:
+           setVisible(true);
+           //exits when the window closes:
+           setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+           //set up method that will deal with all the event handlers:
+           //this method belongs to the MovieGUI.java class
+           configureEventHandlers();
+
+       }
+
+16. add a new JButton to MovieGUI.form:
+With name Quit and fieldName: quitButton
+//will automatically be added to MovieGUI.java
+
+17. Go to MovieGUI.java
+    **add event handler for the quitButton that was added:
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //call JFrame method called dispose() that will get rid of the current JFrame:
+                dispose();
+                //because we have EXIT ON CLOSE in MOVIEGUI, if this dispose is called, the whole thing will close
+            }
+        });
+
+FROM:    private void configureEventHandlers(){
+              //this will be called every time a change event happens for the rating slider:
+              ratingSlider.addChangeListener(new ChangeListener() {
+                  @Override
+                  public void stateChanged(ChangeEvent e) {
+                      //use this to change the label to the right of the slider to match the number of stars:
+                      String valueLabelText = ratingSlider.getValue() + " stars "; //could use a format string
+                      //sliderValueLabel (looks like "0 stars"):
+                      sliderValueLabel.setText(valueLabelText);
+
+                      //call method: (tag in this method and then bop down to it to change the
+                      // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                      updateOpinion();
+                  }
+              });
+              //add event handler to change the opinion if the checkbox is checked or not checked:
+              wouldSeeAgainCheckBox.addChangeListener(new ChangeListener() {
+                  @Override
+                  public void stateChanged(ChangeEvent e) {
+                      updateOpinion();
+                      //this updates the opinion and changes the message
+                  }
+              });
+              //notes in vid_4_notes #13:
+              //get document is an object that represents the text that's inside the JTextField (here: movieTitleTextField)
+              //add the documentLister to see when it's changing:
+              //then add "new DocumentListener" (etc. using autocomplete) **this gives 3 methods!
+              movieTitleTextField.getDocument().addDocumentListener(new DocumentListener() {
+                  @Override
+                  //text is added when text is typed
+                  public void insertUpdate(DocumentEvent e) {
+                      //add:
+                      updateOpinion();
+                  }
+
+                  @Override
+                  //text is removed when text is deleted or removed:
+                  public void removeUpdate(DocumentEvent e) {
+                      //add:
+                      updateOpinion();
+                  }
+
+                  @Override
+                  //called when the font size (for example) is changed:
+                  //ignore:
+                  public void changedUpdate(DocumentEvent e) {
+
+                  }
+              });
+          }
+TO:    private void configureEventHandlers(){
+           //this will be called every time a change event happens for the rating slider:
+           ratingSlider.addChangeListener(new ChangeListener() {
+               @Override
+               public void stateChanged(ChangeEvent e) {
+                   //use this to change the label to the right of the slider to match the number of stars:
+                   String valueLabelText = ratingSlider.getValue() + " stars "; //could use a format string
+                   //sliderValueLabel (looks like "0 stars"):
+                   sliderValueLabel.setText(valueLabelText);
+
+                   //call method: (tag in this method and then bop down to it to change the
+                   // message in "Movie Opinion" with textfield: movieOpinionLabel)
+                   updateOpinion();
+               }
+           });
+           //add event handler to change the opinion if the checkbox is checked or not checked:
+           wouldSeeAgainCheckBox.addChangeListener(new ChangeListener() {
+               @Override
+               public void stateChanged(ChangeEvent e) {
+                   updateOpinion();
+                   //this updates the opinion and changes the message
+               }
+           });
+           //notes in vid_4_notes #13:
+           //get document is an object that represents the text that's inside the JTextField (here: movieTitleTextField)
+           //add the documentLister to see when it's changing:
+           //then add "new DocumentListener" (etc. using autocomplete) **this gives 3 methods!
+           movieTitleTextField.getDocument().addDocumentListener(new DocumentListener() {
+               @Override
+               //text is added when text is typed
+               public void insertUpdate(DocumentEvent e) {
+                   //add:
+                   updateOpinion();
+               }
+
+               @Override
+               //text is removed when text is deleted or removed:
+               public void removeUpdate(DocumentEvent e) {
+                   //add:
+                   updateOpinion();
+               }
+
+               @Override
+               //called when the font size (for example) is changed:
+               //ignore:
+               public void changedUpdate(DocumentEvent e) {
+
+               }
+           });
+           //use button clicks are: addActionListener
+           quitButton.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                   //call JFrame method called dispose() that will get rid of the current JFrame:
+                   dispose();
+                   //because we have EXIT ON CLOSE in MOVIEGUI, if this dispose is called, the whole thing will close
+               }
+           });
+       }
+
+17. run main to see what happens when press quit? it closes the whole thing and stops running
+    //output: Process finished with exit code 0
+
+18. (timestamp vid_4 ~ min 24) add an "are you sure you want to quit?" when the quit button is pushed:
+in: MovieGUI.java
+
+//add: a JOptionPane with an if statement to make sure the user wants to close
+in: MovieGUI.java
+    -> private void configureEventHandlers(){
+        ->quitButton.addActionListener(new ActionListener() {
+
+FROM:         quitButton.addActionListener(new ActionListener() {
+                  @Override
+                  public void actionPerformed(ActionEvent e) {
+                      //call JFrame method called dispose() that will get rid of the current JFrame:
+                      dispose();
+                      //because we have EXIT ON CLOSE in MOVIEGUI, if this dispose is called, the whole thing will close
+                  }
+              });
+TO:         quitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //add a JOptionPane to confirm the user wants to quit:
+                    if (JOptionPane.showConfirmDialog(MovieGUI.this, "Are you sure you want to quit?",
+                            //if the OK_CANCEL_OPTION is equal to OK_OPTION then this program will quit.
+                            "Quit", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION ) {
+
+                        //call JFrame method called dispose() that will get rid of the current JFrame:
+                        dispose();
+                        //because we have EXIT ON CLOSE in MOVIEGUI, if this dispose is called, the whole thing will close
+                    }
+                }
+            });
+18b. run main to see the JOptionPane (worked!)
+
+19. Another way to use a JOptionPane, use an int variable (here quit):
+in: MovieGUI.java
+    -> private void configureEventHandlers(){
+        ->quitButton.addActionListener(new ActionListener() {
+
+FROM:         quitButton.addActionListener(new ActionListener() {
+                  @Override
+                  public void actionPerformed(ActionEvent e) {
+                      //call JFrame method called dispose() that will get rid of the current JFrame:
+                      dispose();
+                      //because we have EXIT ON CLOSE in MOVIEGUI, if this dispose is called, the whole thing will close
+                  }
+              });
+TO:         quitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+            int quit = JOptionPane.showConfirmDialog(MovieGUI.this, "Are you sure you want to quit?",
+                        "Quit", JOptionPane.OK_CANCEL_OPTION);
+                    if(quit == JOptionPane.OK_OPTION){
+                dispose();
+                }
+            }
+        });
+19b. run main to check: still works !
+
+20. make sure the user doesn't have extra spaces around their movie name:
+in: MovieGUI.java ->    private void updateOpinion() {
+
+FROM: private void updateOpinion() {
+              String movieName = movieTitleTextField.getText();
+              int rating = ratingSlider.getValue();
+              boolean seeAgain = wouldSeeAgainCheckBox.isSelected();
+TO:    private void updateOpinion() {
+           //add .strip to make sure the user doesn't have extra spaces around their movie name:
+           String movieName = movieTitleTextField.getText().strip();
+
+           //if there isn't anything in the box where the user types a movie title:
+           if (movieName.isEmpty()) {
+               //show the original message (so if things got deleted, return to baseline)
+               movieOpinionLabel.setText("Movie opinion");
+               //this return would stop the rest of the processing from happening:
+               return;
+           }
+
+21. Alternatively: use an if/else statement:
+in: MovieGUI.java ->    private void updateOpinion() {
+FROM: private void updateOpinion() {
+                 //add .strip to make sure the user doesn't have extra spaces around their movie name:
+                 String movieName = movieTitleTextField.getText().strip();
+
+                 //if there isn't anything in the box where the user types a movie title:
+                 if (movieName.isEmpty()) {
+                     //show the original message (so if things got deleted, return to baseline)
+                     movieOpinionLabel.setText("Movie opinion");
+                     //this return would stop the rest of the processing from happening:
+                     return;
+                 }
+TO:    private void updateOpinion() {
+           //add .strip to make sure the user doesn't have extra spaces around their movie name:
+           String movieName = movieTitleTextField.getText().strip();
+
+           //shown in vid_4_notes#20:
+
+           // if there isn't anything in the box where the user types a movie title:
+   //        if (movieName.isEmpty()) {
+   //            //show the original message (so if things got deleted, return to baseline)
+   //            movieOpinionLabel.setText("Movie opinion");
+   //            //this return would stop the rest of the processing from happening:
+   //            return;
+   //        }
+
+           //shown in vid_4_notes #21:
+           if(movieName.isEmpty()) {
+               movieOpinionLabel.setText("Movie Opinion");
+           } else {
+
+               int rating = ratingSlider.getValue();
+               boolean seeAgain = wouldSeeAgainCheckBox.isSelected();
+
+               //string using the above inputs ^^^
+               //%s = movieName
+               //%d = rating (number of stars)
+               //%s = seeAgain (would or would not see again)
+               String template = "You rated %s %d stars. You %s see again.";
+
+               //add this to change the 'would' to 'would not' depending on check status
+   //        String seeAgainString = "would";
+   ////        if (seeAgain == false) { //could also be written:
+   //            if (!seeAgain) {
+   //                seeAgainString = "would not";
+   //            }
+               //added in vid_4_notes number 11.
+               //alternative ***_ternary operator_***: for setting values based on a condition
+               //write condition "seeAgain" in parentheses: seeAgain is a boolean
+               //add a question mark
+               //add the value you want the seeAgain to be set to if the boolean (seeAgain) is true: "would"
+               //add value you want seeAgain to be set to if the boolean (seeAgain) is false: "would not"
+               String seeAgainString = (seeAgain) ? "would" : "would not";
+
+               //run Main, works well!
+
+
+               //create opinion:
+               String opinion = String.format(template, movieName, rating, seeAgainString);
+
+               //set the movieOpinionLabel using the above string:
+               movieOpinionLabel.setText(opinion);
+           }
+       }
+
+NOTES from slide 67
+GUI design…
+
+-Not as sophisticated as Visual Studio or Xcode
+-Java tries to be as generic as possible - the same code can run on Windows,
+    Mac, Unix, Linux…. All deal with GUIs very differently
+    -Visual Studio is solving one problem for one platform
+-Try not to stress too much if you don't like the look of your GUI
+-Don't spend too much time on making your GUI perfect
+-Focus on building a logically laid out GUI; and correct code
+-You can always change what an application looks like, without breaking any of
+    the logic underneath
+-The positions and colors and style of the components is independent of your
+    application's logic
+-Real world: common to use 3rd-party GUI toolkits, look-and feel and themes to
+    make your app look good
 
 
