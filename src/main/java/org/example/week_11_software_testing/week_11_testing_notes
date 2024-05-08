@@ -143,6 +143,31 @@ First Unit Test:
 
 -If your code being tested throws an exception, that also counts as a test fail
 
+***Open the test file Question_1_Create_Welcome_Message_Test.java (slide 16)
+Tests often have an Arrange - Action - Assert structure
+Arrange: set up the scenario the test is checking
+Action: call the method to test
+Assert: check that things worked as expected
+
+***Good practices with testing (slide 24)
+
+-Test AS you develop, NOT at the end - or even before you write code!
+    -Agile methodology stresses ongoing testing
+    -Writing tests then writing code is called "test driven development"
+-Test with valid input - "happy paths"
+-Test with invalid, weird, missing, random, malicious input - "unhappy paths"
+-Test everything every time anything is changed
+-Automatic tests and human tests are both important
+
+***Testing Concerns (slide 32)
+
+-Remember that we wrote the test, so testing depends on writing the right test
+-It's easy to write a broken test
+-You should verify that the test is running and it's checking the correct thing
+-Independently calculate what a method should do, and test that
+-Testing often done in teams: more people develop and review each test
+
+
 
 
 
