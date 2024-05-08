@@ -168,6 +168,10 @@ Assert: check that things worked as expected
 -Testing often done in teams: more people develop and review each test
 
 
+Why are doubles, and other floating point numbers, imprecise?
+https://timothybramlett.com/floating-point-imprecision.html
 
+For real-world apps that use currency or anything else that needs to be precise, we might use BigDecimal,
+https://www.baeldung.com/java-bigdecimal-biginteger
 
 
