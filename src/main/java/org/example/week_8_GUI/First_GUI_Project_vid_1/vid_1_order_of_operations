@@ -29,7 +29,7 @@ LayoutManager (slide 9)
     – useful for more complex GUIs
 
 
-IntelliJ autogenerates code to create the GUI components
+IntelliJ auto-generates code to create the GUI components
 
 -And hides it from you
 -Much like C# / Visual Studio does, if you've taken that class
